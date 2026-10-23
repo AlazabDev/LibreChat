@@ -1,0 +1,21 @@
+# Merge this item into endpoints.custom in the active librechat.yaml.
+# OLLAMA_BASIC_AUTH = "Basic " + base64(username:password).
+# Do not put credentials in this file.
+- name: 'Alazab-Ollama'
+  apiKey: 'not-required'
+  baseURL: 'https://ollama.alazab.com/v1'
+  headers:
+    Authorization: '${OLLAMA_BASIC_AUTH}'
+  models:
+    default:
+      - 'gemma4:31b'
+      - 'gpt-oss:20b'
+      - 'qwen3.6:27b'
+      - 'deepseek-r1:14b'
+      - 'llama3.1:8b-instruct-fp16'
+      - 'deepseek-coder-v2:16b'
+      - 'llama3.2-vision:11b'
+    fetch: true
+  titleConvo: true
+  titleModel: 'llama3.1:8b-instruct-fp16'
+  modelDisplayLabel: 'Alazab Ollama'

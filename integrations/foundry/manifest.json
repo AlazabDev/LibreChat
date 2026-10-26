@@ -1,0 +1,85 @@
+{
+  "endpoint": "Alazab Azure",
+  "group": "وكلاء العزب",
+  "agents": [
+    {
+      "id": "az-agent-sol",
+      "label": "az-agent-sol — الوكيل التقني المركزي",
+      "description": "تنفيذ المهام التقنية عبر المشروعات والأنظمة (أول نطاق: CCTV Designer)",
+      "model": "az-model-sol",
+      "reasoningEffort": "medium",
+      "azureTools": ["memory_search_preview", "web_search", "code_interpreter"],
+      "showInMenu": true
+    },
+    {
+      "id": "az-agent-maint",
+      "label": "UberFix — خدمة الصيانة",
+      "description": "وكيل خدمة وصيانة الوحدات السكنية والتجارية (تكييف، سباكة، كهرباء، دهانات...)",
+      "model": "az-model-sol",
+      "reasoningEffort": "medium",
+      "azureTools": ["web_search", "file_search", "code_interpreter", "azure_ai_search", "memory_search_preview"],
+      "showInMenu": true
+    },
+    {
+      "id": "az-agent-azabot",
+      "label": "عزبوت — خدمة العملاء",
+      "description": "مساعد خدمة عملاء شركة العزب للمقاولات العامة وإدارة المرافق",
+      "model": "az-model-sol",
+      "reasoningEffort": "low",
+      "azureTools": ["code_interpreter", "web_search", "mcp:kb-az-knowledge", "azure_ai_search", "memory_search_preview"],
+      "showInMenu": true
+    },
+    {
+      "id": "az-agent-prod",
+      "label": "az-agent-prod — المنتجات والخدمات",
+      "description": "تنظيم وتصنيف ومعالجة بيانات المنتجات والبنود والخدمات",
+      "model": "az-model-sol",
+      "reasoningEffort": "medium",
+      "azureTools": ["code_interpreter", "azure_ai_search", "a2a:prod-to-maint", "web_search", "file_search", "mcp:kb-az-knowledge", "memory_search_preview"],
+      "showInMenu": true
+    },
+    {
+      "id": "az-agent-project",
+      "label": "az-agent-project — دعم المشروعات",
+      "description": "متابعة دورة حياة المشروعات والميزانيات والمخاطر والتقارير",
+      "model": "az-model-gpt",
+      "reasoningEffort": "low",
+      "azureTools": ["web_search", "mcp:az-uberfix-mcp"],
+      "showInMenu": true
+    },
+    {
+      "id": "az-agent-finance",
+      "label": "az-agent-finance — التحليل المالي",
+      "description": "تحليل الإيرادات والمصروفات والمؤشرات (للفهم لا للتنفيذ المباشر)",
+      "model": "az-model-finance",
+      "azureTools": ["web_search"],
+      "showInMenu": true
+    },
+    {
+      "id": "az-agent-vision",
+      "label": "az-agent-vision — التحليل البصري",
+      "description": "تحليل الصور والفيديو وقراءة النصوص والتعرف على الأعطال",
+      "model": "az-model-core",
+      "reasoningEffort": "low",
+      "azureTools": ["web_search"],
+      "showInMenu": true
+    },
+    {
+      "id": "az-agent-payments",
+      "label": "az-agent-payments — المدفوعات (يتطلب أدوات)",
+      "description": "سير تأكيد الدفع؛ يعتمد على أدوات تنفيذية غير متصلة هنا، لذا هو مخفي من القائمة",
+      "model": "az-model-finance",
+      "azureTools": ["web_search", "code_interpreter"],
+      "showInMenu": false
+    },
+    {
+      "id": "az-agent-auth",
+      "label": "az-agent-auth — الهوية والمصادقة (يتطلب أدوات)",
+      "description": "مشاكل الدخول وربط الحسابات؛ يعتمد على أدوات هوية غير متصلة هنا، لذا هو مخفي من القائمة",
+      "model": "az-model-maint",
+      "reasoningEffort": "low",
+      "azureTools": ["web_search", "mcp:kb-az-knowledge", "memory_search_preview"],
+      "showInMenu": false
+    }
+  ]
+}

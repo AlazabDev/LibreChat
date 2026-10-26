@@ -99,12 +99,18 @@ endpoints:
 
     # ------------------------------------------------------------------
     # Ollama المحلي (ollama.alazab.com) عبر واجهة /v1 المتوافقة مع OpenAI.
-    # إن لم يكن خلف مصادقة ضع OLLAMA_API_KEY=ollama في .env (قيمة شكلية).
-    # 11 من 14 نموذجاً تدعم الأدوات؛ الذي اختُبر توليداً فعلياً: gpt-oss:20b فقط.
+    # الخادم محمي بمصادقة Basic (تأكد بالاختبار المباشر لـ /api/tags و /api/chat).
+    # OLLAMA_BASIC_AUTH = base64("user:password") — انظر .env.alazab.example.
+    # لم يُختبَر بعد أن LibreChat يمرر ترويسة Authorization المخصصة بدل Bearer؛ إن رفض
+    # الخادم الطلب فالبديل وضع بروكسي يحوّل Bearer إلى Basic أمام Ollama.
+    # 12 من 14 نموذجاً تدعم الأدوات (عدا deepseek-coder-v2 و deepseek-ocr).
+    # الذي اختُبر توليداً فعلياً: gpt-oss:20b فقط.
     # ------------------------------------------------------------------
     - name: 'Ollama'
-      apiKey: '${OLLAMA_API_KEY}'
+      apiKey: 'ollama'
       baseURL: 'https://ollama.alazab.com/v1'
+      headers:
+        Authorization: 'Basic ${OLLAMA_BASIC_AUTH}'
       models:
         default:
           - 'gpt-oss:20b'
@@ -251,7 +257,8 @@ modelSpecs:
 #  2. اختبر أن gpt-5.x تقبل dropParams أعلاه، وأن api-key header يكفي دون Bearer.
 #  3. أسماء نماذج DeepSeek: deepseek-flash / deepseek-v4-pro (fetch: true سيعرض الفعلي).
 #  4. نوع النقل وروابط MCP، وطريقة مصادقة البوابة (Bearer ثابت أم OAuth لكل مستخدم).
-#  5. Gemini: فشل التوليد بـ 404 — غالباً اسم نموذج غير صحيح؛ حدده في GOOGLE_MODELS.
+#  5. Gemini: المفاتيح الخمسة صالحة (HTTP 200، 46 نموذجاً). فشل التوليد بـ 404 غالباً سببه
+#     قائمة النماذج الافتراضية في LibreChat؛ حُدِّد GOOGLE_MODELS في .env بأسماء مؤكدة.
 #  6. OpenAI: الرصيد منتهٍ (429) فلم يُدرج في الملف.
 #  7. أدوات المراسلة والمالية (whatsapp/daftra): فكّر في اشتراط موافقة المستخدم على
 #     الأدوات الكاتبة — انظر docs/tool-approval-modes.md.

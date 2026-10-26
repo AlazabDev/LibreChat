@@ -1,0 +1,258 @@
+# =============================================================================
+# منظومة العزب — إعدادات LibreChat (Alazab AI)
+#
+# الاستخدام:  cp librechat.alazab.yaml librechat.yaml   (الملف الأخير متجاهَل في Git)
+#             أو اربطه مباشرة في compose:  ./librechat.alazab.yaml -> /app/librechat.yaml
+#
+# لا يحتوي هذا الملف على أي سر. كل المفاتيح تُقرأ من متغيرات البيئة (${VAR})
+# المعرّفة في .env — انظر .env.alazab.example.
+#
+# ملاحظات مصدر البيانات: أسماء الـ deployments والنماذج والمسارات مأخوذة من جرد
+# المشروع (سجلات سابقة)، ولم يُتحقق منها حياً بعد. راجع قسم "قبل التفعيل" أسفل الملف.
+# =============================================================================
+
+version: 1.3.18
+cache: true
+
+interface:
+  customWelcome: 'مرحباً بك في منصة العزب للذكاء الاصطناعي'
+  fileSearch: true
+  modelSelect: true
+  parameters: true
+  presets: true
+  prompts:
+    use: true
+    create: true
+    share: false
+    public: false
+  bookmarks: true
+  multiConvo: true
+  agents:
+    use: true
+    create: true
+    share: true
+
+registration:
+  # لا دخول اجتماعي — الحسابات تُنشأ داخلياً (ALLOW_REGISTRATION=false في .env)
+  socialLogins: []
+  # دفاع إضافي: اقصر التسجيل على نطاق الشركة بعد التأكد من النطاق الفعلي للبريد
+  # allowedDomains:
+  #   - 'alazab.com'
+
+endpoints:
+  # Gemini يعمل عبر النقطة المدمجة google (GOOGLE_KEY في .env) — لا يُعرَّف هنا.
+
+  custom:
+    # ------------------------------------------------------------------
+    # Azure OpenAI (az-ai-resource, eastus2) عبر واجهة v1 المتوافقة مع OpenAI.
+    # أسماء النماذج أدناه هي أسماء الـ deployments وليست أسماء النماذج.
+    # ------------------------------------------------------------------
+    - name: 'Alazab Azure'
+      apiKey: '${AZURE_OPENAI_API_KEY}'
+      baseURL: 'https://az-ai-resource.openai.azure.com/openai/v1'
+      headers:
+        api-key: '${AZURE_OPENAI_API_KEY}'
+      models:
+        default:
+          - 'az-model-core' # GPT-5.5
+          - 'az-model-gpt' # GPT-5.6 Luna
+          - 'az-model-sol' # GPT-5.6 Sol
+          - 'az-model-maint' # GPT-5.1
+          - 'az-model-mini' # GPT-5.4 Mini
+          - 'az-model-finance' # DeepSeek-V4-Pro (مالية)
+        # Azure لا يسرد الـ deployments عبر /models بالطريقة نفسها — القائمة يدوية
+        fetch: false
+      titleConvo: true
+      titleModel: 'az-model-mini'
+      modelDisplayLabel: 'Azure AI'
+      # نماذج الاستدلال ترفض بعض المعاملات الكلاسيكية؛ اختبر وعدّل هذه القائمة
+      dropParams: ['stop', 'user', 'frequency_penalty', 'presence_penalty']
+
+    # ------------------------------------------------------------------
+    # بديل: المرور عبر بوابة APIM (az-ai-gateway) — فعّله إن قررت توحيد الحركة عليها.
+    # يتطلب AZURE_APIM_SUBSCRIPTION_KEY. تحقق من سياسة المصادقة المضبوطة في APIM.
+    # ------------------------------------------------------------------
+    # - name: 'Alazab Azure (APIM)'
+    #   apiKey: '${AZURE_OPENAI_API_KEY}'
+    #   baseURL: 'https://az-ai-gateway.azure-api.net/az-ai-resource/openai/v1'
+    #   headers:
+    #     Ocp-Apim-Subscription-Key: '${AZURE_APIM_SUBSCRIPTION_KEY}'
+    #   models:
+    #     default: ['az-model-core', 'az-model-mini']
+    #     fetch: false
+    #   titleConvo: true
+    #   titleModel: 'az-model-mini'
+    #   modelDisplayLabel: 'Azure AI (APIM)'
+
+    # ------------------------------------------------------------------
+    # DeepSeek المباشر
+    # ------------------------------------------------------------------
+    - name: 'DeepSeek'
+      apiKey: '${DEEPSEEK_API_KEY}'
+      baseURL: 'https://api.deepseek.com'
+      models:
+        default: ['deepseek-flash', 'deepseek-v4-pro']
+        fetch: true
+      titleConvo: true
+      titleModel: 'deepseek-flash'
+      modelDisplayLabel: 'DeepSeek'
+
+    # ------------------------------------------------------------------
+    # Ollama المحلي (ollama.alazab.com) عبر واجهة /v1 المتوافقة مع OpenAI.
+    # إن لم يكن خلف مصادقة ضع OLLAMA_API_KEY=ollama في .env (قيمة شكلية).
+    # 11 من 14 نموذجاً تدعم الأدوات؛ الذي اختُبر توليداً فعلياً: gpt-oss:20b فقط.
+    # ------------------------------------------------------------------
+    - name: 'Ollama'
+      apiKey: '${OLLAMA_API_KEY}'
+      baseURL: 'https://ollama.alazab.com/v1'
+      models:
+        default:
+          - 'gpt-oss:20b'
+          - 'qwen3.6:27b'
+          - 'gemma4:31b'
+          - 'deepseek-r1:14b'
+          - 'deepseek-coder-v2:16b'
+          - 'llama3.1:8b-instruct-fp16'
+          - 'ministral-3:14b'
+          - 'llama3.2-vision:11b'
+        fetch: true
+      titleConvo: true
+      titleModel: 'llama3.2:1b'
+      modelDisplayLabel: 'Ollama (محلي)'
+
+# ----------------------------------------------------------------------
+# بوابة MCP المركزية https://mcp.alazab.com
+# - startup: false  => لا يُهيَّأ الخادم عند الإقلاع؛ فشل أحدها لا يؤثر على غيره.
+#   بعد التحقق من كل خادم غيّره إلى true (أو احذف السطر).
+# - نوع النقل (streamable-http مقابل sse) ومسار النهاية (/mcp أو /sse) لم يُؤكَّدا؛
+#   قد يلزم إضافة اللاحقة إلى الرابط. المسارات بحالة الأحرف كما وردت في الجرد.
+# ----------------------------------------------------------------------
+mcpServers:
+  daftra:
+    type: streamable-http
+    url: https://mcp.alazab.com/daftra
+    headers:
+      Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
+    startup: false
+    timeout: 60000
+  supabase:
+    type: streamable-http
+    url: https://mcp.alazab.com/supabase
+    headers:
+      Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
+    startup: false
+    timeout: 60000
+  uberfix:
+    type: streamable-http
+    url: https://mcp.alazab.com/uberFix
+    headers:
+      Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
+    startup: false
+    timeout: 60000
+  erpnext:
+    type: streamable-http
+    url: https://mcp.alazab.com/erpnext
+    headers:
+      Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
+    startup: false
+    timeout: 60000
+  whatsapp:
+    type: streamable-http
+    url: https://mcp.alazab.com/whatsApp
+    headers:
+      Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
+    startup: false
+    timeout: 60000
+  magicplan:
+    type: streamable-http
+    url: https://mcp.alazab.com/magicplan
+    headers:
+      Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
+    startup: false
+    timeout: 60000
+  # مسارات مخططة أخرى (فعّلها بعد التحقق): /azure /foundry /frappe /mail /gcp /toolboxes /forms /oracle
+
+# ----------------------------------------------------------------------
+# قوائم النماذج الجاهزة في واجهة الاختيار.
+# preset.endpoint يجب أن يطابق name في endpoints.custom حرفياً.
+# مستبعد عمداً: az-model-codex (تعيين النموذج غير مؤكد)، az-model-sora (فيديو)،
+# az-models-text (embeddings للـ RAG وليس للمحادثة).
+# ----------------------------------------------------------------------
+modelSpecs:
+  list:
+    - name: 'alazab-core'
+      label: 'العزب — الأساسي (GPT-5.5)'
+      description: 'النموذج العام الأساسي للمهام اليومية'
+      softDefault: true
+      group: 'Alazab Azure'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-core'
+
+    - name: 'alazab-sol'
+      label: 'العزب — Sol (GPT-5.6)'
+      description: 'للمهام المعقدة والتحليل'
+      group: 'Alazab Azure'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-sol'
+
+    - name: 'alazab-luna'
+      label: 'العزب — Luna (GPT-5.6)'
+      description: 'للمحادثة والكتابة'
+      group: 'Alazab Azure'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-gpt'
+
+    - name: 'alazab-maint'
+      label: 'العزب — الصيانة (GPT-5.1)'
+      description: 'مخصص لأوامر وأعمال الصيانة'
+      group: 'Alazab Azure'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-maint'
+
+    - name: 'alazab-mini'
+      label: 'العزب — سريع (GPT-5.4 Mini)'
+      description: 'ردود سريعة منخفضة التكلفة'
+      group: 'Alazab Azure'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-mini'
+
+    - name: 'alazab-finance'
+      label: 'العزب — المالية (DeepSeek-V4-Pro)'
+      description: 'تحليل مالي ومحاسبي'
+      group: 'Alazab Azure'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-finance'
+
+    - name: 'local-gpt-oss'
+      label: 'محلي — gpt-oss 20B'
+      description: 'استدلال وأدوات على Ollama الداخلي (مُختبَر)'
+      group: 'Ollama'
+      preset:
+        endpoint: 'Ollama'
+        model: 'gpt-oss:20b'
+
+    - name: 'local-code'
+      label: 'محلي — البرمجة (deepseek-coder-v2)'
+      description: 'مساعد برمجة على Ollama الداخلي'
+      group: 'Ollama'
+      preset:
+        endpoint: 'Ollama'
+        model: 'deepseek-coder-v2:16b'
+
+# ======================================================================
+# قبل التفعيل (غير متحقَّق منه حياً)
+#  1. أسماء الـ deployments الستة في Azure (والـ az-model-codex غير المؤكد).
+#  2. اختبر أن gpt-5.x تقبل dropParams أعلاه، وأن api-key header يكفي دون Bearer.
+#  3. أسماء نماذج DeepSeek: deepseek-flash / deepseek-v4-pro (fetch: true سيعرض الفعلي).
+#  4. نوع النقل وروابط MCP، وطريقة مصادقة البوابة (Bearer ثابت أم OAuth لكل مستخدم).
+#  5. Gemini: فشل التوليد بـ 404 — غالباً اسم نموذج غير صحيح؛ حدده في GOOGLE_MODELS.
+#  6. OpenAI: الرصيد منتهٍ (429) فلم يُدرج في الملف.
+#  7. أدوات المراسلة والمالية (whatsapp/daftra): فكّر في اشتراط موافقة المستخدم على
+#     الأدوات الكاتبة — انظر docs/tool-approval-modes.md.
+# ======================================================================

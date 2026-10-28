@@ -1,0 +1,116 @@
+[
+  {
+    "allowed_tools": {
+      "tool_names": [
+        "UberFixMCP"
+      ]
+    },
+    "project_connection_id": "UberFixMCP",
+    "require_approval": "never",
+    "server_label": "UberFixMCP",
+    "server_url": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-zrrffsjbfkphridqyais-supabase-co-functions-v1-bot-gateway",
+    "type": "mcp"
+  },
+  {
+    "azure_ai_search": {
+      "indexes": [
+        {
+          "index_name": "az-aisearch-index",
+          "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/aisearchazabrgai13631b8blqr",
+          "query_type": "simple",
+          "top_k": 5
+        }
+      ]
+    },
+    "type": "azure_ai_search"
+  },
+  {
+    "azure_ai_search": {
+      "indexes": [
+        {
+          "index_name": "az-ks-file-daftra-index",
+          "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/aisearchazabrgai13631b8blqr",
+          "query_type": "simple",
+          "top_k": 5
+        }
+      ]
+    },
+    "type": "azure_ai_search"
+  },
+  {
+    "container": {
+      "file_ids": [
+        "assistant-JXVZ8VJ1pdvJAvUg5Cjh1y",
+        "assistant-H6harEqG3kD5XfWpqkksyV"
+      ],
+      "type": "auto"
+    },
+    "type": "code_interpreter"
+  },
+  {
+    "memory_store_name": "MemoryStore-plum_neck_2z0xlv61b1",
+    "scope": "{{$userId}}",
+    "type": "memory_search_preview",
+    "update_delay": 30
+  },
+  {
+    "memory_store_name": "az-memory-main",
+    "scope": "{{$userId}}",
+    "type": "memory_search_preview",
+    "update_delay": 30
+  },
+  {
+    "project_connection_id": "kb-az-knowledgebase-da-8blqr",
+    "require_approval": "never",
+    "server_label": "kb-az-knowledgebase-da-8blqr",
+    "server_url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledgebase-daftra/mcp?api-version=2026-05-01-preview",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "uberfix-toolbox-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_uberfix",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/1/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "uberfix-toolbox-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_uberfix",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "uberfix-toolbox-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_uberfix_v2",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "uberfix-toolbox-v2-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_uberfix_v2",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "AzureSpeechMCPServer",
+    "server_label": "AzureSpeechMCPServer",
+    "server_url": "https://az-ai-resource.cognitiveservices.azure.com/speech/mcp?api-version=2025-11-07-preview",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-maint-to-prod",
+    "type": "a2a_preview"
+  },
+  {
+    "type": "web_search"
+  },
+  {
+    "type": "file_search",
+    "vector_store_ids": [
+      "vs_NtF3dnVoiLkcK7rSoGm8GnZ3"
+    ]
+  }
+]

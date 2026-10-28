@@ -1,0 +1,946 @@
+{
+  "endpoint_type": "Microsoft Foundry project",
+  "project": null,
+  "files": [
+    {
+      "path": "agents/az-agent-auth/definition.json",
+      "bytes": 15118
+    },
+    {
+      "path": "agents/az-agent-auth/version-1.json",
+      "bytes": 12143
+    },
+    {
+      "path": "agents/az-agent-auth/version-10.json",
+      "bytes": 14173
+    },
+    {
+      "path": "agents/az-agent-auth/version-11.json",
+      "bytes": 13383
+    },
+    {
+      "path": "agents/az-agent-auth/version-2.json",
+      "bytes": 13266
+    },
+    {
+      "path": "agents/az-agent-auth/version-3.json",
+      "bytes": 13769
+    },
+    {
+      "path": "agents/az-agent-auth/version-4.json",
+      "bytes": 13818
+    },
+    {
+      "path": "agents/az-agent-auth/version-5.json",
+      "bytes": 13816
+    },
+    {
+      "path": "agents/az-agent-auth/version-6.json",
+      "bytes": 13818
+    },
+    {
+      "path": "agents/az-agent-auth/version-7.json",
+      "bytes": 13816
+    },
+    {
+      "path": "agents/az-agent-auth/version-8.json",
+      "bytes": 13634
+    },
+    {
+      "path": "agents/az-agent-auth/version-9.json",
+      "bytes": 14039
+    },
+    {
+      "path": "agents/az-agent-auth/versions.json",
+      "bytes": 152328
+    },
+    {
+      "path": "agents/az-agent-azabot/definition.json",
+      "bytes": 17673
+    },
+    {
+      "path": "agents/az-agent-azabot/version-1.json",
+      "bytes": 14015
+    },
+    {
+      "path": "agents/az-agent-azabot/version-10.json",
+      "bytes": 15938
+    },
+    {
+      "path": "agents/az-agent-azabot/version-11.json",
+      "bytes": 15927
+    },
+    {
+      "path": "agents/az-agent-azabot/version-2.json",
+      "bytes": 14701
+    },
+    {
+      "path": "agents/az-agent-azabot/version-3.json",
+      "bytes": 15960
+    },
+    {
+      "path": "agents/az-agent-azabot/version-4.json",
+      "bytes": 16194
+    },
+    {
+      "path": "agents/az-agent-azabot/version-5.json",
+      "bytes": 16514
+    },
+    {
+      "path": "agents/az-agent-azabot/version-6.json",
+      "bytes": 16353
+    },
+    {
+      "path": "agents/az-agent-azabot/version-7.json",
+      "bytes": 16353
+    },
+    {
+      "path": "agents/az-agent-azabot/version-8.json",
+      "bytes": 15906
+    },
+    {
+      "path": "agents/az-agent-azabot/version-9.json",
+      "bytes": 15905
+    },
+    {
+      "path": "agents/az-agent-azabot/versions.json",
+      "bytes": 177331
+    },
+    {
+      "path": "agents/az-agent-codex/definition.json",
+      "bytes": 12868
+    },
+    {
+      "path": "agents/az-agent-codex/version-1.json",
+      "bytes": 873
+    },
+    {
+      "path": "agents/az-agent-codex/version-2.json",
+      "bytes": 1561
+    },
+    {
+      "path": "agents/az-agent-codex/version-3.json",
+      "bytes": 11079
+    },
+    {
+      "path": "agents/az-agent-codex/version-4.json",
+      "bytes": 11190
+    },
+    {
+      "path": "agents/az-agent-codex/version-5.json",
+      "bytes": 11337
+    },
+    {
+      "path": "agents/az-agent-codex/versions.json",
+      "bytes": 37060
+    },
+    {
+      "path": "agents/az-agent-finance/definition.json",
+      "bytes": 6817
+    },
+    {
+      "path": "agents/az-agent-finance/version-1.json",
+      "bytes": 2564
+    },
+    {
+      "path": "agents/az-agent-finance/version-2.json",
+      "bytes": 3202
+    },
+    {
+      "path": "agents/az-agent-finance/version-3.json",
+      "bytes": 3202
+    },
+    {
+      "path": "agents/az-agent-finance/version-4.json",
+      "bytes": 3454
+    },
+    {
+      "path": "agents/az-agent-finance/version-5.json",
+      "bytes": 3454
+    },
+    {
+      "path": "agents/az-agent-finance/version-6.json",
+      "bytes": 2922
+    },
+    {
+      "path": "agents/az-agent-finance/version-7.json",
+      "bytes": 5031
+    },
+    {
+      "path": "agents/az-agent-finance/versions.json",
+      "bytes": 25331
+    },
+    {
+      "path": "agents/az-agent-maint/definition.json",
+      "bytes": 15158
+    },
+    {
+      "path": "agents/az-agent-maint/version-15.json",
+      "bytes": 12553
+    },
+    {
+      "path": "agents/az-agent-maint/version-16.json",
+      "bytes": 12549
+    },
+    {
+      "path": "agents/az-agent-maint/version-17.json",
+      "bytes": 11914
+    },
+    {
+      "path": "agents/az-agent-maint/version-18.json",
+      "bytes": 12683
+    },
+    {
+      "path": "agents/az-agent-maint/version-19.json",
+      "bytes": 12967
+    },
+    {
+      "path": "agents/az-agent-maint/version-20.json",
+      "bytes": 13763
+    },
+    {
+      "path": "agents/az-agent-maint/version-21.json",
+      "bytes": 14129
+    },
+    {
+      "path": "agents/az-agent-maint/version-22.json",
+      "bytes": 15445
+    },
+    {
+      "path": "agents/az-agent-maint/version-23.json",
+      "bytes": 15893
+    },
+    {
+      "path": "agents/az-agent-maint/version-24.json",
+      "bytes": 15891
+    },
+    {
+      "path": "agents/az-agent-maint/version-25.json",
+      "bytes": 15491
+    },
+    {
+      "path": "agents/az-agent-maint/version-26.json",
+      "bytes": 14589
+    },
+    {
+      "path": "agents/az-agent-maint/version-27.json",
+      "bytes": 13676
+    },
+    {
+      "path": "agents/az-agent-maint/version-28.json",
+      "bytes": 14535
+    },
+    {
+      "path": "agents/az-agent-maint/version-29.json",
+      "bytes": 13684
+    },
+    {
+      "path": "agents/az-agent-maint/version-30.json",
+      "bytes": 13715
+    },
+    {
+      "path": "agents/az-agent-maint/version-31.json",
+      "bytes": 13703
+    },
+    {
+      "path": "agents/az-agent-maint/version-32.json",
+      "bytes": 14548
+    },
+    {
+      "path": "agents/az-agent-maint/version-33.json",
+      "bytes": 14380
+    },
+    {
+      "path": "agents/az-agent-maint/version-34.json",
+      "bytes": 13342
+    },
+    {
+      "path": "agents/az-agent-maint/versions.json",
+      "bytes": 286822
+    },
+    {
+      "path": "agents/az-agent-payments/definition.json",
+      "bytes": 5989
+    },
+    {
+      "path": "agents/az-agent-payments/version-1.json",
+      "bytes": 2943
+    },
+    {
+      "path": "agents/az-agent-payments/version-2.json",
+      "bytes": 4007
+    },
+    {
+      "path": "agents/az-agent-payments/version-3.json",
+      "bytes": 4007
+    },
+    {
+      "path": "agents/az-agent-payments/version-4.json",
+      "bytes": 4007
+    },
+    {
+      "path": "agents/az-agent-payments/version-5.json",
+      "bytes": 3396
+    },
+    {
+      "path": "agents/az-agent-payments/version-6.json",
+      "bytes": 4359
+    },
+    {
+      "path": "agents/az-agent-payments/versions.json",
+      "bytes": 24082
+    },
+    {
+      "path": "agents/az-agent-prod/definition.json",
+      "bytes": 26901
+    },
+    {
+      "path": "agents/az-agent-prod/version-1.json",
+      "bytes": 4692
+    },
+    {
+      "path": "agents/az-agent-prod/version-10.json",
+      "bytes": 18334
+    },
+    {
+      "path": "agents/az-agent-prod/version-11.json",
+      "bytes": 18328
+    },
+    {
+      "path": "agents/az-agent-prod/version-12.json",
+      "bytes": 18327
+    },
+    {
+      "path": "agents/az-agent-prod/version-13.json",
+      "bytes": 25061
+    },
+    {
+      "path": "agents/az-agent-prod/version-2.json",
+      "bytes": 5378
+    },
+    {
+      "path": "agents/az-agent-prod/version-3.json",
+      "bytes": 5503
+    },
+    {
+      "path": "agents/az-agent-prod/version-4.json",
+      "bytes": 5776
+    },
+    {
+      "path": "agents/az-agent-prod/version-5.json",
+      "bytes": 6404
+    },
+    {
+      "path": "agents/az-agent-prod/version-6.json",
+      "bytes": 7779
+    },
+    {
+      "path": "agents/az-agent-prod/version-7.json",
+      "bytes": 7778
+    },
+    {
+      "path": "agents/az-agent-prod/version-8.json",
+      "bytes": 17475
+    },
+    {
+      "path": "agents/az-agent-prod/version-9.json",
+      "bytes": 17603
+    },
+    {
+      "path": "agents/az-agent-prod/versions.json",
+      "bytes": 162377
+    },
+    {
+      "path": "agents/az-agent-project/definition.json",
+      "bytes": 6102
+    },
+    {
+      "path": "agents/az-agent-project/version-1.json",
+      "bytes": 4044
+    },
+    {
+      "path": "agents/az-agent-project/version-2.json",
+      "bytes": 5286
+    },
+    {
+      "path": "agents/az-agent-project/version-3.json",
+      "bytes": 5336
+    },
+    {
+      "path": "agents/az-agent-project/version-4.json",
+      "bytes": 5345
+    },
+    {
+      "path": "agents/az-agent-project/version-5.json",
+      "bytes": 5345
+    },
+    {
+      "path": "agents/az-agent-project/version-6.json",
+      "bytes": 5106
+    },
+    {
+      "path": "agents/az-agent-project/version-7.json",
+      "bytes": 4448
+    },
+    {
+      "path": "agents/az-agent-project/version-8.json",
+      "bytes": 4457
+    },
+    {
+      "path": "agents/az-agent-project/versions.json",
+      "bytes": 41050
+    },
+    {
+      "path": "agents/az-agent-sol/definition.json",
+      "bytes": 15980
+    },
+    {
+      "path": "agents/az-agent-sol/version-1.json",
+      "bytes": 861
+    },
+    {
+      "path": "agents/az-agent-sol/version-2.json",
+      "bytes": 1553
+    },
+    {
+      "path": "agents/az-agent-sol/version-3.json",
+      "bytes": 10088
+    },
+    {
+      "path": "agents/az-agent-sol/version-4.json",
+      "bytes": 10064
+    },
+    {
+      "path": "agents/az-agent-sol/version-5.json",
+      "bytes": 9825
+    },
+    {
+      "path": "agents/az-agent-sol/version-6.json",
+      "bytes": 9615
+    },
+    {
+      "path": "agents/az-agent-sol/version-7.json",
+      "bytes": 9618
+    },
+    {
+      "path": "agents/az-agent-sol/version-8.json",
+      "bytes": 14079
+    },
+    {
+      "path": "agents/az-agent-sol/version-9.json",
+      "bytes": 14520
+    },
+    {
+      "path": "agents/az-agent-sol/versions.json",
+      "bytes": 82667
+    },
+    {
+      "path": "agents/az-agent-vision/definition.json",
+      "bytes": 5262
+    },
+    {
+      "path": "agents/az-agent-vision/version-1.json",
+      "bytes": 5192
+    },
+    {
+      "path": "agents/az-agent-vision/version-2.json",
+      "bytes": 6155
+    },
+    {
+      "path": "agents/az-agent-vision/version-3.json",
+      "bytes": 3892
+    },
+    {
+      "path": "agents/az-agent-vision/version-4.json",
+      "bytes": 3939
+    },
+    {
+      "path": "agents/az-agent-vision/version-5.json",
+      "bytes": 3651
+    },
+    {
+      "path": "agents/az-agent-vision/versions.json",
+      "bytes": 23843
+    },
+    {
+      "path": "agents/list.json",
+      "bytes": 119264
+    },
+    {
+      "path": "azure-context.json",
+      "bytes": 154
+    },
+    {
+      "path": "connections/list.json",
+      "bytes": 20503
+    },
+    {
+      "path": "deployments/list.json",
+      "bytes": 1655
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 155
+    },
+    {
+      "path": "tools/az-agent-auth__definition.json",
+      "bytes": 1096
+    },
+    {
+      "path": "tools/az-agent-auth__version-1.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-auth__version-10.json",
+      "bytes": 803
+    },
+    {
+      "path": "tools/az-agent-auth__version-11.json",
+      "bytes": 1096
+    },
+    {
+      "path": "tools/az-agent-auth__version-2.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-auth__version-3.json",
+      "bytes": 488
+    },
+    {
+      "path": "tools/az-agent-auth__version-4.json",
+      "bytes": 488
+    },
+    {
+      "path": "tools/az-agent-auth__version-5.json",
+      "bytes": 488
+    },
+    {
+      "path": "tools/az-agent-auth__version-6.json",
+      "bytes": 488
+    },
+    {
+      "path": "tools/az-agent-auth__version-7.json",
+      "bytes": 488
+    },
+    {
+      "path": "tools/az-agent-auth__version-8.json",
+      "bytes": 330
+    },
+    {
+      "path": "tools/az-agent-auth__version-9.json",
+      "bytes": 687
+    },
+    {
+      "path": "tools/az-agent-auth__versions.json",
+      "bytes": 1611
+    },
+    {
+      "path": "tools/az-agent-azabot__definition.json",
+      "bytes": 1735
+    },
+    {
+      "path": "tools/az-agent-azabot__version-1.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-azabot__version-10.json",
+      "bytes": 1732
+    },
+    {
+      "path": "tools/az-agent-azabot__version-11.json",
+      "bytes": 1735
+    },
+    {
+      "path": "tools/az-agent-azabot__version-2.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-azabot__version-3.json",
+      "bytes": 1255
+    },
+    {
+      "path": "tools/az-agent-azabot__version-4.json",
+      "bytes": 1255
+    },
+    {
+      "path": "tools/az-agent-azabot__version-5.json",
+      "bytes": 1255
+    },
+    {
+      "path": "tools/az-agent-azabot__version-6.json",
+      "bytes": 1106
+    },
+    {
+      "path": "tools/az-agent-azabot__version-7.json",
+      "bytes": 1106
+    },
+    {
+      "path": "tools/az-agent-azabot__version-8.json",
+      "bytes": 1729
+    },
+    {
+      "path": "tools/az-agent-azabot__version-9.json",
+      "bytes": 1729
+    },
+    {
+      "path": "tools/az-agent-azabot__versions.json",
+      "bytes": 3435
+    },
+    {
+      "path": "tools/az-agent-codex__definition.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-codex__version-1.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-codex__version-2.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-codex__version-3.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-codex__version-4.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-codex__version-5.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-codex__versions.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-finance__definition.json",
+      "bytes": 2321
+    },
+    {
+      "path": "tools/az-agent-finance__version-1.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-finance__version-2.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-finance__version-3.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-finance__version-4.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-finance__version-5.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-finance__version-6.json",
+      "bytes": 344
+    },
+    {
+      "path": "tools/az-agent-finance__version-7.json",
+      "bytes": 2321
+    },
+    {
+      "path": "tools/az-agent-finance__versions.json",
+      "bytes": 2628
+    },
+    {
+      "path": "tools/az-agent-maint__definition.json",
+      "bytes": 1125
+    },
+    {
+      "path": "tools/az-agent-maint__version-15.json",
+      "bytes": 344
+    },
+    {
+      "path": "tools/az-agent-maint__version-16.json",
+      "bytes": 344
+    },
+    {
+      "path": "tools/az-agent-maint__version-17.json",
+      "bytes": 803
+    },
+    {
+      "path": "tools/az-agent-maint__version-18.json",
+      "bytes": 803
+    },
+    {
+      "path": "tools/az-agent-maint__version-19.json",
+      "bytes": 803
+    },
+    {
+      "path": "tools/az-agent-maint__version-20.json",
+      "bytes": 1523
+    },
+    {
+      "path": "tools/az-agent-maint__version-21.json",
+      "bytes": 1523
+    },
+    {
+      "path": "tools/az-agent-maint__version-22.json",
+      "bytes": 1783
+    },
+    {
+      "path": "tools/az-agent-maint__version-23.json",
+      "bytes": 2135
+    },
+    {
+      "path": "tools/az-agent-maint__version-24.json",
+      "bytes": 2135
+    },
+    {
+      "path": "tools/az-agent-maint__version-25.json",
+      "bytes": 1783
+    },
+    {
+      "path": "tools/az-agent-maint__version-26.json",
+      "bytes": 949
+    },
+    {
+      "path": "tools/az-agent-maint__version-27.json",
+      "bytes": 1259
+    },
+    {
+      "path": "tools/az-agent-maint__version-28.json",
+      "bytes": 1259
+    },
+    {
+      "path": "tools/az-agent-maint__version-29.json",
+      "bytes": 1259
+    },
+    {
+      "path": "tools/az-agent-maint__version-30.json",
+      "bytes": 1262
+    },
+    {
+      "path": "tools/az-agent-maint__version-31.json",
+      "bytes": 1265
+    },
+    {
+      "path": "tools/az-agent-maint__version-32.json",
+      "bytes": 1265
+    },
+    {
+      "path": "tools/az-agent-maint__version-33.json",
+      "bytes": 1125
+    },
+    {
+      "path": "tools/az-agent-maint__version-34.json",
+      "bytes": 1125
+    },
+    {
+      "path": "tools/az-agent-maint__versions.json",
+      "bytes": 3983
+    },
+    {
+      "path": "tools/az-agent-payments__definition.json",
+      "bytes": 1328
+    },
+    {
+      "path": "tools/az-agent-payments__version-1.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-payments__version-2.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-payments__version-3.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-payments__version-4.json",
+      "bytes": 124
+    },
+    {
+      "path": "tools/az-agent-payments__version-5.json",
+      "bytes": 431
+    },
+    {
+      "path": "tools/az-agent-payments__version-6.json",
+      "bytes": 1328
+    },
+    {
+      "path": "tools/az-agent-payments__versions.json",
+      "bytes": 1635
+    },
+    {
+      "path": "tools/az-agent-prod__definition.json",
+      "bytes": 1404
+    },
+    {
+      "path": "tools/az-agent-prod__version-1.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-prod__version-10.json",
+      "bytes": 1404
+    },
+    {
+      "path": "tools/az-agent-prod__version-11.json",
+      "bytes": 1404
+    },
+    {
+      "path": "tools/az-agent-prod__version-12.json",
+      "bytes": 1404
+    },
+    {
+      "path": "tools/az-agent-prod__version-13.json",
+      "bytes": 1404
+    },
+    {
+      "path": "tools/az-agent-prod__version-2.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-prod__version-3.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-prod__version-4.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-prod__version-5.json",
+      "bytes": 589
+    },
+    {
+      "path": "tools/az-agent-prod__version-6.json",
+      "bytes": 849
+    },
+    {
+      "path": "tools/az-agent-prod__version-7.json",
+      "bytes": 849
+    },
+    {
+      "path": "tools/az-agent-prod__version-8.json",
+      "bytes": 849
+    },
+    {
+      "path": "tools/az-agent-prod__version-9.json",
+      "bytes": 953
+    },
+    {
+      "path": "tools/az-agent-prod__versions.json",
+      "bytes": 1404
+    },
+    {
+      "path": "tools/az-agent-project__definition.json",
+      "bytes": 353
+    },
+    {
+      "path": "tools/az-agent-project__version-1.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-project__version-2.json",
+      "bytes": 252
+    },
+    {
+      "path": "tools/az-agent-project__version-3.json",
+      "bytes": 252
+    },
+    {
+      "path": "tools/az-agent-project__version-4.json",
+      "bytes": 252
+    },
+    {
+      "path": "tools/az-agent-project__version-5.json",
+      "bytes": 252
+    },
+    {
+      "path": "tools/az-agent-project__version-6.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-project__version-7.json",
+      "bytes": 353
+    },
+    {
+      "path": "tools/az-agent-project__version-8.json",
+      "bytes": 353
+    },
+    {
+      "path": "tools/az-agent-project__versions.json",
+      "bytes": 884
+    },
+    {
+      "path": "tools/az-agent-sol__definition.json",
+      "bytes": 3163
+    },
+    {
+      "path": "tools/az-agent-sol__version-1.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-sol__version-2.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-sol__version-3.json",
+      "bytes": 703
+    },
+    {
+      "path": "tools/az-agent-sol__version-4.json",
+      "bytes": 679
+    },
+    {
+      "path": "tools/az-agent-sol__version-5.json",
+      "bytes": 464
+    },
+    {
+      "path": "tools/az-agent-sol__version-6.json",
+      "bytes": 258
+    },
+    {
+      "path": "tools/az-agent-sol__version-7.json",
+      "bytes": 258
+    },
+    {
+      "path": "tools/az-agent-sol__version-8.json",
+      "bytes": 2758
+    },
+    {
+      "path": "tools/az-agent-sol__version-9.json",
+      "bytes": 3163
+    },
+    {
+      "path": "tools/az-agent-sol__versions.json",
+      "bytes": 6329
+    },
+    {
+      "path": "tools/az-agent-vision__definition.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-vision__version-1.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-vision__version-2.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-vision__version-3.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-vision__version-4.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-vision__version-5.json",
+      "bytes": 37
+    },
+    {
+      "path": "tools/az-agent-vision__versions.json",
+      "bytes": 37
+    }
+  ]
+}

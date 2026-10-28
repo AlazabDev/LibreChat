@@ -1,0 +1,2162 @@
+[
+  {
+    "item": "توريد وتغير زجاج شباك الحمام الاول بالطرقه ابيض مصنفر",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "توريد وتغير زجاج شباك الحمام الاول بالطرقه  1.00*0.80 ابيض مصنفر",
+    "source": "invoice_history",
+    "id": 1258
+  },
+  {
+    "item": "Air Conditioning Maintenance has Been Carried out",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1500",
+    "original": "Air Conditioning Maintenance has Been Carried out",
+    "source": "invoice_history",
+    "id": 1263
+  },
+  {
+    "item": "لوحه توزيع التيار الخفيف لوحه اتصلات فينوس",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2300",
+    "original": "لوحه توزيع التيار الخفيف (لوحه اتصلات فينوس)",
+    "source": "invoice_history",
+    "id": 1265
+  },
+  {
+    "item": "خرطوم مم مسمط مصطفي محمود",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "605",
+    "original": "خرطوم 16 مم مسمط مصطفي محمود",
+    "source": "invoice_history",
+    "id": 1266
+  },
+  {
+    "item": "فلسكبل مم مصطفي محمود",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "110",
+    "original": "فلسكبل 16 مم مصطفي محمود",
+    "source": "invoice_history",
+    "id": 1267
+  },
+  {
+    "item": "علبه ماجك مفرد مصطفي محمود",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "8",
+    "original": "علبه ماجك مفرد مصطفي محمود",
+    "source": "invoice_history",
+    "id": 1268
+  },
+  {
+    "item": "علبه ماجك مجوز مصطفي محمود",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "15",
+    "original": "علبه ماجك مجوز مصطفي محمود",
+    "source": "invoice_history",
+    "id": 1269
+  },
+  {
+    "item": "بواط تجميع مصطفي محمود",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "25",
+    "original": "بواط تجميع 15*20 مصطفي محمود",
+    "source": "invoice_history",
+    "id": 1270
+  },
+  {
+    "item": "اكسسوات التركبات من حدايد وموصلات القواطع وقفيز بلاستك سم",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "892",
+    "original": "اكسسوات التركبات من حدايد وموصلات القواطع وقفيز بلاستك 20سم",
+    "source": "invoice_history",
+    "id": 1283
+  },
+  {
+    "item": "خزان دفن جروهي كامل بالوش",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "7800",
+    "original": "خزان دفن جروهي كامل بالوش",
+    "source": "invoice_history",
+    "id": 1284
+  },
+  {
+    "item": "Membership Alazabco all",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "Membership Alazab.co all",
+    "source": "invoice_history",
+    "id": 1289
+  },
+  {
+    "item": "ME SinglePhase Multifunction Meter",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3800",
+    "original": "ME172 Single-Phase Multifunction Meter",
+    "source": "invoice_history",
+    "id": 1290
+  },
+  {
+    "item": "Cemsan Instant Water Heater KW",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "12000",
+    "original": "Cemsan Instant Water Heater 9 KW",
+    "source": "invoice_history",
+    "id": 1291
+  },
+  {
+    "item": "Stainless Steel Kitchen Sink x cm",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1200",
+    "original": "Stainless Steel Kitchen Sink (40 x 45cm)",
+    "source": "invoice_history",
+    "id": 1292
+  },
+  {
+    "item": "Hand Mixer Stainless Steel Water Filter Tap",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1800",
+    "original": "Hand Mixer Stainless Steel Water Filter Tap",
+    "source": "invoice_history",
+    "id": 1293
+  },
+  {
+    "item": "Smart home Connecting Soft Pipe cm",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "150",
+    "original": "Smart home Connecting Soft Pipe (50cm)",
+    "source": "invoice_history",
+    "id": 1294
+  },
+  {
+    "item": "Smart home Angle Valves",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "250",
+    "original": "Smart home Angle Valves",
+    "source": "invoice_history",
+    "id": 1295
+  },
+  {
+    "item": "Storage Unit With Shelves and Wooden Double door Black color",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "8000",
+    "original": "Storage Unit With Shelves and Wooden Double door. Black color",
+    "source": "invoice_history",
+    "id": 1296
+  },
+  {
+    "item": "Maintenance of Carpentry units",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "Maintenance of Carpentry units",
+    "source": "invoice_history",
+    "id": 1297
+  },
+  {
+    "item": "Marble works maintenance",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1250",
+    "original": "Marble works maintenance",
+    "source": "invoice_history",
+    "id": 1298
+  },
+  {
+    "item": "توريد وتركيب بريزه عاده ماركه الليوس",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "136.67",
+    "original": "توريد وتركيب بريزه 220 عاده ماركه الليوس",
+    "source": "invoice_history",
+    "id": 1300
+  },
+  {
+    "item": "توريد وتركيب بريزه قوه ماركه سانشي والسعر يشمل الشاسيه والوش",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "300",
+    "original": "توريد وتركيب بريزه قوه ماركه سانشي والسعر يشمل الشاسيه والوش",
+    "source": "invoice_history",
+    "id": 1301
+  },
+  {
+    "item": "اعمال التركيبات وصيانة البنود الكهربائيه بالكامل",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "اعمال التركيبات وصيانة البنود الكهربائيه بالكامل",
+    "source": "invoice_history",
+    "id": 1302
+  },
+  {
+    "item": "تركيب مواسير الستائر للشقه بالكامل",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "تركيب مواسير الستائر للشقه بالكامل",
+    "source": "invoice_history",
+    "id": 1304
+  },
+  {
+    "item": "توريد وتركيب زجاج وحدة TV",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "توريد وتركيب زجاج وحدة TV",
+    "source": "invoice_history",
+    "id": 1305
+  },
+  {
+    "item": "تصنيع وتوريد وتركيب دراف وحدات المطبخ",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "350",
+    "original": "تصنيع وتوريد وتركيب دراف وحدات المطبخ",
+    "source": "invoice_history",
+    "id": 1307
+  },
+  {
+    "item": "توريد وتركيب وش ابلكاش للجزامه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "توريد وتركيب 2 وش ابلكاش للجزامه",
+    "source": "invoice_history",
+    "id": 1313
+  },
+  {
+    "item": "تنظيف وترميم المحاره المطلوبه بالشقه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3000",
+    "original": "تنظيف وترميم المحاره المطلوبه بالشقه",
+    "source": "invoice_history",
+    "id": 1320
+  },
+  {
+    "item": "اصلاح مواسير الصحي ومرجعه علي بند السباكه والسعر يشمل الاكسسوارت",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "اصلاح مواسير الصحي ومرجعه علي بند السباكه والسعر يشمل الاكسسوارت",
+    "source": "invoice_history",
+    "id": 1321
+  },
+  {
+    "item": "اعمال النظافه ونقل الرتش",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "800",
+    "original": "اعمال النظافه ونقل الرتش",
+    "source": "invoice_history",
+    "id": 1323
+  },
+  {
+    "item": "Carrying out the necessary examination and inspection of shops The fire extinguisher and alarm network was reviewed and all occupational safety devices were tested",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "Carrying out the necessary examination and inspection of shops. The fire extinguisher and alarm network was reviewed and all occupational safety devices were tested",
+    "source": "invoice_history",
+    "id": 1324
+  },
+  {
+    "item": "تصريح من الحي للتشوينات تم الدفع من قبل الكابتن",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "750",
+    "original": "تصريح من الحي للتشوينات (تم الدفع من قبل الكابتن)",
+    "source": "invoice_history",
+    "id": 1327
+  },
+  {
+    "item": "تصريح الحي وتم الدفع من قبل مجدي عزب",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "تصريح الحي وتم الدفع من قبل مجدي عزب",
+    "source": "invoice_history",
+    "id": 1330
+  },
+  {
+    "item": "اعمال نقل رتش وتنظيف الشقه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2530",
+    "original": "اعمال نقل رتش وتنظيف الشقه",
+    "source": "invoice_history",
+    "id": 1331
+  },
+  {
+    "item": "اجالي مستلزمات اعمال المحاره من الموان",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1350",
+    "original": "اجالي مستلزمات اعمال المحاره من الموان",
+    "source": "invoice_history",
+    "id": 1332
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "43638",
+    "original": "Month 2/2023",
+    "source": "invoice_history",
+    "id": 1333
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "282203",
+    "original": "Month 3/2023",
+    "source": "invoice_history",
+    "id": 1334
+  },
+  {
+    "item": "sale",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "-48",
+    "original": "sale",
+    "source": "invoice_history",
+    "id": 1335
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "8000",
+    "original": "Month 4/2023",
+    "source": "invoice_history",
+    "id": 1336
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3000",
+    "original": "Month 5/2023",
+    "source": "invoice_history",
+    "id": 1337
+  },
+  {
+    "item": "shahn",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "shahn",
+    "source": "invoice_history",
+    "id": 1338
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "261800",
+    "original": "Month 6/2023",
+    "source": "invoice_history",
+    "id": 1339
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "296740",
+    "original": "Month 7/2023",
+    "source": "invoice_history",
+    "id": 1340
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "895520",
+    "original": "Month 8/2023",
+    "source": "invoice_history",
+    "id": 1341
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "130770",
+    "original": "Month 9/2023",
+    "source": "invoice_history",
+    "id": 1342
+  },
+  {
+    "item": "sss",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "sss",
+    "source": "invoice_history",
+    "id": 1343
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "111990",
+    "original": "Month 11/2023",
+    "source": "invoice_history",
+    "id": 1344
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "942346",
+    "original": "Month 12/2023",
+    "source": "invoice_history",
+    "id": 1345
+  },
+  {
+    "item": "cramice alex",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "20111",
+    "original": "cramice alex",
+    "source": "invoice_history",
+    "id": 1346
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "937767",
+    "original": "Month 1/2024",
+    "source": "invoice_history",
+    "id": 1347
+  },
+  {
+    "item": "Month /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1257211",
+    "original": "Month 2/2024",
+    "source": "invoice_history",
+    "id": 1348
+  },
+  {
+    "item": "تسويه الرصيد",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1179",
+    "original": "تسويه الرصيد",
+    "source": "invoice_history",
+    "id": 1349
+  },
+  {
+    "item": "cramice wadi degla",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "14803",
+    "original": "cramice wadi degla",
+    "source": "invoice_history",
+    "id": 1350
+  },
+  {
+    "item": "salver palma",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "357000",
+    "original": "salver palma",
+    "source": "invoice_history",
+    "id": 1351
+  },
+  {
+    "item": "caty",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "15000",
+    "original": "caty",
+    "source": "invoice_history",
+    "id": 1352
+  },
+  {
+    "item": "ar",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "355000",
+    "original": "ar",
+    "source": "invoice_history",
+    "id": 1353
+  },
+  {
+    "item": "Account Outlit",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "106475",
+    "original": "Account Outlit",
+    "source": "invoice_history",
+    "id": 1356
+  },
+  {
+    "item": "account letar",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "30000",
+    "original": "account letar",
+    "source": "invoice_history",
+    "id": 1357
+  },
+  {
+    "item": "تم فك المخزن وعمل المرمات المطلوبه وتسليم للجهات المسؤله",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2000",
+    "original": "تم فك المخزن وعمل المرمات المطلوبه وتسليم للجهات المسؤله",
+    "source": "invoice_history",
+    "id": 1361
+  },
+  {
+    "item": "تم نقل الخامات اللي مخزن العزب لحين تشغيله مره اخره باقرب مخزن قادم",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "تم نقل الخامات اللي مخزن العزب لحين تشغيله مره اخره باقرب مخزن قادم",
+    "source": "invoice_history",
+    "id": 1362
+  },
+  {
+    "item": "Electrical maintenance services",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3000",
+    "original": "Electrical maintenance services",
+    "source": "invoice_history",
+    "id": 1363
+  },
+  {
+    "item": "اعمال الحجر الفرعوني خامات ومصنعيه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3500",
+    "original": "اعمال الحجر الفرعوني  خامات ومصنعيه",
+    "source": "invoice_history",
+    "id": 1365
+  },
+  {
+    "item": "بالمقطوعيه الحراري هوايه الهود",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "850",
+    "original": "بالمقطوعيه - الحراري + هوايه الهود",
+    "source": "invoice_history",
+    "id": 1370
+  },
+  {
+    "item": "نقل وتوريد الكنبه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "800",
+    "original": "نقل وتوريد الكنبه",
+    "source": "invoice_history",
+    "id": 1372
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "15500",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1374
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "70000",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1375
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "81300",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1376
+  },
+  {
+    "item": "تجميع مصروفات مجدي الاخيره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3165",
+    "original": "تجميع مصروفات مجدي الاخيره",
+    "source": "invoice_history",
+    "id": 1377
+  },
+  {
+    "item": "اشراف وانهاء الاعمال الاضافيه وتسليم الشقه علي اكمل وجه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5000",
+    "original": "اشراف وانهاء الاعمال الاضافيه وتسليم الشقه علي اكمل وجه",
+    "source": "invoice_history",
+    "id": 1378
+  },
+  {
+    "item": "Summary Architectural Engineering Works WD Oct",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "871912.23",
+    "original": "Summary Architectural Engineering Works W.D Oct 2",
+    "source": "invoice_history",
+    "id": 1386
+  },
+  {
+    "item": "Fire Extinguisher Carbon Dioxide Kg Fredex Weight : KG",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "10735",
+    "original": "Fire Extinguisher Carbon Dioxide 6 Kg Fredex - Weight : 6 K.G",
+    "source": "invoice_history",
+    "id": 1387
+  },
+  {
+    "item": "Recessed Spotlight black finish watt K",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "350",
+    "original": "Recessed Spotlight black finish    7watt. 3000K",
+    "source": "invoice_history",
+    "id": 1388
+  },
+  {
+    "item": "spotlight black finish watt k IP",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "600",
+    "original": "spotlight black finish          5watt 3000k IP",
+    "source": "invoice_history",
+    "id": 1389
+  },
+  {
+    "item": "Trimless Magnetic Track Before Gypsum Board Size mm",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1100",
+    "original": "Trimless Magnetic Track Before Gypsum Board Size 1000 mm",
+    "source": "invoice_history",
+    "id": 1390
+  },
+  {
+    "item": "Magnetic Track Projector black finish w K",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "850",
+    "original": "Magnetic Track Projector black finish 10w 3000K",
+    "source": "invoice_history",
+    "id": 1391
+  },
+  {
+    "item": "Lid Power Supply w / v",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "750",
+    "original": "Lid Power Supply                100w / 48v",
+    "source": "invoice_history",
+    "id": 1392
+  },
+  {
+    "item": "Surface Mounted Projector W K, IP",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "550",
+    "original": "Surface Mounted Projector   5W. 3000K, IP65",
+    "source": "invoice_history",
+    "id": 1393
+  },
+  {
+    "item": "Inground Uplights W K, IP",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "450",
+    "original": "Inground Uplights  2W. 3000K, IP67",
+    "source": "invoice_history",
+    "id": 1394
+  },
+  {
+    "item": "Outdoor Spikes W K, IP",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "330",
+    "original": "Outdoor Spikes  3W. 3000K, IP 67",
+    "source": "invoice_history",
+    "id": 1395
+  },
+  {
+    "item": "indoor Surface Mounted Downlight W K",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "925",
+    "original": "indoor Surface Mounted Downlight  10W 3000K",
+    "source": "invoice_history",
+    "id": 1396
+  },
+  {
+    "item": "Total invoice for samples sent previously",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5900",
+    "original": "Total invoice for samples sent previously",
+    "source": "invoice_history",
+    "id": 1397
+  },
+  {
+    "item": "Glass doors maintenance and change the necessary accessories",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "800",
+    "original": "Glass doors maintenance and change the necessary accessories",
+    "source": "invoice_history",
+    "id": 1398
+  },
+  {
+    "item": "Edison bulb watt long",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "250",
+    "original": "Edison bulb 6 watt long",
+    "source": "invoice_history",
+    "id": 1399
+  },
+  {
+    "item": "supplying and replacing a watt track spotlight, AlSafa",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "850",
+    "original": "supplying and replacing a 30-watt track spotlight, Al-Safa",
+    "source": "invoice_history",
+    "id": 1400
+  },
+  {
+    "item": "Compact spotlight watt",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "450",
+    "original": "Compact spotlight 30 watt",
+    "source": "invoice_history",
+    "id": 1401
+  },
+  {
+    "item": "Connecting adapter power supply amp",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "200",
+    "original": "Connecting adapter (power supply 30 amp)",
+    "source": "invoice_history",
+    "id": 1402
+  },
+  {
+    "item": "Electrical maintenance services",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1200",
+    "original": "Electrical maintenance services",
+    "source": "invoice_history",
+    "id": 1403
+  },
+  {
+    "item": "Electrical maintenance services",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "300",
+    "original": "Electrical maintenance services",
+    "source": "invoice_history",
+    "id": 1404
+  },
+  {
+    "item": "Supply and installation of LED lighting wall panels",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "750",
+    "original": "Supply and installation of LED lighting wall panels",
+    "source": "invoice_history",
+    "id": 1405
+  },
+  {
+    "item": "Other works completion of the apartment bar, bathroom, and marble maintenance",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "Other works (completion of the apartment bar, bathroom, and marble maintenance)",
+    "source": "invoice_history",
+    "id": 1406
+  },
+  {
+    "item": "Summary of development and improvement works for Makram Ebeid branch, with details of the attached works",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "90450",
+    "original": "Summary of development and improvement works for Makram Ebeid branch, with details of the attached works.",
+    "source": "invoice_history",
+    "id": 1407
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "35000",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1410
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "26500",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1411
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "19000",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1412
+  },
+  {
+    "item": "توريد وتركيب لمبه اناره بالمخزن والسعر يشمل قاعده اللمبه والتوصيل ودكت المسار",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "بالعدد توريد وتركيب لمبه اناره بالمخزن والسعر يشمل قاعده اللمبه والتوصيل ودكت المسار",
+    "source": "invoice_history",
+    "id": 1417
+  },
+  {
+    "item": "بالمقطوعيه تم عمال صيانه لوحدات تخزين الملفات وتغير الاكسسوارت اللازمه لعدد وحده",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3000",
+    "original": "بالمقطوعيه - تم عمال صيانه لوحدات تخزين الملفات وتغير الاكسسوارت اللازمه لعدد 15 وحده",
+    "source": "invoice_history",
+    "id": 1423
+  },
+  {
+    "item": "توريد وتركيب كالون وحدات الشانون",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "240",
+    "original": "بالعدد - توريد وتركيب كالون وحدات الشانون",
+    "source": "invoice_history",
+    "id": 1424
+  },
+  {
+    "item": "توريد وتركيب كالون وحدات الادرج كالون خطاف",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "200",
+    "original": "بالعدد - توريد وتركيب كالون وحدات الادرج (كالون خطاف)",
+    "source": "invoice_history",
+    "id": 1426
+  },
+  {
+    "item": "توريد وتركيب كالو وحدات جانبيه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "200",
+    "original": "بالعدد - توريد وتركيب كالو وحدات جانبيه",
+    "source": "invoice_history",
+    "id": 1427
+  },
+  {
+    "item": "بالمقطوعيه اعمال تركيبات متنوعه للاشياء المطلوبه من قبل السكرتريه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "بالمقطوعيه - اعمال تركيبات متنوعه للاشياء المطلوبه من قبل السكرتريه",
+    "source": "invoice_history",
+    "id": 1431
+  },
+  {
+    "item": "فاتوره البرسلين من السلاب",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "126000",
+    "original": "فاتوره البرسلين من السلاب",
+    "source": "invoice_history",
+    "id": 1433
+  },
+  {
+    "item": "ملخص باجمالي اعمال الصيانات والتعديلات شهر",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "107452",
+    "original": "ملخص باجمالي اعمال الصيانات والتعديلات شهر 5",
+    "source": "invoice_history",
+    "id": 1436
+  },
+  {
+    "item": "ماتور كالبيده حصان ايطالي",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5600",
+    "original": "ماتور كالبيده 1 حصان ايطالي",
+    "source": "invoice_history",
+    "id": 1437
+  },
+  {
+    "item": "بالونة موتور مياه كالبيدا كاملة لتر",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "880",
+    "original": "بالونة موتور مياه كالبيدا كاملة 24 لتر",
+    "source": "invoice_history",
+    "id": 1438
+  },
+  {
+    "item": "لفه خرطوم مصطفي محمود فلسكبل",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "110",
+    "original": "لفه خرطوم 16 مصطفي محمود فلسكبل",
+    "source": "invoice_history",
+    "id": 1439
+  },
+  {
+    "item": "لفه خرطوم مصطفي محمود مسمط",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "510",
+    "original": "لفه خرطوم 16 مصطفي محمود مسمط",
+    "source": "invoice_history",
+    "id": 1440
+  },
+  {
+    "item": "علبه ماجيك مفرد",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5",
+    "original": "علبه ماجيك مفرد",
+    "source": "invoice_history",
+    "id": 1444
+  },
+  {
+    "item": "علبه ماجك مجوز مصطفي محمود",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "10",
+    "original": "علبه ماجك مجوز مصطفي محمود",
+    "source": "invoice_history",
+    "id": 1445
+  },
+  {
+    "item": "كيس افيز سم",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "72",
+    "original": "كيس افيز 30 سم",
+    "source": "invoice_history",
+    "id": 1447
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches #",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "100600",
+    "original": "Summary of maintenance and supplies work for the branches #44",
+    "source": "invoice_history",
+    "id": 1452
+  },
+  {
+    "item": "Summary of Architectural and Supply works for the Branch Arkan Plaza",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1459836",
+    "original": "Summary of Architectural and Supply works for the Branch (Arkan Plaza)",
+    "source": "invoice_history",
+    "id": 1453
+  },
+  {
+    "item": "توريد مستلزمات الكهلرباء لقسم الصيانه بمصنع العاشر",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "19220",
+    "original": "توريد مستلزمات الكهلرباء لقسم الصيانه بمصنع العاشر",
+    "source": "invoice_history",
+    "id": 1454
+  },
+  {
+    "item": "تجميع فواتير ومصروفات تاسيس ؟؟؟؟؟",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "21000",
+    "original": "تجميع فواتير ومصروفات تاسيس ؟؟؟؟؟",
+    "source": "invoice_history",
+    "id": 1456
+  },
+  {
+    "item": "توريد وتركيب طقم شمعات فليتر تانك مرحله",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "600",
+    "original": "توريد وتركيب طقم شمعات فليتر تانك 5 مرحله",
+    "source": "invoice_history",
+    "id": 1458
+  },
+  {
+    "item": "بالمقطوعيه تم فك وتنظيف اليافطه مع المراجعه علي الاضاءه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "بالمقطوعيه - تم فك وتنظيف اليافطه مع المراجعه علي الاضاءه",
+    "source": "invoice_history",
+    "id": 1463
+  },
+  {
+    "item": "بالمقطوعيه تم تثبيت سقف المخزن وتركيب عود زاويه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "600",
+    "original": "بالمقطوعيه - تم تثبيت سقف المخزن وتركيب 2 عود زاويه",
+    "source": "invoice_history",
+    "id": 1464
+  },
+  {
+    "item": "توريد وتركيب كشاب كومباكت وات ورم الفرنسيه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "350",
+    "original": "توريد وتركيب كشاب كومباكت 20 وات ورم الفرنسيه",
+    "source": "invoice_history",
+    "id": 1468
+  },
+  {
+    "item": "توريد وتركيب كشاب كومباكت وات ورم الفرنسيه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "توريد وتركيب كشاب كومباكت 30 وات ورم الفرنسيه",
+    "source": "invoice_history",
+    "id": 1469
+  },
+  {
+    "item": "بالمقطوعيه تم تثبيت عدد كامره مراقبه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "300",
+    "original": "بالمقطوعيه - تم تثبيت عدد 2 كامره مراقبه",
+    "source": "invoice_history",
+    "id": 1472
+  },
+  {
+    "item": "اعمال المحاره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "25000",
+    "original": "اعمال المحاره",
+    "source": "invoice_history",
+    "id": 1474
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "170150",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1475
+  },
+  {
+    "item": "توريد وتركيب طقم جرار درج سم مرحلتين",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "توريد وتركيب طقم جرار درج 35سم مرحلتين",
+    "source": "invoice_history",
+    "id": 1476
+  },
+  {
+    "item": "توريد وتركيب فليتر مياه مراحله تانك ويشمل التوصيلات",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2000",
+    "original": "توريد وتركيب فليتر مياه 5 مراحله تانك ويشمل التوصيلات",
+    "source": "invoice_history",
+    "id": 1482
+  },
+  {
+    "item": "بالمقطوعيه صيانه لستاره الهواء فك وتركيب ومراجعه علي البند",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "بالمقطوعيه تم عمل صيانه لستاره الهواء - فك وتركيب ومراجعه علي البند",
+    "source": "invoice_history",
+    "id": 1485
+  },
+  {
+    "item": "بالمتر المسطح توريد وتركيب ارضيه نجيله صناعي والبند يشمل مواد اللاصق وكافه مايلزم لحين الانتهاء",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "220",
+    "original": "بالمتر المسطح توريد وتركيب ارضيه نجيله صناعي والبند يشمل مواد اللاصق وكافه مايلزم لحين الانتهاء",
+    "source": "invoice_history",
+    "id": 1486
+  },
+  {
+    "item": "توريد وتركيب طقم جرار درج سم مرحلتين فرع المناره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "توريد وتركيب طقم جرار درج 35سم مرحلتين فرع المناره 1",
+    "source": "invoice_history",
+    "id": 1487
+  },
+  {
+    "item": "توريد وتركيب فليتر مياه مراحله تانك ويشمل التوصيلات",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2000",
+    "original": "توريد وتركيب فليتر مياه 5 مراحله تانك ويشمل التوصيلات",
+    "source": "invoice_history",
+    "id": 1493
+  },
+  {
+    "item": "بالمقطوعيه صيانه لستاره الهواء فك وتركيب ومراجعه علي البند عدد ستاره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "بالمقطوعيه تم عمل صيانه لستاره الهواء - فك وتركيب ومراجعه علي البند عدد 3 ستاره",
+    "source": "invoice_history",
+    "id": 1495
+  },
+  {
+    "item": "توريد وتركيب لمبه ديكور وات فيلمنت ورم",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "250",
+    "original": "توريد وتركيب لمبه ديكور 6 وات فيلمنت ورم",
+    "source": "invoice_history",
+    "id": 1499
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches #",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "53100",
+    "original": "Summary of maintenance and supplies work for the branches #44",
+    "source": "invoice_history",
+    "id": 1500
+  },
+  {
+    "item": "بالمقطوعيه صيانه لسباكه وتغير وصله تغذيه المياه مول طنطا",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "بالمقطوعيه - تم عمل صيانه لسباكه وتغير وصله تغذيه المياه (مول طنطا)",
+    "source": "invoice_history",
+    "id": 1503
+  },
+  {
+    "item": "ملخص بالاجمالي الختامي لاعمال الصيانات والتجديدات لفروع الاسكندريه بالكامل فرع",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "424320",
+    "original": "ملخص بالاجمالي الختامي لاعمال الصيانات والتجديدات لفروع الاسكندريه بالكامل 12 فرع",
+    "source": "invoice_history",
+    "id": 1504
+  },
+  {
+    "item": "توريد وتغير قضيب المونيوم وطقم عجل بالدليل للوحدات التخزين",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "200",
+    "original": "توريد وتغير قضيب المونيوم وطقم عجل بالدليل للوحدات التخزين",
+    "source": "invoice_history",
+    "id": 1511
+  },
+  {
+    "item": "بالمقطوعيه اعمال صيانات وحدات التخزين الموجود بالفرع بالكامل",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "بالمقطوعيه اعمال صيانات وحدات التخزين الموجود بالفرع بالكامل",
+    "source": "invoice_history",
+    "id": 1513
+  },
+  {
+    "item": "توريد وتركيب دليه ديكور اعلي الورمر والكاشير والسعر يشمل المبات والتوصيل وكل مايلزم لحين انتهاء الاعمال",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "750",
+    "original": "توريد وتركيب دليه ديكور اعلي الورمر والكاشير والسعر يشمل المبات والتوصيل وكل مايلزم لحين انتهاء الاعمال",
+    "source": "invoice_history",
+    "id": 1518
+  },
+  {
+    "item": "توريد وتركيب بريزه قوهبريزه عاده طقم والسعر يشمل الاكسسوارات والتوصيل وكل مايلزم لانتهاء البند",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1",
+    "original": "توريد وتركيب بريزه قوه+بريزه عاده (طقم) والسعر يشمل الاكسسوارات والتوصيل وكل مايلزم لانتهاء البند",
+    "source": "invoice_history",
+    "id": 1521
+  },
+  {
+    "item": "توريد وتركيب كبل نت كات بريميم لاين",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "60",
+    "original": "توريد وتركيب كبل نت كات 6 بريميم لاين",
+    "source": "invoice_history",
+    "id": 1523
+  },
+  {
+    "item": "توريد وتركيب فليتر تانك مرحله",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2000",
+    "original": "توريد وتركيب فليتر تانك 5 مرحله",
+    "source": "invoice_history",
+    "id": 1526
+  },
+  {
+    "item": "بالمتر المسطح توريد وتركيب سيرميك للأرضيات المخزن فرز تاني والسعر يشمل التشوين والخامات المستخدمه وكل مايلزم للبند",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "بالمتر المسطح  توريد وتركيب سيرميك للأرضيات المخزن فرز تاني والسعر يشمل التشوين والخامات المستخدمه وكل مايلزم للبند",
+    "source": "invoice_history",
+    "id": 1529
+  },
+  {
+    "item": "مستخلص اعمال الصيانات والتعديلات الخاصه بجميع الفروع لشهر /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "160945",
+    "original": "مستخلص اعمال الصيانات والتعديلات الخاصه بجميع الفروع لشهر 2024/9",
+    "source": "invoice_history",
+    "id": 1538
+  },
+  {
+    "item": "In numbers supplying and installing advertising banners on top of the display units made of a mm MDF wood base and a frame of Natural Peachwood, mm thick, a mm thick transparent acrylic background, and the sign is mm white acrylic, size cmThe price includes everything necessary until supply and installation at the branch",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "In numbers - supplying and installing advertising banners on top of the display units made of a 12mm MDF wood base and a frame of Natural Peachwood, 25*20mm thick, a 2.5mm thick transparent acrylic background, and the sign is 3mm white acrylic, size 40*17cm.The price includes everything necessary until supply and installation at the branch",
+    "source": "invoice_history",
+    "id": 1539
+  },
+  {
+    "item": "توريد وتركيب كابل نت كات بريميم لاين لتوصيل كامره بالمخزن والسعر يشمل كافة ما يلزم من مواد و معدات و عماله لنهو الاعمال علي اكمل وجه طبقاً للموصفات الفنية",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "75",
+    "original": "بالمتر الطوالي توريد وتركيب كابل نت كات 6 بريميم لاين لتوصيل كامره بالمخزن والسعر يشمل كافة ما يلزم من مواد و معدات و عماله لنهو الاعمال علي اكمل وجه طبقاً للموصفات الفنية.",
+    "source": "invoice_history",
+    "id": 1545
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "74600",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1546
+  },
+  {
+    "item": "خدمات الاناره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "خدمات الاناره",
+    "source": "invoice_history",
+    "id": 1547
+  },
+  {
+    "item": "شهادة السلامه المهنية",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "شهادة السلامه المهنية",
+    "source": "invoice_history",
+    "id": 1548
+  },
+  {
+    "item": "اعمال الصيانه لفرعين طنطا نجاره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "اعمال الصيانه لفرعين طنطا (نجاره)",
+    "source": "invoice_history",
+    "id": 1549
+  },
+  {
+    "item": "شهادة السلامه المهنية",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "شهادة السلامه المهنية",
+    "source": "invoice_history",
+    "id": 1550
+  },
+  {
+    "item": "Summary of maintenance and supplies work for the branches",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "52630",
+    "original": "Summary of maintenance and supplies work for the branches",
+    "source": "invoice_history",
+    "id": 1553
+  },
+  {
+    "item": "Supply and installation of a GPM grease trap system, featuring a xx stainless steel tank, dosing pump, automatic electrical control panel and additional supply and installation of a set of sewer connections The price includes everything needed for the item",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "78200",
+    "original": "Supply and installation of a 20 GPM grease trap system, featuring a 60x30x30 stainless steel tank, dosing pump, automatic electrical control panel and additional supply and installation of a set of sewer connections. The price includes everything needed for the item",
+    "source": "invoice_history",
+    "id": 1554
+  },
+  {
+    "item": "مبيعات اسمارت لايت",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "35000",
+    "original": "مبيعات اسمارت لايت",
+    "source": "invoice_history",
+    "id": 1555
+  },
+  {
+    "item": "Door Accessories",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "Door Accessories",
+    "source": "invoice_history",
+    "id": 1556
+  },
+  {
+    "item": "خدمات الاناره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "خدمات الاناره",
+    "source": "invoice_history",
+    "id": 1557
+  },
+  {
+    "item": "خدمات الاناره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "خدمات الاناره",
+    "source": "invoice_history",
+    "id": 1558
+  },
+  {
+    "item": "طلبات من الموان",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "150",
+    "original": "طلبات من الموان",
+    "source": "invoice_history",
+    "id": 1561
+  },
+  {
+    "item": "بالمقطوعيه اعمال صيانات لوجو العلوي والداخلي",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "بالمقطوعيه اعمال صيانات 2 لوجو العلوي والداخلي",
+    "source": "invoice_history",
+    "id": 1567
+  },
+  {
+    "item": "بالمقطوعيه اعمال المراجعه علي الالمونتال للنوافذ والابواب والبند يشمل تغير الاكسسوات المطلوبه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "700",
+    "original": "بالمقطوعيه اعمال المراجعه علي الالمونتال للنوافذ والابواب والبند يشمل تغير الاكسسوات المطلوبه",
+    "source": "invoice_history",
+    "id": 1570
+  },
+  {
+    "item": "تصنيع وتوريد وتركيب دلفه من الاستلس مقاس",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "تصنيع وتوريد وتركيب دلفه من الاستلس مقاس 49*76",
+    "source": "invoice_history",
+    "id": 1573
+  },
+  {
+    "item": "بالمقطوعيه اعمال تثبيت الطولات الخارجيه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "300",
+    "original": "بالمقطوعيه اعمال تثبيت الطولات الخارجيه",
+    "source": "invoice_history",
+    "id": 1575
+  },
+  {
+    "item": "توريد وتركيب لمبه كاسه ورم",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "200",
+    "original": "توريد وتركيب لمبه كاسه ورم",
+    "source": "invoice_history",
+    "id": 1576
+  },
+  {
+    "item": "In numbers supplying and installing advertising banners on top of the display units made of a mm MDF wood base and a frame of Natural Peachwood, mm thick, a mm thick transparent acrylic background, and the sign is mm white acrylic, size cmThe price includes everything necessary until supply and installation at the branch",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "In numbers - supplying and installing advertising banners on top of the display units made of a 12mm MDF wood base and a frame of Natural Peachwood, 25*20mm thick, a 2.5mm thick transparent acrylic background, and the sign is 3mm white acrylic, size 40*17cm.The price includes everything necessary until supply and installation at the branch",
+    "source": "invoice_history",
+    "id": 1578
+  },
+  {
+    "item": "Cable mm Elsewedy",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "10015",
+    "original": "Cable 10 mm Elsewedy",
+    "source": "invoice_history",
+    "id": 1580
+  },
+  {
+    "item": "خدمات صيانة أساسية",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "4000",
+    "original": "خدمات صيانة أساسية",
+    "source": "invoice_history",
+    "id": 1581
+  },
+  {
+    "item": "Basic Package",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5000",
+    "original": "Basic Package",
+    "source": "invoice_history",
+    "id": 1582
+  },
+  {
+    "item": "Basic Package",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5000",
+    "original": "Basic Package",
+    "source": "invoice_history",
+    "id": 1583
+  },
+  {
+    "item": "Basic Package",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5000",
+    "original": "Basic Package",
+    "source": "invoice_history",
+    "id": 1584
+  },
+  {
+    "item": "Door Accessories",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "Door Accessories",
+    "source": "invoice_history",
+    "id": 1585
+  },
+  {
+    "item": "توريد اسمنت الممتاز Sae Water مقاوم للكبريتات",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3175",
+    "original": "توريد اسمنت الممتاز Sae Water مقاوم للكبريتات",
+    "source": "invoice_history",
+    "id": 1586
+  },
+  {
+    "item": "توريد حديد تسليح عز الدخيله كيلو مم كيلو مم",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "39800",
+    "original": "توريد حديد تسليح عز الدخيله 1800 كيلو 12 مم + 300 كيلو 10 مم",
+    "source": "invoice_history",
+    "id": 1587
+  },
+  {
+    "item": "توريد رمل بناء مطابقة للموصفات الهندسية المعتمده",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "280",
+    "original": "توريد رمل بناء مطابقة للموصفات الهندسية المعتمده",
+    "source": "invoice_history",
+    "id": 1588
+  },
+  {
+    "item": "توريد سن بناء او زيرو جرار مطابقة للموصفات الهندسية المعتمده",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "450",
+    "original": "توريد سن بناء او زيرو جرار  مطابقة للموصفات الهندسية المعتمده",
+    "source": "invoice_history",
+    "id": 1589
+  },
+  {
+    "item": "توريد طوبه اسمنتي عدد",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2500",
+    "original": "توريد طوبه اسمنتي 25*12*6 عدد 2200",
+    "source": "invoice_history",
+    "id": 1590
+  },
+  {
+    "item": "دلايه ديكور معدنية سوداء",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "350",
+    "original": "دلايه ديكور معدنية سوداء",
+    "source": "invoice_history",
+    "id": 1595
+  },
+  {
+    "item": "سماعة صوت داخليه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "700",
+    "original": "سماعة صوت داخليه",
+    "source": "invoice_history",
+    "id": 1601
+  },
+  {
+    "item": "اعمال نجاره شامله",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3000",
+    "original": "اعمال نجاره شامله",
+    "source": "invoice_history",
+    "id": 1602
+  },
+  {
+    "item": "اعمال الكلادينج إماراتي المنشأ",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2500",
+    "original": "اعمال الكلادينج (إماراتي المنشأ)",
+    "source": "invoice_history",
+    "id": 1609
+  },
+  {
+    "item": "صيانة ستاره الهواء",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "500",
+    "original": "صيانة ستاره الهواء",
+    "source": "invoice_history",
+    "id": 1610
+  },
+  {
+    "item": "الافتات",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "15000",
+    "original": "الافتات",
+    "source": "invoice_history",
+    "id": 1611
+  },
+  {
+    "item": "قائمه الأسعار",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "قائمه الأسعار",
+    "source": "invoice_history",
+    "id": 1614
+  },
+  {
+    "item": "اعمال النجاره",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "اعمال النجاره",
+    "source": "invoice_history",
+    "id": 1616
+  },
+  {
+    "item": "مصروفات التاسيس والتجهيز الاولي",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "110000",
+    "original": "مصروفات التاسيس والتجهيز الاولي",
+    "source": "invoice_history",
+    "id": 1618
+  },
+  {
+    "item": "ابو عوف",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "100",
+    "original": "ابو عوف",
+    "source": "invoice_history",
+    "id": 1620
+  },
+  {
+    "item": "Updated Mock Product",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "88.88",
+    "original": "Updated Mock Product",
+    "source": "invoice_history",
+    "id": 1621
+  },
+  {
+    "item": "اعمال تجديد فرع الغردقه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "262500",
+    "original": "اعمال تجديد فرع الغردقه",
+    "source": "invoice_history",
+    "id": 1622
+  },
+  {
+    "item": "الوحات إعلانية",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "الوحات إعلانية",
+    "source": "invoice_history",
+    "id": 1623
+  },
+  {
+    "item": "اعمال الكلادينج إماراتي المنشأ",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2700",
+    "original": "اعمال الكلادينج (إماراتي المنشأ)",
+    "source": "invoice_history",
+    "id": 1742
+  },
+  {
+    "item": "لافتات خاصه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "13000",
+    "original": "لافتات خاصه",
+    "source": "invoice_history",
+    "id": 1743
+  },
+  {
+    "item": "فنيل للامينيشن / Vinyl for Lamination",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "400",
+    "original": "فنيل للامينيشن / Vinyl for Lamination",
+    "source": "invoice_history",
+    "id": 1744
+  },
+  {
+    "item": "تجديد فرع افنيو الماظه",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "212365",
+    "original": "تجديد فرع افنيو الماظه",
+    "source": "invoice_history",
+    "id": 1917
+  },
+  {
+    "item": "اعمال فرع فيصل الهرم",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "156380",
+    "original": "اعمال فرع فيصل الهرم",
+    "source": "invoice_history",
+    "id": 1918
+  },
+  {
+    "item": "اعمال فروع فيصل طنطا المول و البحر",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "78050",
+    "original": "اعمال فروع فيصل طنطا (المول و البحر)",
+    "source": "invoice_history",
+    "id": 1919
+  },
+  {
+    "item": "اجمالي الاعمال المتبقي",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "450000",
+    "original": "اجمالي الاعمال المتبقي",
+    "source": "invoice_history",
+    "id": 1920
+  },
+  {
+    "item": "فرع هليوبوليس //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "17450",
+    "original": "فرع هليوبوليس 2026/12/16",
+    "source": "invoice_history",
+    "id": 1921
+  },
+  {
+    "item": "فرع اركان //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "6350",
+    "original": "فرع اركان 2024/12/19",
+    "source": "invoice_history",
+    "id": 1922
+  },
+  {
+    "item": "فرع مفيدا //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "9300",
+    "original": "فرع مفيدا 2024/12/26",
+    "source": "invoice_history",
+    "id": 1923
+  },
+  {
+    "item": "فرع هليوبوليس //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "فرع هليوبوليس 2024/12/30",
+    "source": "invoice_history",
+    "id": 1924
+  },
+  {
+    "item": "فرع بالم هيلز //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1200",
+    "original": "فرع بالم هيلز 2025/01/02",
+    "source": "invoice_history",
+    "id": 1925
+  },
+  {
+    "item": "فرع اركان //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "3300",
+    "original": "فرع اركان 2025/01/03",
+    "source": "invoice_history",
+    "id": 1926
+  },
+  {
+    "item": "فرع مفيدا //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "16300",
+    "original": "فرع مفيدا 2025/01/03",
+    "source": "invoice_history",
+    "id": 1927
+  },
+  {
+    "item": "فرع بالم هليز //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "11800",
+    "original": "فرع بالم هليز 2025/01/05",
+    "source": "invoice_history",
+    "id": 1928
+  },
+  {
+    "item": "فرع وتر واي التجمع //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "6850",
+    "original": "فرع وتر واي التجمع 2025/01/05",
+    "source": "invoice_history",
+    "id": 1929
+  },
+  {
+    "item": "فرع وتر واي التجمع //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "6000",
+    "original": "فرع وتر واي التجمع 2025/01/07",
+    "source": "invoice_history",
+    "id": 1930
+  },
+  {
+    "item": "فرع وتر واي التجمع //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "2700",
+    "original": "فرع وتر واي التجمع 2025/01/09",
+    "source": "invoice_history",
+    "id": 1931
+  },
+  {
+    "item": "فرع كابيتال زايد //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "4500",
+    "original": "فرع كابيتال زايد 2025/01/16",
+    "source": "invoice_history",
+    "id": 1932
+  },
+  {
+    "item": "فرع بالم هليز //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "فرع بالم هليز 2025/02/09",
+    "source": "invoice_history",
+    "id": 1933
+  },
+  {
+    "item": "فرع وتر واي التجمع //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "800",
+    "original": "فرع وتر واي التجمع 2025/02/09",
+    "source": "invoice_history",
+    "id": 1934
+  },
+  {
+    "item": "فرع ويك اوف كايرو //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "فرع ويك اوف كايرو 2025/02/21",
+    "source": "invoice_history",
+    "id": 1935
+  },
+  {
+    "item": "فرع وتر واي التجمع //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "36950",
+    "original": "فرع وتر واي التجمع 2025/02/27",
+    "source": "invoice_history",
+    "id": 1936
+  },
+  {
+    "item": "فرع وتر واي التجمع //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1000",
+    "original": "فرع وتر واي التجمع 2025/03/13",
+    "source": "invoice_history",
+    "id": 1937
+  },
+  {
+    "item": "فرع مفيدا //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "11150",
+    "original": "فرع مفيدا 2025/04/14",
+    "source": "invoice_history",
+    "id": 1938
+  },
+  {
+    "item": "فرع وتر واي التجمع //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1300",
+    "original": "فرع وتر واي التجمع 2025/04/23",
+    "source": "invoice_history",
+    "id": 1939
+  },
+  {
+    "item": "فرع بلات فورت //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5400",
+    "original": "فرع بلات فورت 2025/04/25",
+    "source": "invoice_history",
+    "id": 1940
+  },
+  {
+    "item": "فرع اركان //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "5700",
+    "original": "فرع اركان 2025/05/13",
+    "source": "invoice_history",
+    "id": 1941
+  },
+  {
+    "item": "فرع بالم هيلز //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "6000",
+    "original": "فرع بالم هيلز 2025/05/15",
+    "source": "invoice_history",
+    "id": 1942
+  },
+  {
+    "item": "فرع الشيخ زايد //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1200",
+    "original": "فرع الشيخ زايد 2025/05/10",
+    "source": "invoice_history",
+    "id": 1943
+  },
+  {
+    "item": "فرع دريف التجمع //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "7500",
+    "original": "فرع دريف التجمع 2025/05/12",
+    "source": "invoice_history",
+    "id": 1944
+  },
+  {
+    "item": "فرع مفيد //",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات الفواتير",
+    "price": "1750",
+    "original": "فرع مفيد 2025/05/13",
+    "source": "invoice_history",
+    "id": 1945
+  }
+]

@@ -1,0 +1,61 @@
+[
+  {
+    "allowed_tools": {
+      "tool_names": [
+        "daftra-accounting___get_journals_list",
+        "daftra-accounting___get_journal_accounts_by_id",
+        "daftra-accounting___get_journal_accounts_list",
+        "daftra-accounting___get_journal_cats_list",
+        "daftra-crm___get_clients_by_id",
+        "daftra-crm___get_clients_list",
+        "daftra-crm___get_client_appointments_list",
+        "daftra-crm___get_client_payments_by_id",
+        "daftra-crm___get_client_payments_list",
+        "daftra-crm___get_notes_list",
+        "daftra-finance___get_expenses_by_id",
+        "daftra-finance___get_expenses_list",
+        "daftra-finance___get_incomes_list",
+        "daftra-finance___get_taxes_list",
+        "daftra-finance___get_treasuries_list",
+        "daftra-inventory___get_products_by_id",
+        "daftra-inventory___get_products_list",
+        "daftra-inventory___get_product_categories_list",
+        "daftra-inventory___get_requisitions_list",
+        "daftra-inventory___get_stock_transactions_list",
+        "daftra-inventory___get_stores_list",
+        "daftra-operations___get_work_orders_by_id",
+        "daftra-operations___get_work_orders_list",
+        "daftra-operations___get_work_order_appointments_list",
+        "daftra-purchases___get_purchase_invoices_list",
+        "daftra-purchases___get_purchase_orders_list",
+        "daftra-purchases___get_suppliers_by_id",
+        "daftra-purchases___get_suppliers_list",
+        "daftra-sales___get_estimates_by_id",
+        "daftra-sales___get_estimates_list",
+        "daftra-sales___get_estimate_appointments_list",
+        "daftra-sales___get_invoices_by_id",
+        "daftra-sales___get_invoices_list",
+        "daftra-sales___get_invoices_subscription_list",
+        "daftra-sales___get_invoice_appointments_list",
+        "daftra-sales___get_invoice_payments_by_id",
+        "daftra-sales___get_invoice_payments_list",
+        "daftra-sales___get_shipping_options_list"
+      ]
+    },
+    "project_connection_id": "daftra-toolbox-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_daftra",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/daftra-toolbox/versions/3/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "daftra-toolbox-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_daftra",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/daftra-toolbox/versions/3/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "type": "web_search"
+  }
+]

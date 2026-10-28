@@ -1,0 +1,35 @@
+[
+  {
+    "allowed_tools": {
+      "tool_names": [
+        "check_account",
+        "send_auth_otp",
+        "create_auth_conflict",
+        "open_support_ticket",
+        "get_allowed_apps"
+      ]
+    },
+    "project_connection_id": "az-auth-mcp",
+    "require_approval": "never",
+    "server_label": "az-auth-mcp",
+    "server_url": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-bxuhcbfdoaflsgbxiqei-supabase-co-functions-v1-az-auth-mcp",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "kb-az-knowledge-8blqr",
+    "require_approval": "never",
+    "server_label": "kb-az-knowledge-8blqr",
+    "server_url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-05-01-preview",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "kb-az-knowledge-8blqr",
+    "require_approval": "never",
+    "server_label": "kb-az-knowledge-8blqr",
+    "server_url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-08-01-preview",
+    "type": "mcp"
+  },
+  {
+    "type": "web_search"
+  }
+]

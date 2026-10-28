@@ -1,0 +1,450 @@
+{
+  "value": [
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/FoundryMCPServerpreview",
+      "isDefault": true,
+      "metadata": {
+        "oAuthProvider": "managed",
+        "toolEntityId": "azureml://location/eastus/apiCenter/registry-prod-bl/type/tools/objectId/microsoft-foundry-mcp-server/version/1",
+        "type": "catalog_MCP"
+      },
+      "name": "FoundryMCPServerpreview",
+      "scopes": [
+        "https://mcp.ai.azure.com/Foundry.Mcp.Tools"
+      ],
+      "target": "https://mcp.ai.azure.com",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/AzureSpeechMCPServer",
+      "isDefault": false,
+      "metadata": {
+        "parameterized": "true",
+        "toolEntityId": "azureml://location/eastus/apiCenter/registry-prod-bl/type/tools/objectId/azure-speech-mcp-server/version/1",
+        "type": "catalog_MCP"
+      },
+      "name": "AzureSpeechMCPServer",
+      "target": "https://az-ai-resource.cognitiveservices.azure.com/speech/mcp?api-version=2025-11-07-preview",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "ApiKey"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/aisearchazabrgai13631b8blqr",
+      "isDefault": true,
+      "metadata": {
+        "ApiType": "Azure",
+        "ApiVersion": "2024-05-01-preview",
+        "DeploymentApiVersion": "2023-11-01",
+        "ResourceId": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.Search/searchServices/aisearchazabrgai136311",
+        "displayName": "aisearchazabrgai136311",
+        "type": "azure_ai_search"
+      },
+      "name": "aisearchazabrgai13631b8blqr",
+      "target": "https://aisearchazabrgai136311.search.windows.net/",
+      "type": "CognitiveSearch"
+    },
+    {
+      "credentials": {
+        "type": "None"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/az-uberfix-mcp",
+      "isDefault": false,
+      "metadata": {
+        "type": "custom_MCP"
+      },
+      "name": "az-uberfix-mcp",
+      "target": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-alazab-com-mcp-uberfix-sse",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/kb-az-knowledgebase-da-8blqr",
+      "isDefault": false,
+      "metadata": {
+        "knowledgeBaseName": "az-knowledgebase-daftra",
+        "type": "knowledgeBase_MCP"
+      },
+      "name": "kb-az-knowledgebase-da-8blqr",
+      "target": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledgebase-daftra/mcp?api-version=2026-05-01-preview",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/AzureDevOpsMCPServerpreview",
+      "isDefault": false,
+      "metadata": {
+        "oAuthProvider": "managed",
+        "toolEntityId": "azureml://location/eastus/apiCenter/registry-prod-bl/type/tools/objectId/azure-devops-mcp/version/1",
+        "type": "catalog_MCP"
+      },
+      "name": "AzureDevOpsMCPServerpreview",
+      "scopes": [
+        "api://2a72489c-aab2-4b65-b93a-a91edccf33b8/Ado.Mcp.Tools"
+      ],
+      "target": "https://mcp.dev.azure.com/azab",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-prod-to-maint",
+      "isDefault": true,
+      "metadata": {},
+      "name": "a2a-prod-to-maint",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-maint/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-maint-to-prod",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-maint-to-prod",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-prod/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/kb-az-knowledge-8blqr",
+      "isDefault": false,
+      "metadata": {
+        "knowledgeBaseName": "az-knowledge",
+        "type": "knowledgeBase_MCP"
+      },
+      "name": "kb-az-knowledge-8blqr",
+      "target": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-08-01-preview",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/AzWorkIQ",
+      "isDefault": false,
+      "metadata": {
+        "oAuthProvider": "managed",
+        "toolEntityId": "azureml://location/eastus/apiCenter/registry-prod-bl/type/tools/objectId/microsoft-word-mcp-frontier/version/1",
+        "type": "catalog_MCP"
+      },
+      "name": "AzWorkIQ",
+      "scopes": [
+        "api://ea9ffc3e-8a23-4a7d-836d-234d7c7565c1/McpServers.Word.All"
+      ],
+      "target": "https://agent365.svc.cloud.microsoft/agents/servers/mcp_WordServer",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/FoundryMCPServerpreview2",
+      "isDefault": false,
+      "metadata": {
+        "oAuthProvider": "managed",
+        "toolEntityId": "azureml://location/eastus/apiCenter/registry-prod-bl/type/tools/objectId/microsoft-foundry-mcp-server/version/1",
+        "type": "catalog_MCP"
+      },
+      "name": "FoundryMCPServerpreview2",
+      "scopes": [
+        "https://mcp.ai.azure.com/Foundry.Mcp.Tools"
+      ],
+      "target": "https://mcp.ai.azure.com",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/az_daftra_api",
+      "isDefault": true,
+      "metadata": {
+        "type": "openapi"
+      },
+      "name": "az_daftra_api",
+      "target": "-",
+      "type": "CustomKeys"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/daftra-api",
+      "isDefault": false,
+      "metadata": {},
+      "name": "daftra-api",
+      "target": "https://alazab-co.daftra.com/api2",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "ApiKey"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/az-ai-resource",
+      "isDefault": true,
+      "metadata": {
+        "authConfig": "{\"type\":\"api_key\",\"name\":\"api-key\",\"format\":\"{api_key}\"}",
+        "customHeaders": "{}",
+        "deploymentInPath": "false",
+        "inferenceAPIVersion": "",
+        "modelDiscovery": "{\"listModelsEndpoint\":\"/deployments\",\"getModelEndpoint\":\"/deployments/{deploymentName}\",\"deploymentProvider\":\"AzureOpenAI\"}",
+        "models": "[]"
+      },
+      "name": "az-ai-resource",
+      "target": "https://az-ai-gateway.azure-api.net/az-ai-resource",
+      "type": "ApiManagement"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-auth",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-auth",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-auth/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-azabot",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-azabot",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-azabot/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-codex",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-codex",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-codex/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-finance",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-finance",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-finance/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-maint",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-maint",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-maint/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-payments",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-payments",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-payments/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-prod",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-prod",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-prod/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-project",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-project",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-project/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "AgenticIdentityToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-vision",
+      "isDefault": false,
+      "metadata": {},
+      "name": "a2a-sol-to-vision",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-vision/endpoint/protocols/a2a",
+      "type": "RemoteA2A"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/daftra-api-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "daftra-api-connection",
+      "target": "https://alazab-co.daftra.com",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/magicplan-api-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "magicplan-api-connection",
+      "target": "https://cloud.magicplan.app",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/magicplan-apim-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "magicplan-apim-connection",
+      "target": "https://az-ai-gateway.azure-api.net",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/uberfix-gateway-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "uberfix-gateway-connection",
+      "target": "https://zrrffsjbfkphridqyais.supabase.co/functions/v1",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/whatsapp-graph-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "whatsapp-graph-connection",
+      "target": "https://graph.facebook.com/v24.0",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/daftra-toolbox-mcp-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "daftra-toolbox-mcp-connection",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/daftra-toolbox/versions/3/mcp?api-version=v1",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/magicplan-toolbox-mcp-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "magicplan-toolbox-mcp-connection",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/magicplan-toolbox/versions/3/mcp?api-version=v1",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/uberfix-toolbox-mcp-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "uberfix-toolbox-mcp-connection",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/1/mcp?api-version=v1",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/whatsapp-toolbox-mcp-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "whatsapp-toolbox-mcp-connection",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/whatsapp-toolbox/versions/1/mcp?api-version=v1",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "UserEntraToken"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/uberfix-toolbox-v2-mcp-connection",
+      "isDefault": false,
+      "metadata": {},
+      "name": "uberfix-toolbox-v2-mcp-connection",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1",
+      "type": "RemoteTool"
+    },
+    {
+      "credentials": {
+        "type": "ApiKey"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/az-devtool-functions-0095",
+      "isDefault": true,
+      "metadata": {
+        "ApiType": "Azure",
+        "ResourceId": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.Insights/components/az-devtool-functions"
+      },
+      "name": "az-devtool-functions-0095",
+      "target": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.Insights/components/az-devtool-functions",
+      "type": "AppInsights"
+    },
+    {
+      "credentials": {
+        "type": "CustomKeys"
+      },
+      "id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/az-auth-mcp",
+      "isDefault": false,
+      "metadata": {
+        "type": "custom_MCP"
+      },
+      "name": "az-auth-mcp",
+      "target": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-bxuhcbfdoaflsgbxiqei-supabase-co-functions-v1-az-auth-mcp",
+      "type": "RemoteTool"
+    }
+  ]
+}

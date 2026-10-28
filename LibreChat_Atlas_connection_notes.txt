@@ -1,0 +1,10 @@
+Project: az-mongodb
+Project ID: 6acc80865c102b1d2b2800b7
+Cluster: az-cluster
+MongoDB version: 8.0.34
+Database: LibreChat
+Database user: librechat_app
+Role: readWrite on LibreChat
+Allowed IP: 102.42.77.124/32
+Connection string saved in LibreChat_Atlas_Mongo.env
+Before deployment: check server public egress IP is allowed in Atlas Network Access.

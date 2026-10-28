@@ -1,0 +1,223 @@
+========================================
+INFO   : 1
+APP    : ai_chatbot
+BRANCH : main
+REMOTE : https://github.com/AlazabDev/ai_chatbot
+========================================
+INFO   : 2
+APP    : auth_hub
+BRANCH : develop-version-16
+REMOTE : https://github.com/AlazabDev/auth-hub.git
+========================================
+
+APP    : banking
+BRANCH : version-16-hotfix
+REMOTE : https://github.com/alyf-de/banking.git
+========================================
+APP    : builder
+BRANCH : master
+REMOTE : https://github.com/frappe/builder.git
+========================================
+APP    : changai
+BRANCH : main
+REMOTE : https://github.com/ERPGulf/changAI.git
+========================================
+APP    : copilot
+BRANCH : version-16
+REMOTE : https://github.com/AlazabDev/copilot.git
+========================================
+APP    : crm
+BRANCH : main
+REMOTE : https://github.com/frappe/crm.git
+========================================
+APP    : drive
+BRANCH : main
+REMOTE : https://github.com/frappe/drive.git
+========================================
+APP    : ecommerce_integrations
+BRANCH : main
+REMOTE : https://github.com/frappe/ecommerce_integrations.git
+========================================
+APP    : email_delivery_service
+BRANCH : main
+REMOTE : https://github.com/frappe/email_delivery_service.git
+========================================
+APP    : employee_self_service
+BRANCH : version-16
+REMOTE : https://github.com/nesscale-com/employee_self_service.git
+========================================
+APP    : erpnext
+BRANCH : version-16
+REMOTE : https://github.com/frappe/erpnext.git
+========================================
+APP    : erpnext_egypt_compliance
+BRANCH : main
+REMOTE : https://github.com/Axentorllc/erpnext_egypt_compliance.git
+========================================
+APP    : esign
+BRANCH : main
+REMOTE : https://github.com/SeemabAsghar/esign.git
+========================================
+APP    : flow
+BRANCH : version-16
+REMOTE : https://github.com/AlazabDev/flow.git
+========================================
+APP    : forms_pro
+BRANCH : develop
+REMOTE : https://github.com/buildwithhussain/forms_pro
+========================================
+APP    : frappe
+BRANCH : version-16
+REMOTE : https://github.com/frappe/frappe.git
+========================================
+APP    : frappe_agile
+BRANCH : version-16
+REMOTE : https://github.com/ONE-F-M/frappe_agile.git
+========================================
+APP    : frappe_ai
+BRANCH : main
+REMOTE : https://github.com/vyogotech/frappe_ai
+========================================
+APP    : frappe_assistant_core
+BRANCH : version-16
+REMOTE : https://github.com/AlazabDev/frappe_assistant_core
+========================================
+APP    : frappe_file_merge
+BRANCH : version-16
+REMOTE : https://github.com/manavmandli/frappe_file_merge.git
+========================================
+APP    : frappe_seo
+BRANCH : version-16
+REMOTE : https://github.com/AlazabDev/frappe_seo
+========================================
+APP    : frappe_whatsapp
+BRANCH : master
+REMOTE : https://github.com/shridarpatil/frappe_whatsapp.git
+========================================
+APP    : frappe_whatsapp_chatbot
+BRANCH : master
+REMOTE : https://github.com/shridarpatil/frappe_whatsapp_chatbot
+========================================
+APP    : gameplan
+BRANCH : develop
+REMOTE : https://github.com/frappe/gameplan.git
+========================================
+APP    : helpdesk
+BRANCH : main
+REMOTE : https://github.com/frappe/helpdesk.git
+========================================
+APP    : hrms
+BRANCH : version-16
+REMOTE : https://github.com/frappe/hrms.git
+========================================
+APP    : insights
+BRANCH : version-3
+REMOTE : https://github.com/frappe/insights.git
+========================================
+APP    : material_price_control
+BRANCH : main
+REMOTE : https://github.com/sagarrgarg/material_price_control.git
+========================================
+APP    : meeting_management
+BRANCH : version-16
+REMOTE : https://github.com/finbyz/meeting_management.git
+========================================
+APP    : mint
+BRANCH : main
+REMOTE : https://github.com/AlazabDev/mint.git
+========================================
+APP    : otp_generation
+BRANCH : main
+REMOTE : https://github.com/omarrtarek29/otp_generation
+========================================
+APP    : payments
+BRANCH : version-16
+REMOTE : https://github.com/frappe/payments.git
+========================================
+APP    : pdf_on_submit
+BRANCH : version-16
+REMOTE : https://github.com/alyf-de/pdf_on_submit.git
+========================================
+APP    : planner
+BRANCH : main
+REMOTE : https://github.com/onfuseag/planner.git
+========================================
+APP    : portal_theme
+BRANCH : devlop
+REMOTE : https://github.com/Sudhanshu-Badole/Portal_Theme.git
+========================================
+APP    : precivault
+BRANCH : main
+REMOTE : https://github.com/precihole/precivault.git
+========================================
+APP    : print_designer
+BRANCH : main
+REMOTE : https://github.com/frappe/print_designer.git
+========================================
+APP    : projectit
+BRANCH : develop
+REMOTE : https://github.com/Arus-Info/ProjectIT.git
+========================================
+APP    : quickbooks_master_sync
+BRANCH : develop
+REMOTE : https://github.com/invento-software-limited/quickbooks_master_sync.git
+========================================
+APP    : raven
+BRANCH : develop
+REMOTE : https://github.com/The-Commit-Company/raven
+========================================
+APP    : saas_theme
+BRANCH : version-16
+REMOTE : https://github.com/vineyrawat/saas_theme.git
+========================================
+APP    : sales_warehouse_selector
+BRANCH : main
+REMOTE : https://github.com/murtaza-ghadiali/sales_warehouse_selector.git
+========================================
+APP    : scan_me
+BRANCH : develop
+REMOTE : https://github.com/Tusharp21/scan-me.git
+========================================
+APP    : sheet_cutting_layout
+BRANCH : develop
+REMOTE : https://github.com/Guru107/sheet_cutting_layout.git
+========================================
+APP    : sketchboard
+BRANCH : main
+REMOTE : https://github.com/jeshani/sketchboard
+========================================
+APP    : slides
+BRANCH : develop
+REMOTE : https://github.com/frappe/slides.git
+========================================
+APP    : studio
+BRANCH : develop
+REMOTE : https://github.com/frappe/studio.git
+========================================
+APP    : telephony
+BRANCH : develop
+REMOTE : https://github.com/frappe/telephony.git
+========================================
+APP    : webshop
+BRANCH : version-16
+REMOTE : https://github.com/frappe/webshop.git
+========================================
+APP    : whatsapp_automation_pro
+BRANCH : main
+REMOTE : https://github.com/nexgenerptechnologies/whatsapp_automation_pro.git
+========================================
+APP    : whatsapp_chat
+BRANCH : develop
+REMOTE : https://github.com/shridarpatil/whatsapp_chat.git
+========================================
+APP    : workboard
+BRANCH : master
+REMOTE : https://github.com/bhavesh95863/workboard
+========================================
+APP    : xero
+BRANCH : main
+REMOTE : https://github.com/EPIUSECX/cohenix_bma_xero.git
+========================================
+APP    : zikpro_invoice_ocr
+BRANCH : main
+REMOTE : https://github.com/Zikpro/invoice-ocr-ai

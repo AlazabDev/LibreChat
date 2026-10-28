@@ -1,0 +1,11 @@
+[
+  {
+    "container": {
+      "type": "auto"
+    },
+    "type": "code_interpreter"
+  },
+  {
+    "type": "web_search"
+  }
+]

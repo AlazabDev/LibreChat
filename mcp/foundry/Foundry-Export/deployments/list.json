@@ -1,0 +1,72 @@
+{
+  "value": [
+    {
+      "capabilities": {
+        "chat_completion": "true"
+      },
+      "modelName": "DeepSeek-V4-Pro",
+      "modelPublisher": "DeepSeek",
+      "modelVersion": "2026-04-23",
+      "name": "az-model-finance",
+      "sku": {
+        "capacity": 250,
+        "name": "GlobalStandard"
+      },
+      "type": "ModelDeployment"
+    },
+    {
+      "capabilities": {
+        "embeddings": "true"
+      },
+      "modelName": "text-embedding-3-small",
+      "modelPublisher": "OpenAI",
+      "modelVersion": "1",
+      "name": "az-models-text",
+      "sku": {
+        "capacity": 532,
+        "name": "GlobalStandard"
+      },
+      "type": "ModelDeployment"
+    },
+    {
+      "capabilities": {
+        "chat_completion": "true"
+      },
+      "modelName": "gpt-5.6-sol",
+      "modelPublisher": "OpenAI",
+      "modelVersion": "2026-07-09",
+      "name": "az-model-sol",
+      "sku": {
+        "capacity": 2500,
+        "name": "GlobalStandard"
+      },
+      "type": "ModelDeployment"
+    },
+    {
+      "capabilities": {
+        "chat_completion": "false"
+      },
+      "modelName": "gpt-5.3-codex",
+      "modelPublisher": "OpenAI",
+      "modelVersion": "2026-02-24",
+      "name": "az-model-codex",
+      "sku": {
+        "capacity": 10000,
+        "name": "GlobalStandard"
+      },
+      "type": "ModelDeployment"
+    },
+    {
+      "capabilities": {},
+      "modelName": "google--gemma-4-31b-it",
+      "modelPublisher": "azure-huggingface",
+      "modelVersion": "5",
+      "name": "az-model-gemma",
+      "sku": {
+        "capacity": 2,
+        "name": "GlobalManagedCompute"
+      },
+      "type": "ModelDeployment"
+    }
+  ]
+}

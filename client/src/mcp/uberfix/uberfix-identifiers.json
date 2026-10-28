@@ -1,0 +1,1737 @@
+{
+  "$schema_version": "1.0.0",
+  "generated_at": "2026-09-02T04:00:00Z",
+  "system": {
+    "name": "UberFix.shop",
+    "vendor": "Alazab Construction",
+    "market": "EG",
+    "locale_default": "ar-EG",
+    "timezone": "Africa/Cairo",
+    "currency": "EGP",
+    "urls": {
+      "production": "https://uberfix.shop",
+      "aliases": [
+        "https://uberfix.site",
+        "https://uberfix.alazab.com",
+        "https://uberfiix.lovable.app"
+      ],
+      "supabase_project_ref": "zrrffsjbfkphridqyais",
+      "functions_base": "https://zrrffsjbfkphridqyais.supabase.co/functions/v1"
+    }
+  },
+  "agent_rules": [
+    "Never hardcode API keys; read BOT_API_KEY from env and send it in header x-api-key.",
+    "All external maintenance intake MUST go through /functions/v1/gateway (REST or MCP). Never write to tables directly.",
+    "Workflow stages are strictly lowercase (workflow_stage_t). Use only transitions listed in workflow.transitions.",
+    "priority accepted by gateway: low|medium|high (urgent is normalized to high).",
+    "Egyptian phones: 01XXXXXXXXX or +201XXXXXXXXX (validated by is_valid_egyptian_phone).",
+    "Request numbers: prefer UF/MR/YYMMDD/SEQ; legacy AZ-UF-YYYY-MM-###### and MR-26-### still exist and are searchable.",
+    "Reference UUIDs (categories, cities, companies) are stable production values; service and branch lists should be refreshed via list_services / get_branches."
+  ],
+  "auth": {
+    "headers": {
+      "api_key": "x-api-key",
+      "bearer": "Authorization: Bearer <supabase_user_jwt | gateway_jwt>",
+      "anon_public_mcp": "apikey + Authorization: Bearer <SUPABASE_ANON_KEY>"
+    },
+    "env_vars": {
+      "UF_API_ENDPOINTS": "https://zrrffsjbfkphridqyais.supabase.co/functions/v1/gateway",
+      "BOT_API_KEY": "<per-bot secret, uf_ prefix>",
+      "SUPABASE_URL": "",
+      "SUPABASE_ANON_KEY": ""
+    },
+    "api_key_format": "uf_ + 48 hex chars; stored as SHA-256 in api_consumers.api_key_hash",
+    "rate_limit_per_minute": 120,
+    "scopes": [
+      "requests:read",
+      "requests:write",
+      "catalog:read",
+      "technicians:read",
+      "properties:read"
+    ],
+    "api_consumers": [
+      {
+        "name": "azabot",
+        "prefix": "uf_e4c85e46",
+        "channel": "bot",
+        "use": "aza.team AI assistant"
+      },
+      {
+        "name": "uberfix_bot",
+        "prefix": "uf_f3af70b6",
+        "channel": "bot",
+        "use": "uberfix.shop booking & tracking"
+      },
+      {
+        "name": "laban_alasfour_bot",
+        "prefix": "uf_f84d6d69",
+        "channel": "bot",
+        "use": "commercial inquiries"
+      },
+      {
+        "name": "brands_identity_bot",
+        "prefix": "uf_bf5a2139",
+        "channel": "bot",
+        "use": "brand identity"
+      },
+      {
+        "name": "luxury_finishing_bot",
+        "prefix": "uf_6f5d2c47",
+        "channel": "bot",
+        "use": "finishing quotes"
+      },
+      {
+        "name": "Brand Identity Website",
+        "prefix": "06399882",
+        "channel": "api",
+        "scopes": [
+          "requests:read",
+          "catalog:read"
+        ]
+      }
+    ],
+    "staff_roles_for_bot_privileged_actions": [
+      "admin",
+      "manager",
+      "owner",
+      "staff",
+      "dispatcher",
+      "engineering"
+    ]
+  },
+  "gateway": {
+    "base": "/functions/v1/gateway",
+    "endpoints": {
+      "health": "GET /gateway/health",
+      "info": "GET /gateway/",
+      "rest": "POST /gateway/ | POST /gateway/rest",
+      "mcp": "POST /gateway/mcp (Streamable HTTP; Accept: application/json, text/event-stream)",
+      "ai": [
+        "GET /gateway/ai/health",
+        "POST /gateway/ai/agent",
+        "POST /gateway/ai/chat",
+        "POST /gateway/ai/stream",
+        "POST /gateway/ai/classify",
+        "POST /gateway/ai/summarize"
+      ]
+    },
+    "routing_rule": "body with `channel` -> maintenance engine; body with `action`+`payload` (no channel) -> bot engine",
+    "bot_engine": {
+      "body_shape": {
+        "action": "string",
+        "payload": "object",
+        "session_id": "string?",
+        "metadata": {
+          "source": "string?"
+        }
+      },
+      "actions": {
+        "create_request": {
+          "required": [
+            "client_name",
+            "client_phone",
+            "location",
+            "title",
+            "description"
+          ],
+          "optional": [
+            "client_email",
+            "service_type",
+            "priority",
+            "latitude",
+            "longitude"
+          ],
+          "creates_with_channel": "bot_gateway"
+        },
+        "check_status": {
+          "required": [
+            "search_term"
+          ],
+          "optional": {
+            "search_type": [
+              "request_number",
+              "phone",
+              "request_id"
+            ]
+          }
+        },
+        "get_request_details": {
+          "required": [
+            "request_id|request_number",
+            "client_phone (non-staff)"
+          ]
+        },
+        "update_request": {
+          "required": [
+            "request_id",
+            "client_phone",
+            "updates"
+          ],
+          "updatable_fields": [
+            "description",
+            "location",
+            "priority",
+            "service_type",
+            "customer_notes",
+            "latitude",
+            "longitude",
+            "title"
+          ],
+          "workflow_stage_allowed": [
+            "submitted",
+            "acknowledged",
+            "on_hold",
+            "cancelled",
+            "scheduled"
+          ],
+          "blocked_when_stage_in": [
+            "closed",
+            "paid",
+            "cancelled"
+          ]
+        },
+        "cancel_request": {
+          "required": [
+            "request_id",
+            "client_phone"
+          ],
+          "optional": [
+            "reason"
+          ],
+          "blocked_when_stage_in": [
+            "in_progress",
+            "inspection",
+            "completed",
+            "billed",
+            "paid",
+            "closed",
+            "cancelled"
+          ]
+        },
+        "add_note": {
+          "required": [
+            "request_id",
+            "note",
+            "client_phone"
+          ]
+        },
+        "assign_technician": {
+          "required": [
+            "request_id"
+          ],
+          "optional": [
+            "technician_id (auto if omitted)"
+          ],
+          "privileged": true
+        },
+        "list_technicians": {
+          "optional": [
+            "specialization",
+            "limit"
+          ]
+        },
+        "list_services": {},
+        "list_categories": {},
+        "get_branches": {},
+        "find_nearest_branch": {
+          "required": [
+            "lat",
+            "lng"
+          ]
+        },
+        "get_quote": {
+          "required": [
+            "service_type",
+            "description",
+            "client_name",
+            "client_phone"
+          ],
+          "optional": [
+            "location",
+            "area_sqm"
+          ]
+        },
+        "collect_customer_info": {
+          "required": [
+            "client_phone"
+          ],
+          "optional": [
+            "client_name",
+            "location",
+            "notes"
+          ]
+        }
+      },
+      "service_type_labels": [
+        "plumbing",
+        "electrical",
+        "ac",
+        "painting",
+        "carpentry",
+        "cleaning",
+        "general",
+        "appliance",
+        "pest_control",
+        "landscaping",
+        "finishing",
+        "renovation"
+      ],
+      "errors": {
+        "400": "Unknown action / validation",
+        "401": "missing auth",
+        "403": "invalid or inactive key, origin not allowed",
+        "404": "not found"
+      }
+    },
+    "maintenance_engine": {
+      "body_shape": {
+        "channel": "Channel",
+        "action": "create_request|transition_stage|get_status|cancel|add_note (default create_request)",
+        "client_name": "required",
+        "client_phone": "string",
+        "client_email": "string?",
+        "service_type": "string",
+        "priority": "low|medium|high",
+        "description": "string",
+        "location": "string?",
+        "branch_id": "uuid?",
+        "company_id": "uuid?",
+        "property_id": "uuid?",
+        "latitude": "number?",
+        "longitude": "number?",
+        "images": "string[]?",
+        "source_id": "string?",
+        "source_metadata": "object?"
+      },
+      "channels": [
+        "whatsapp_flow",
+        "jotform",
+        "public_form",
+        "qr_guest",
+        "facebook_lead",
+        "phone",
+        "internal",
+        "whatsapp_chat",
+        "email",
+        "api",
+        "bot_gateway"
+      ],
+      "channel_auth": {
+        "api": "x-api-key required",
+        "bot_gateway": "api key or gateway JWT",
+        "internal": "authenticated Supabase user JWT required",
+        "others": "trusted internal channels (server-side callers only)"
+      },
+      "service_type_normalization": [
+        "plumbing",
+        "electrical",
+        "ac",
+        "carpentry",
+        "metalwork",
+        "painting",
+        "cleaning",
+        "other"
+      ],
+      "attachments_bucket": "maintenance-attachments",
+      "http_codes": {
+        "201": "created",
+        "401": "auth required",
+        "403": "forbidden",
+        "404": "property not found",
+        "409": "invalid branch/company",
+        "500": "no default company/branch"
+      }
+    },
+    "mcp_tools": {
+      "create_maintenance_request": {
+        "client_name": "str",
+        "client_phone": "str",
+        "service_type": "str",
+        "description": "str",
+        "priority": "low|medium|high|urgent?",
+        "location": "str?"
+      },
+      "transition_request_stage": {
+        "request_id|request_number": "str",
+        "to_stage": "workflow_stage",
+        "reason": "str?"
+      },
+      "get_request_status": {
+        "request_id|request_number": "str"
+      },
+      "cancel_request": {
+        "request_id|request_number": "str",
+        "reason": "str"
+      },
+      "add_request_note": {
+        "request_id|request_number": "str",
+        "note": "str"
+      },
+      "list_services": {},
+      "list_categories": {},
+      "get_branches": {},
+      "list_technicians": {
+        "specialization": "str?",
+        "limit": "int?"
+      },
+      "find_nearest_branch": {
+        "lat": "num",
+        "lng": "num"
+      },
+      "get_quote": {
+        "service_type": "str",
+        "description": "str",
+        "client_name": "str",
+        "client_phone": "str",
+        "location": "str?"
+      },
+      "check_status_quick": {
+        "search_term": "str",
+        "search_type": "request_number|phone|request_id"
+      },
+      "server_info": {}
+    }
+  },
+  "public_mcp_function": {
+    "path": "/functions/v1/mcp",
+    "server_name": "uberfix-mcp",
+    "auth": "SUPABASE_ANON_KEY (RLS enforced)",
+    "tools": {
+      "list_services": {
+        "limit": "1-200?"
+      },
+      "list_branches": {
+        "city": "str?"
+      },
+      "find_nearest_branch": {
+        "lat": "num",
+        "lng": "num"
+      },
+      "track_maintenance_request": {
+        "request_number": "UF/MR/YYMMDD/SEQ"
+      },
+      "create_maintenance_request": {
+        "client_name": "min2",
+        "client_phone": "min6",
+        "service_type": "min2",
+        "description": "min5",
+        "location": "min2?",
+        "priority": "low|medium|high|urgent?"
+      }
+    },
+    "known_issue": "create tool still targets legacy /functions/v1/maintenance-gateway; canonical target is /functions/v1/gateway"
+  },
+  "public_rpcs_anon": [
+    "public_track_request(request_number)",
+    "public_get_request_timeline_notes",
+    "public_get_invoice_by_request",
+    "get_public_default_branch_company"
+  ],
+  "edge_functions": {
+    "verify_jwt_false": [
+      "auth-callback",
+      "chatbot",
+      "ufbot",
+      "get-maps-key",
+      "get-mapbox-token",
+      "instagram-webhook",
+      "meta-webhook",
+      "send-maintenance-notification",
+      "gateway",
+      "submit-public-request",
+      "eta-invoice",
+      "eta-callback"
+    ],
+    "verify_jwt_true": [
+      "error-tracking",
+      "send-invoice",
+      "send-twilio-message",
+      "send-whatsapp-meta",
+      "calculate-route",
+      "calculate-monthly-bonuses",
+      "process-national-id-ocr",
+      "assign-technician-to-request",
+      "sla-monitor",
+      "send-unified-notification",
+      "approve-technician",
+      "background-jobs"
+    ],
+    "other": [
+      "admin-list-users",
+      "api-oauth-token",
+      "api-webhook-dispatcher",
+      "bulk-import-csv",
+      "cache-service",
+      "elevenlabs-tts",
+      "facebook-leads-webhook",
+      "get-default-company-branch",
+      "get-property-for-qr",
+      "get-users",
+      "get-vendor-locations-public",
+      "import-gallery-images",
+      "jotform-sync",
+      "jotform-webhook",
+      "mail-fetch-body",
+      "mail-send",
+      "mail-sync",
+      "mcp",
+      "meta-deauthorize",
+      "meta-delete-data",
+      "meta-review-actions",
+      "paytabs-callback",
+      "paytabs-create-payment",
+      "process-approval",
+      "query-maintenance-requests",
+      "receive-twilio-message",
+      "safe-update",
+      "seafile-upload",
+      "send-booking-notification",
+      "send-whatsapp-otp",
+      "sla-manager",
+      "submit-uberfix-templates",
+      "twilio-delivery-status",
+      "twilio-fallback",
+      "verify-whatsapp-otp",
+      "whatsapp-flow",
+      "whatsapp-templates",
+      "whatsapp-templates-webhook",
+      "whatsapp-webhook"
+    ]
+  },
+  "serial_formats": {
+    "maintenance_request": {
+      "canonical": "UF/MR/{YYMMDD}/{SEQ4}",
+      "example": "UF/MR/260426/0001",
+      "legacy": [
+        "AZ-UF-{YYYY}-{MM}-{SEQ6}",
+        "MR-26-{SEQ}",
+        "UF/MR/LEG/{SEQ6}"
+      ],
+      "live_distribution": {
+        "MR-26-*": 39,
+        "AZ-UF-26-*": 39
+      }
+    },
+    "technician": "UF-TEC-{SEQ5}",
+    "branch": "UF-BR-{SEQ5}",
+    "property": "UF-PRP-{SEQ5}",
+    "service": "UF-SVC-{SEQ5}",
+    "inventory_movement": "UF/MOV/{YYMMDD}/{SEQ4}",
+    "receipt_voucher": "auf-{SEQ3}",
+    "invoice": "generate_invoice_number()",
+    "contract": "generate_contract_number()",
+    "document": "generate_document_number()"
+  },
+  "workflow": {
+    "canonical_enum": "workflow_stage_t",
+    "stages": [
+      "draft",
+      "submitted",
+      "triaged",
+      "assigned",
+      "scheduled",
+      "in_progress",
+      "inspection",
+      "waiting_parts",
+      "on_hold",
+      "completed",
+      "billed",
+      "paid",
+      "handover_to_admin",
+      "closed",
+      "cancelled",
+      "rejected"
+    ],
+    "labels_ar": {
+      "draft": "مسودة",
+      "submitted": "تم الإرسال",
+      "triaged": "تم الفرز",
+      "acknowledged": "تم الاستلام",
+      "assigned": "تم التعيين",
+      "scheduled": "تم الجدولة",
+      "in_progress": "قيد التنفيذ",
+      "inspection": "قيد الفحص",
+      "waiting_parts": "انتظار قطع الغيار",
+      "on_hold": "معلق",
+      "completed": "مكتمل",
+      "billed": "تم إصدار الفاتورة",
+      "paid": "تم الدفع",
+      "handover_to_admin": "تسليم للإدارة",
+      "closed": "مغلق",
+      "cancelled": "ملغي",
+      "rejected": "مرفوض"
+    },
+    "transitions": {
+      "draft": [
+        "submitted",
+        "cancelled"
+      ],
+      "submitted": [
+        "acknowledged",
+        "cancelled"
+      ],
+      "acknowledged": [
+        "assigned",
+        "on_hold",
+        "cancelled"
+      ],
+      "assigned": [
+        "scheduled",
+        "acknowledged",
+        "on_hold"
+      ],
+      "scheduled": [
+        "in_progress",
+        "assigned",
+        "on_hold"
+      ],
+      "in_progress": [
+        "inspection",
+        "waiting_parts",
+        "on_hold",
+        "completed"
+      ],
+      "inspection": [
+        "completed",
+        "in_progress",
+        "rejected"
+      ],
+      "waiting_parts": [
+        "in_progress",
+        "cancelled"
+      ],
+      "completed": [
+        "billed"
+      ],
+      "billed": [
+        "paid"
+      ],
+      "paid": [
+        "closed"
+      ],
+      "on_hold": [
+        "in_progress",
+        "scheduled",
+        "cancelled"
+      ],
+      "rejected": [
+        "in_progress",
+        "cancelled"
+      ],
+      "closed": [],
+      "cancelled": []
+    },
+    "terminal": [
+      "closed",
+      "cancelled",
+      "rejected"
+    ],
+    "mr_status_mirror": {
+      "Open": "submitted",
+      "Assigned": "assigned",
+      "In Progress": "in_progress",
+      "InProgress": "in_progress",
+      "On Hold": "on_hold",
+      "Waiting": "on_hold",
+      "Completed": "completed",
+      "Rejected": "rejected",
+      "Closed": "closed",
+      "Cancelled": "cancelled"
+    },
+    "whatsapp_stage_templates": {
+      "submitted": "azord",
+      "triaged": "requests",
+      "assigned": "technician_visit",
+      "scheduled": "appointment_scheduling",
+      "in_progress": "technician_arrival",
+      "waiting_parts": "shifting_journey",
+      "completed": "invoice_available",
+      "billed": "invoice_available",
+      "paid": "statement_available",
+      "handover_to_admin": "statement_available",
+      "closed": "feedback_form",
+      "cancelled": "order_canceled"
+    },
+    "public_notification_status": [
+      "received",
+      "reviewed",
+      "scheduled",
+      "on_the_way",
+      "in_progress",
+      "completed",
+      "closed"
+    ]
+  },
+  "sla_policies_minutes": {
+    "high": {
+      "accept": 15,
+      "arrive": 120,
+      "complete": 240
+    },
+    "medium": {
+      "accept": 30,
+      "arrive": 240,
+      "complete": 480
+    },
+    "low": {
+      "accept": 60,
+      "arrive": 480,
+      "complete": 1440
+    }
+  },
+  "db_enums": {
+    "app_role": [
+      "admin",
+      "manager",
+      "staff",
+      "technician",
+      "vendor",
+      "customer",
+      "warehouse",
+      "accounting",
+      "engineering",
+      "dispatcher",
+      "owner",
+      "finance"
+    ],
+    "priority_level": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "ui_priority": [
+      "low",
+      "medium",
+      "high",
+      "urgent"
+    ],
+    "maintenance_status": [
+      "draft",
+      "submitted",
+      "acknowledged",
+      "assigned",
+      "scheduled",
+      "in_progress",
+      "inspection",
+      "waiting_parts",
+      "completed",
+      "billed",
+      "paid",
+      "closed",
+      "cancelled",
+      "on_hold",
+      "triaged",
+      "handover_to_admin",
+      "rejected"
+    ],
+    "mr_status": [
+      "Open",
+      "Assigned",
+      "InProgress",
+      "Waiting",
+      "Completed",
+      "Rejected",
+      "Cancelled",
+      "In Progress",
+      "Closed",
+      "On Hold"
+    ],
+    "request_status_canonical": [
+      "open",
+      "active",
+      "blocked",
+      "done",
+      "terminal"
+    ],
+    "technician_status": [
+      "draft",
+      "pending_review",
+      "approved",
+      "rejected",
+      "active",
+      "suspended"
+    ],
+    "provider_type_t": [
+      "internal_team",
+      "external_vendor"
+    ],
+    "company_type_enum": [
+      "individual",
+      "small_team",
+      "company"
+    ],
+    "company_model_enum": [
+      "local_provider",
+      "third_party"
+    ],
+    "document_type_enum": [
+      "tax_card",
+      "commercial_registration",
+      "national_id",
+      "insurance_certificate",
+      "professional_license"
+    ],
+    "contract_status": [
+      "draft",
+      "active",
+      "expired",
+      "suspended",
+      "cancelled"
+    ],
+    "contract_billing_type": [
+      "per_request",
+      "monthly",
+      "quarterly",
+      "semi_annual",
+      "annual"
+    ],
+    "message_channel_t": [
+      "whatsapp",
+      "sms",
+      "email",
+      "push",
+      "in_app"
+    ],
+    "message_status_t": [
+      "queued",
+      "sending",
+      "sent",
+      "delivered",
+      "read",
+      "failed",
+      "rejected",
+      "expired"
+    ],
+    "update_type": [
+      "status_change",
+      "assignment",
+      "scheduling",
+      "cost_estimate",
+      "completion",
+      "feedback",
+      "payment",
+      "note"
+    ],
+    "wa_template_category": [
+      "utility",
+      "marketing",
+      "authentication"
+    ],
+    "wa_template_status": [
+      "draft",
+      "submitted",
+      "pending",
+      "approved",
+      "rejected",
+      "paused",
+      "disabled",
+      "deleted"
+    ],
+    "wa_template_quality": [
+      "unknown",
+      "high",
+      "medium",
+      "low"
+    ],
+    "wo_status": [
+      "Pending",
+      "Scheduled",
+      "EnRoute",
+      "InProgress",
+      "Paused",
+      "Completed",
+      "Cancelled"
+    ]
+  },
+  "ui_constants": {
+    "property_types": [
+      "residential",
+      "commercial",
+      "office",
+      "industrial",
+      "mixed_use"
+    ],
+    "property_status": [
+      "active",
+      "inactive",
+      "maintenance"
+    ],
+    "technician_live_status": [
+      "online",
+      "busy",
+      "offline",
+      "on_route"
+    ],
+    "technician_specializations": [
+      "electrician",
+      "plumber",
+      "ac_technician",
+      "carpenter",
+      "painter",
+      "general"
+    ],
+    "technician_levels": [
+      "technician",
+      "pro",
+      "elite"
+    ],
+    "badge_types": [
+      "gold_monthly",
+      "crown_annual",
+      "legacy"
+    ],
+    "task_status": [
+      "pending",
+      "accepted",
+      "rejected",
+      "in_progress",
+      "completed",
+      "cancelled"
+    ],
+    "service_type_filter": [
+      "plumbing",
+      "electrical",
+      "hvac",
+      "general",
+      "cleaning",
+      "painting",
+      "carpentry",
+      "other"
+    ]
+  },
+  "roles": {
+    "hierarchy": [
+      "owner",
+      "admin",
+      "manager",
+      "finance",
+      "dispatcher",
+      "staff",
+      "technician",
+      "vendor",
+      "customer"
+    ],
+    "admin_roles": [
+      "owner",
+      "admin",
+      "manager"
+    ],
+    "self_signup_roles": [
+      "customer",
+      "technician",
+      "vendor"
+    ],
+    "default_dashboard": {
+      "technician": "/technicians/dashboard",
+      "*": "/dashboard"
+    },
+    "role_permissions": [
+      [
+        "admin",
+        "all",
+        "all"
+      ],
+      [
+        "manager",
+        "requests",
+        "view"
+      ],
+      [
+        "manager",
+        "requests",
+        "edit"
+      ],
+      [
+        "manager",
+        "technicians",
+        "view"
+      ],
+      [
+        "technician",
+        "requests",
+        "view"
+      ],
+      [
+        "technician",
+        "own_requests",
+        "edit"
+      ],
+      [
+        "customer",
+        "own_requests",
+        "view"
+      ],
+      [
+        "customer",
+        "own_requests",
+        "create"
+      ]
+    ],
+    "module_keys": [
+      "admin_users",
+      "all_requests",
+      "appointments",
+      "dashboard",
+      "documentation",
+      "inbox",
+      "invoices",
+      "module_settings",
+      "production_monitor",
+      "production_report",
+      "properties",
+      "reports",
+      "requests",
+      "service_map",
+      "settings",
+      "sla_dashboard",
+      "technician_approval",
+      "technician_dashboard",
+      "technician_earnings",
+      "technician_tasks",
+      "technician_wallet",
+      "testing",
+      "vendors"
+    ]
+  },
+  "routes": {
+    "public": [
+      "/",
+      "/role-selection",
+      "/login",
+      "/register",
+      "/forgot-password",
+      "/auth/callback",
+      "/auth/confirm-role",
+      "/services",
+      "/service-request",
+      "/quick-request/:propertyId",
+      "/qr/:propertyId",
+      "/track-orders",
+      "/track/:orderId",
+      "/track/:orderId/invoice",
+      "/maintenance-request",
+      "/uf",
+      "/quote",
+      "/technicians/register",
+      "/technicians/registration/wizard"
+    ],
+    "protected": [
+      "/dashboard",
+      "/requests",
+      "/requests/:id",
+      "/properties",
+      "/customers",
+      "/vendors",
+      "/receipts",
+      "/receipts/:id",
+      "/reports/*",
+      "/admin/users",
+      "/admin/modules",
+      "/admin/api-gateway",
+      "/technicians/dashboard",
+      "/technicians/wallet",
+      "/whatsapp",
+      "/wa-hub",
+      "/service-map",
+      "/quick-request-from-map",
+      "/dashboard/gateway",
+      "/emergency-service/:technicianId"
+    ]
+  },
+  "reference_data": {
+    "service_categories": [
+      [
+        "b3436a46-3ec8-4e2a-aadb-f59c5ba77bcd",
+        "electrical",
+        "صيانة كهرباء"
+      ],
+      [
+        "7b9f4ebc-b58a-4663-af55-73cee05f4c4f",
+        "plumbing",
+        "صيانة سباكة"
+      ],
+      [
+        "56f7eef7-6ed4-47ff-ab60-5e1157993d03",
+        "hvac",
+        "تكييف وتبريد"
+      ],
+      [
+        "1a12bbde-06cf-43e6-8bc9-6c040f5ab762",
+        "carpentry",
+        "نجارة"
+      ],
+      [
+        "1cdb1390-9b93-4353-a698-eafa18458211",
+        "metalwork",
+        "حدادة وألومنيوم"
+      ],
+      [
+        "c3f6eab9-ba4c-4cc1-81e2-4dce213a8cdf",
+        "painting",
+        "دهانات وتشطيب حوائط"
+      ],
+      [
+        "7a426cac-f7c4-4985-904c-8aef984cb4fa",
+        "gypsum_board",
+        "جبس بورد وديكورات"
+      ],
+      [
+        "6bd9d7d8-914f-4c38-9fa8-6f04b883aaa7",
+        "flooring",
+        "أرضيات وسيراميك"
+      ],
+      [
+        "10890952-b2c8-4d10-967b-382f01bd8b58",
+        "glass_facades",
+        "زجاج وواجهات"
+      ],
+      [
+        "7f973492-e20a-488d-9676-95549a914c0a",
+        "security_cameras",
+        "كاميرات وأنظمة أمنية"
+      ],
+      [
+        "0fd6a9ae-4f51-441e-b20d-ee27831e1ff6",
+        "networking",
+        "شبكات واتصالات"
+      ],
+      [
+        "33974e87-8072-48a4-8a00-6a0ae1c46510",
+        "appliances",
+        "صيانة أجهزة منزلية"
+      ],
+      [
+        "2c6bf645-a929-43d9-86f9-206247163084",
+        "gardens_shades",
+        "مظلات وحدائق"
+      ],
+      [
+        "1fcb5ba5-3a0b-473f-a13e-e3c5f05655f8",
+        "insulation",
+        "عوازل حرارية ومائية"
+      ],
+      [
+        "75195c76-1d56-4976-a2f3-0e90e03463e4",
+        "periodic_maintenance",
+        "تنظيف وصيانة دورية"
+      ],
+      [
+        "c0544e44-0cfb-4794-88fa-c3ba4dcd5977",
+        "elevators",
+        "مصاعد وسلالم كهربائية"
+      ],
+      [
+        "aed2ef3d-d80a-4cb4-b8f5-eeb380ea0a1b",
+        "generators",
+        "مولدات ولوحات تحكم"
+      ],
+      [
+        "c661233d-e5d2-4269-9073-e94a17a0e207",
+        "construction",
+        "بناء وإنشاءات"
+      ],
+      [
+        "7a60231c-05ce-4746-82fe-a9689d16fc73",
+        "interior_finishing",
+        "تشطيب داخلي كامل"
+      ],
+      [
+        "50763253-90a6-4f03-bac1-5c55966c13b6",
+        "signage",
+        "لوحات وإعلانات"
+      ],
+      [
+        "6fa3bafa-ba50-4229-97f6-17628a48d304",
+        "commercial_refrigeration",
+        "تبريد تجاري وغرف تبريد"
+      ],
+      [
+        "16a63fe2-2c3b-4808-b89b-38b356ce1fe0",
+        "fire_systems",
+        "أنظمة حريق"
+      ],
+      [
+        "404eaa93-94d5-40f3-85bb-e5bb186ac203",
+        "specialized_technical",
+        "خدمات فنية متخصصة"
+      ],
+      [
+        "0108f8d1-186e-45e9-94f8-52f5f9a771da",
+        "general",
+        "صيانة عامة"
+      ],
+      [
+        "a3bc538f-d933-4114-9cd8-a8881d04bed4",
+        "cleaning_services",
+        "خدمات النظافة"
+      ],
+      [
+        "9235a8de-ca7c-4b95-b3ba-111e054d98ed",
+        "plumbing_electrical_combo",
+        "خدمات السباكة والكهرباء"
+      ],
+      [
+        "e2dc3f8f-fe1b-4826-a57f-12a892a734ff",
+        "pest_control",
+        "مكافحة الحشرات والقوارض"
+      ],
+      [
+        "2d4536fd-4f53-46af-ab2f-0841eeb467c1",
+        "LEGACY-CAT-001",
+        "أعمال التشطيب والديكور"
+      ],
+      [
+        "3fb41377-130c-4786-b1c6-f77e6b3f5e14",
+        "LEGACY-CAT-002",
+        "أعمال السيراميك والرخام"
+      ],
+      [
+        "8e0f68d1-a34d-434d-ac06-5ece250d57c2",
+        "LEGACY-CAT-003",
+        "تنسيق الحدائق واللاندسكيب"
+      ],
+      [
+        "22484880-5d6f-4431-b990-98ad32215a3a",
+        "LEGACY-CAT-004",
+        "الصيانة التجارية"
+      ],
+      [
+        "58090511-0917-44e1-aa29-25882f1205aa",
+        "LEGACY-CAT-005",
+        "الصيانة السكنية"
+      ]
+    ],
+    "service_codes_format": "[id, code, name_ar]",
+    "services_modern": [
+      {
+        "code": "APP_DISHWASH",
+        "name_ar": "صيانة غسالات أطباق",
+        "unit": "piece"
+      },
+      {
+        "code": "APP_FRIDGE",
+        "name_ar": "صيانة ثلاجات وفريزر",
+        "unit": "piece"
+      },
+      {
+        "code": "APP_OVEN",
+        "name_ar": "صيانة بوتاجاز وفرن",
+        "unit": "piece"
+      },
+      {
+        "code": "APP_WASH",
+        "name_ar": "صيانة غسالات",
+        "unit": "piece"
+      },
+      {
+        "code": "CARP_CLOSET",
+        "name_ar": "تفصيل دواليب وخزائن",
+        "unit": "meter"
+      },
+      {
+        "code": "CARP_DOOR",
+        "name_ar": "تركيب وإصلاح أبواب خشبية",
+        "unit": "piece"
+      },
+      {
+        "code": "CARP_FURN",
+        "name_ar": "إصلاح أثاث خشبي",
+        "unit": "piece"
+      },
+      {
+        "code": "CARP_KITCHEN",
+        "name_ar": "تفصيل وتركيب مطابخ",
+        "unit": "meter"
+      },
+      {
+        "code": "CLN_FACADE",
+        "name_ar": "تنظيف واجهات زجاج عالية",
+        "unit": "meter"
+      },
+      {
+        "code": "CLN_HOME",
+        "name_ar": "تنظيف منازل عميق",
+        "unit": "job"
+      },
+      {
+        "code": "CLN_OFFICE",
+        "name_ar": "تنظيف مكاتب وشركات",
+        "unit": "job"
+      },
+      {
+        "code": "CLN_SOFA",
+        "name_ar": "تنظيف كنب وسجاد بالبخار",
+        "unit": "piece"
+      },
+      {
+        "code": "CLN_TANK",
+        "name_ar": "تنظيف وتعقيم خزانات مياه",
+        "unit": "piece"
+      },
+      {
+        "code": "CON_BUILD",
+        "name_ar": "أعمال بناء وخرسانة",
+        "unit": "meter"
+      },
+      {
+        "code": "CRF_COLD",
+        "name_ar": "تركيب وصيانة غرف تبريد",
+        "unit": "job"
+      },
+      {
+        "code": "ELEC_FAN",
+        "name_ar": "تركيب مراوح سقف",
+        "unit": "piece"
+      },
+      {
+        "code": "ELEC_LIGHT",
+        "name_ar": "تركيب وحدات إضاءة",
+        "unit": "piece"
+      },
+      {
+        "code": "ELEC_OUTLET",
+        "name_ar": "تركيب/استبدال أفياش وقواطع",
+        "unit": "piece"
+      },
+      {
+        "code": "ELEC_PANEL",
+        "name_ar": "صيانة لوحات الكهرباء",
+        "unit": "job"
+      },
+      {
+        "code": "ELEC_SHORT",
+        "name_ar": "كشف وإصلاح ماس كهربائي",
+        "unit": "job"
+      },
+      {
+        "code": "ELEC_WIRING",
+        "name_ar": "تمديد أو تجديد أسلاك",
+        "unit": "meter"
+      },
+      {
+        "code": "ELEV_MAINT",
+        "name_ar": "صيانة مصاعد",
+        "unit": "job"
+      },
+      {
+        "code": "FIRE_ALARM",
+        "name_ar": "أنظمة إنذار حريق",
+        "unit": "job"
+      },
+      {
+        "code": "FIRE_EXT",
+        "name_ar": "تركيب طفايات حريق",
+        "unit": "piece"
+      },
+      {
+        "code": "FLR_EPOXY",
+        "name_ar": "أرضيات إيبوكسي",
+        "unit": "meter"
+      },
+      {
+        "code": "FLR_MARBLE",
+        "name_ar": "تركيب وصيانة رخام",
+        "unit": "meter"
+      },
+      {
+        "code": "FLR_PARQUET",
+        "name_ar": "تركيب أرضيات باركيه",
+        "unit": "meter"
+      },
+      {
+        "code": "FLR_TILE",
+        "name_ar": "تركيب سيراميك وبورسلين",
+        "unit": "meter"
+      },
+      {
+        "code": "GEN_MAINT",
+        "name_ar": "صيانة مولدات كهرباء",
+        "unit": "piece"
+      },
+      {
+        "code": "GEN_OTHER",
+        "name_ar": "طلب صيانة عام",
+        "unit": "job"
+      },
+      {
+        "code": "GLASS_FACADE",
+        "name_ar": "واجهات زجاجية كلاسيك",
+        "unit": "meter"
+      },
+      {
+        "code": "GLASS_SHOWER",
+        "name_ar": "كبائن استحمام زجاج",
+        "unit": "piece"
+      },
+      {
+        "code": "GLASS_WIN",
+        "name_ar": "شبابيك زجاج سكوريت",
+        "unit": "meter"
+      },
+      {
+        "code": "GRD_IRRIGATION",
+        "name_ar": "شبكات ري أوتوماتيك",
+        "unit": "meter"
+      },
+      {
+        "code": "GRD_LANDSCAPE",
+        "name_ar": "تنسيق حدائق",
+        "unit": "meter"
+      },
+      {
+        "code": "GRD_SHADE",
+        "name_ar": "تركيب مظلات سيارات",
+        "unit": "meter"
+      },
+      {
+        "code": "GYP_CEILING",
+        "name_ar": "أسقف جبس بورد ساقطة",
+        "unit": "meter"
+      },
+      {
+        "code": "GYP_DECOR",
+        "name_ar": "كرانيش وديكورات جبس",
+        "unit": "meter"
+      },
+      {
+        "code": "GYP_WALL",
+        "name_ar": "حوائط وقواطيع جبس",
+        "unit": "meter"
+      },
+      {
+        "code": "HVAC_CLEAN",
+        "name_ar": "تنظيف وصيانة دورية للتكييف",
+        "unit": "piece"
+      },
+      {
+        "code": "HVAC_DUCT",
+        "name_ar": "تركيب دكتات تكييف مركزي",
+        "unit": "meter"
+      },
+      {
+        "code": "HVAC_FREON",
+        "name_ar": "شحن فريون وكشف تسريب",
+        "unit": "piece"
+      },
+      {
+        "code": "HVAC_INSTALL",
+        "name_ar": "تركيب تكييف سبليت",
+        "unit": "piece"
+      },
+      {
+        "code": "HVAC_REPAIR",
+        "name_ar": "إصلاح أعطال تكييف",
+        "unit": "job"
+      },
+      {
+        "code": "INS_THERMAL",
+        "name_ar": "عزل حراري للأسقف",
+        "unit": "meter"
+      },
+      {
+        "code": "INS_WATER",
+        "name_ar": "عزل مائي للحمامات والأسطح",
+        "unit": "meter"
+      },
+      {
+        "code": "INT_FULL",
+        "name_ar": "تشطيب داخلي كامل",
+        "unit": "meter"
+      },
+      {
+        "code": "METAL_DOOR",
+        "name_ar": "تركيب أبواب حديد/ألومنيوم",
+        "unit": "piece"
+      },
+      {
+        "code": "METAL_RAIL",
+        "name_ar": "دربزينات ودرابزين سلالم",
+        "unit": "meter"
+      },
+      {
+        "code": "METAL_WINDOW",
+        "name_ar": "شبابيك ألومنيوم وسكوريت",
+        "unit": "piece"
+      },
+      {
+        "code": "NET_FIBER",
+        "name_ar": "وصلات ألياف بصرية",
+        "unit": "meter"
+      },
+      {
+        "code": "NET_LAN",
+        "name_ar": "تمديد شبكات داخلية",
+        "unit": "meter"
+      },
+      {
+        "code": "NET_WIFI",
+        "name_ar": "تركيب وضبط راوترات وأكسس بوينت",
+        "unit": "piece"
+      },
+      {
+        "code": "PAINT_DECOR",
+        "name_ar": "دهانات ديكور وزخرفية",
+        "unit": "meter"
+      },
+      {
+        "code": "PAINT_EXT",
+        "name_ar": "دهان خارجي وواجهات",
+        "unit": "meter"
+      },
+      {
+        "code": "PAINT_INT",
+        "name_ar": "دهان داخلي كامل",
+        "unit": "meter"
+      },
+      {
+        "code": "PE_INSPECT",
+        "name_ar": "معاينة سباكة وكهرباء",
+        "unit": "job"
+      },
+      {
+        "code": "PER_CONTRACT",
+        "name_ar": "عقد صيانة دورية شامل",
+        "unit": "month"
+      },
+      {
+        "code": "PEST_GENERAL",
+        "name_ar": "مكافحة حشرات عامة",
+        "unit": "job"
+      },
+      {
+        "code": "PEST_RODENT",
+        "name_ar": "مكافحة قوارض",
+        "unit": "job"
+      },
+      {
+        "code": "PEST_TERMITE",
+        "name_ar": "مكافحة النمل الأبيض",
+        "unit": "job"
+      },
+      {
+        "code": "PLM_DRAIN",
+        "name_ar": "تسليك مجاري وبلاعات",
+        "unit": "job"
+      },
+      {
+        "code": "PLM_FAUCET",
+        "name_ar": "استبدال صنابير وخلاطات",
+        "unit": "piece"
+      },
+      {
+        "code": "PLM_HEATER",
+        "name_ar": "تركيب وصيانة سخانات",
+        "unit": "piece"
+      },
+      {
+        "code": "PLM_LEAK",
+        "name_ar": "كشف وإصلاح تسريبات",
+        "unit": "job"
+      },
+      {
+        "code": "PLM_PUMP",
+        "name_ar": "صيانة مضخات وطلمبات مياه",
+        "unit": "piece"
+      },
+      {
+        "code": "PLM_TOILET",
+        "name_ar": "تركيب وإصلاح كراسي حمام",
+        "unit": "piece"
+      },
+      {
+        "code": "SEC_ACCESS",
+        "name_ar": "أنظمة دخول وحضور",
+        "unit": "piece"
+      },
+      {
+        "code": "SEC_CAM",
+        "name_ar": "تركيب كاميرات مراقبة",
+        "unit": "piece"
+      },
+      {
+        "code": "SEC_INTERCOM",
+        "name_ar": "أنظمة إنتركوم",
+        "unit": "piece"
+      },
+      {
+        "code": "SGN_SIGN",
+        "name_ar": "تصنيع لوحات إعلانية",
+        "unit": "piece"
+      },
+      {
+        "code": "SPEC_OTHER",
+        "name_ar": "أعمال فنية متخصصة",
+        "unit": "job"
+      }
+    ],
+    "services_legacy_note": "LEGACY-SVC-000001..000173+ active; fetch via list_services",
+    "cities": {
+      "1": "أسوان",
+      "2": "أسيوط",
+      "3": "الأقصر",
+      "4": "الإسكندرية",
+      "5": "الإسماعيلية",
+      "6": "البحر الأحمر",
+      "7": "البحيرة",
+      "8": "الجيزة",
+      "9": "الدقهلية",
+      "10": "الساحل الشمالي",
+      "11": "السويس",
+      "12": "الشرقية",
+      "13": "الغربية",
+      "14": "الفيوم",
+      "15": "القاهرة",
+      "16": "القليوبية",
+      "17": "المنوفية",
+      "18": "المنيا",
+      "19": "بني سويف",
+      "20": "بور سعيد",
+      "21": "جنوب سيناء",
+      "22": "دمياط",
+      "23": "سوهاج",
+      "24": "قنا",
+      "25": "كفر الشيخ",
+      "26": "مرسى مطروح"
+    },
+    "branches_coded": [
+      [
+        "BR001",
+        "الفرع الرئيسي - القاهرة",
+        "القاهرة"
+      ],
+      [
+        "BR002",
+        "فرع الإسكندرية",
+        "الإسكندرية"
+      ],
+      [
+        "BR003",
+        "فرع المعادي",
+        "القاهرة"
+      ]
+    ],
+    "branch_locations_count": 131,
+    "companies_core": [
+      [
+        "3dc04393-0ed6-4fc4-bed0-c677ba9713c8",
+        "شركة admin@uberfix.shop"
+      ],
+      [
+        "94973c30-2e7c-4daa-922d-e643cf1a695e",
+        "شركة مدير النظام"
+      ],
+      [
+        "288b0be7-b8ba-44da-b9a2-7e0d002ab9aa",
+        "شركة Alazab Administrator"
+      ]
+    ],
+    "companies_note": "default company/branch must be resolved via get_public_default_branch_company(); do not guess",
+    "service_units": [
+      "piece",
+      "meter",
+      "job",
+      "month"
+    ]
+  },
+  "storage_buckets": {
+    "public": [
+      "az_gallery",
+      "downloud",
+      "logo",
+      "property-images",
+      "review-images"
+    ],
+    "private": [
+      "avatars",
+      "chatbot-files",
+      "chat-files",
+      "docs",
+      "docs-secret",
+      "documents",
+      "invoices",
+      "maintenance-attachments",
+      "technician-documents",
+      "technician-registration-docs",
+      "ufbot-training",
+      "uploads",
+      "verification-documents",
+      "whatsapp-media"
+    ]
+  },
+  "integrations": {
+    "whatsapp_business_number": "15557285727",
+    "messenger": "https://m.me/864375353429675",
+    "maps": {
+      "default_center": {
+        "lat": 30.0444,
+        "lng": 31.2357
+      },
+      "default_zoom": 12,
+      "map_id": "cbebd74833941bfb8b76b91b"
+    },
+    "payments": "PayTabs (callback /paytabs-callback; billed->paid)",
+    "e_invoice": "ETA (/eta-invoice, /eta-callback?token=ETA_CALLBACK_TOKEN)"
+  },
+  "tables_core": [
+    "maintenance_requests",
+    "request_assignments",
+    "request_events",
+    "request_lifecycle",
+    "request_public_tracking",
+    "properties",
+    "branches",
+    "branch_locations",
+    "companies",
+    "customers",
+    "service_categories",
+    "service_subcategories",
+    "services",
+    "service_providers",
+    "provider_*",
+    "invoices",
+    "invoice_items",
+    "receipt_vouchers",
+    "receipt_voucher_items",
+    "maintenance_contracts",
+    "inventory_*",
+    "notifications",
+    "outbound_messages",
+    "wa_*",
+    "api_consumers",
+    "api_gateway_logs",
+    "bot_sessions",
+    "user_roles",
+    "role_permissions",
+    "module_permissions",
+    "profiles"
+  ],
+  "dashboard_views": [
+    "v_completed_requests_dashboard",
+    "v_technicians_dashboard",
+    "v_properties_dashboard",
+    "v_branches_dashboard",
+    "v_inventory_dashboard",
+    "v_service_catalog_dashboard",
+    "v_invoices_dashboard",
+    "v_payments_dashboard",
+    "v_notifications_dashboard",
+    "v_outbound_messages_dashboard",
+    "v_wa_templates_dashboard",
+    "v_api_consumers_dashboard",
+    "v_api_gateway_logs_dashboard",
+    "v_api_webhooks_dashboard",
+    "v_bot_sessions_dashboard",
+    "v_sla_dashboard",
+    "v_sla_compliance_summary",
+    "v_reports_overview",
+    "v_audit_dashboard",
+    "v_users_dashboard",
+    "v_user_roles_dashboard",
+    "v_role_permissions_dashboard",
+    "v_module_permissions_dashboard",
+    "v_customers_dashboard",
+    "v_receipt_vouchers_dashboard",
+    "v_maintenance_mirror",
+    "v_properties_for_map"
+  ]
+}

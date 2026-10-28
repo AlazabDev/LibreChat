@@ -1,15 +1,43 @@
-# Deployment Skills
+> [!IMPORTANT]
+> **This repository is deprecated.** For current Codex skill and plugin examples, use the [OpenAI Plugins repository](https://github.com/openai/plugins). If you want to add your own skills to Codex, follow the [Build plugins](https://developers.openai.com/codex/plugins/build) guide, which includes instructions for creating a skill-only plugin.
 
-Place shared deployment skills in this directory. Each skill should live in its own folder with a
-`SKILL.md` file, for example:
+# Agent Skills
 
-```text
-skill/
-  my-shared-skill/
-    SKILL.md
-    references/
-      notes.md
+Agent Skills are folders of instructions, scripts, and resources that AI agents can discover and use to perform at specific tasks. Write once, use everywhere.
+
+Codex uses skills to help package capabilities that teams and individuals can use to complete specific tasks in a repeatable way. This repository catalogs skills for use and distribution with Codex.
+
+Learn more:
+- [Using skills in Codex](https://developers.openai.com/codex/skills)
+- [Create custom skills in Codex](https://developers.openai.com/codex/skills/create-skill)
+- [Agent Skills open standard](https://agentskills.io)
+
+## Installing a skill
+
+Skills in [`.system`](skills/.system/) are automatically installed in the latest version of Codex.
+
+To install [curated](skills/.curated/) or [experimental](skills/.experimental/) skills, you can use the `$skill-installer` inside Codex.
+
+Curated skills can be installed by name (defaults to `skills/.curated`):
+
+```
+$skill-installer gh-address-comments
 ```
 
-These skills are loaded at server startup, exposed read-only to all users with Skills enabled, and
-are not persisted as Skill documents in MongoDB.
+For experimental skills, specify the skill folder. For example:
+
+```
+$skill-installer install the create-plan skill from the .experimental folder
+```
+
+Or provide the GitHub directory URL:
+
+```
+$skill-installer install https://github.com/openai/skills/tree/main/skills/.experimental/create-plan
+```
+
+After installing a skill, restart Codex to pick up new skills.
+
+## License
+
+The license of an individual skill can be found directly inside the skill's directory inside the `LICENSE.txt` file.

@@ -1,0 +1,249 @@
+[
+  {
+    "item": "الصفاية والسداد وتكون الأحواض ذو فتحة واحدة",
+    "action": "other",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "original": "§      الصفاية والسداد وتكون الأحواض ذو فتحة واحدة .",
+    "source": "construction",
+    "id": 153
+  },
+  {
+    "item": "حساب الحداد",
+    "action": "other",
+    "unit": "fixed",
+    "category": "سجلات محاسبية",
+    "original": "مقطوعيه حساب الحداد",
+    "source": "maintenance",
+    "id": 633
+  },
+  {
+    "item": "حساب الوجهه الزجاج",
+    "action": "فك وتركيب",
+    "unit": "fixed",
+    "category": "سجلات محاسبية",
+    "original": "مقطوعيه حساب فك وتركيب الوجهه الزجاج",
+    "source": "maintenance",
+    "id": 635
+  },
+  {
+    "item": "حساب كشف البدراوي بالكامل",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "36340",
+    "original": "حساب كشف البدراوي بالكامل",
+    "source": "invoice_history",
+    "id": 1285
+  },
+  {
+    "item": "حساب طلبات اكسسوارت العمل",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "760",
+    "original": "حساب طلبات اكسسوارت العمل",
+    "source": "invoice_history",
+    "id": 1286
+  },
+  {
+    "item": "حساب النقل والتشوين والموصلات",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "1214",
+    "original": "حساب النقل والتشوين والموصلات",
+    "source": "invoice_history",
+    "id": 1287
+  },
+  {
+    "item": "حساب جمال السباك مرضيه المساعد اللي معا",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "6200",
+    "original": "حساب جمال السباك + مرضيه المساعد اللي معا",
+    "source": "invoice_history",
+    "id": 1288
+  },
+  {
+    "item": "حساب الرمل والاسمنت ابو حسن",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "20000",
+    "original": "حساب الرمل والاسمنت ابو حسن",
+    "source": "invoice_history",
+    "id": 1325
+  },
+  {
+    "item": "حساب عمال التشوينات والونش",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "3500",
+    "original": "حساب عمال التشوينات والونش",
+    "source": "invoice_history",
+    "id": 1326
+  },
+  {
+    "item": "كالسابق حساب الرمل والاسمنت ابو حسن للتكميل",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "12150",
+    "original": "كالسابق حساب الرمل والاسمنت ابو حسن (للتكميل)",
+    "source": "invoice_history",
+    "id": 1328
+  },
+  {
+    "item": "المتبقي من غلق الحسابات الاوليه /",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "102272",
+    "original": "المتبقي من غلق الحسابات  الاوليه  9/2023",
+    "source": "invoice_history",
+    "id": 1354
+  },
+  {
+    "item": "تسويه الحسابات رصيد مددفوع",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "90228",
+    "original": "تسويه الحسابات رصيد مددفوع",
+    "source": "invoice_history",
+    "id": 1355
+  },
+  {
+    "item": "مقطوعيه حساب الحداد",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "900",
+    "original": "مقطوعيه حساب الحداد",
+    "source": "invoice_history",
+    "id": 1381
+  },
+  {
+    "item": "مقطوعيه حساب فك وتركيب الوجهه الزجاج",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "600",
+    "original": "مقطوعيه حساب فك وتركيب الوجهه الزجاج",
+    "source": "invoice_history",
+    "id": 1383
+  },
+  {
+    "item": "حساب النقل",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "1400",
+    "original": "حساب النقل",
+    "source": "invoice_history",
+    "id": 1434
+  },
+  {
+    "item": "حساب التشوين",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "600",
+    "original": "حساب التشوين",
+    "source": "invoice_history",
+    "id": 1435
+  },
+  {
+    "item": "شكاره اسمنت نص متر رمل بدون حساب",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "110",
+    "original": "شكاره اسمنت + (نص متر رمل) بدون حساب",
+    "source": "invoice_history",
+    "id": 1446
+  },
+  {
+    "item": "حساب فاتوره سيرميك وادي دجله اكتوبر",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "18613",
+    "original": "حساب فاتوره سيرميك وادي دجله اكتوبر 2",
+    "source": "invoice_history",
+    "id": 1455
+  },
+  {
+    "item": "حساب الكهربائي",
+    "action": "بيع/توريد",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "500",
+    "original": "حساب الكهربائي",
+    "source": "invoice_history",
+    "id": 1560
+  },
+  {
+    "item": "سداد إيجار",
+    "action": "منتج",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "500",
+    "original": "",
+    "source": "product_catalog",
+    "id": 1946
+  },
+  {
+    "item": "سداد قسط",
+    "action": "منتج",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "1000",
+    "original": "",
+    "source": "product_catalog",
+    "id": 1947
+  },
+  {
+    "item": "فريم معدني دائر علي حدود اللافتات يتم الحساب",
+    "action": "منتج",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "300",
+    "original": "فريم معدني مُصنّع من مربعات حديد مجلفن دهان اسود الكتروستتك بمقاس 4×4 سم، سماكة لا تقل عن 1.5 مم،يتم لحامه بالكامل وتدعيمه بزوايا داخلية لتعزيز الثبات مع تركيب كلبس غطاء اماكن التخريم لمسامير التثبيت",
+    "source": "product_catalog",
+    "id": 2660
+  },
+  {
+    "item": "حساب الفاتوره الضريبيه",
+    "action": "شراء",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "25660",
+    "original": "",
+    "source": "purchase_history",
+    "id": 2798
+  },
+  {
+    "item": "سداده اشنايدر ابيض",
+    "action": "شراء",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "43",
+    "original": "",
+    "source": "purchase_history",
+    "id": 2830
+  },
+  {
+    "item": "دفعه من الحسابات ابوزين",
+    "action": "شراء",
+    "unit": "unit",
+    "category": "سجلات محاسبية",
+    "price": "50000",
+    "original": "",
+    "source": "purchase_history",
+    "id": 2858
+  }
+]

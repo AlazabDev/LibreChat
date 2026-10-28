@@ -1,0 +1,94 @@
+{
+  "agent_endpoint": {
+    "authorization_schemes": [
+      {
+        "isolation_key_source": {
+          "kind": "Entra"
+        },
+        "type": "Entra"
+      }
+    ],
+    "protocol_configuration": {
+      "responses": {}
+    },
+    "protocols": [
+      "responses"
+    ],
+    "publish_approval_status": "not_published",
+    "version_selector": {
+      "version_selection_rules": [
+        {
+          "agent_version": "@latest",
+          "traffic_percentage": 100,
+          "type": "FixedRatio"
+        }
+      ]
+    }
+  },
+  "blueprint": {
+    "client_id": "4dda55f0-fb57-49d7-a7af-fafd8b94769b",
+    "principal_id": "c7a49139-e24d-4611-8115-5e08b86bcc85",
+    "status": "active"
+  },
+  "blueprint_reference": {
+    "blueprint_id": "az-agent-vision-effab",
+    "type": "ManagedAgentIdentityBlueprint"
+  },
+  "configuration_state": "enabled",
+  "id": "az-agent-vision",
+  "instance_identity": {
+    "client_id": "2641c7b6-6c4e-4f4d-873a-4004be39889e",
+    "principal_id": "2641c7b6-6c4e-4f4d-873a-4004be39889e",
+    "status": "active"
+  },
+  "name": "az-agent-vision",
+  "object": "agent",
+  "state": "enabled",
+  "versions": {
+    "latest": {
+      "agent_guid": "effab342-8cb9-4301-816a-1e1f07cf2805",
+      "blueprint": {
+        "client_id": "4dda55f0-fb57-49d7-a7af-fafd8b94769b",
+        "principal_id": "c7a49139-e24d-4611-8115-5e08b86bcc85"
+      },
+      "blueprint_reference": {
+        "blueprint_id": "az-agent-vision-effab",
+        "type": "ManagedAgentIdentityBlueprint"
+      },
+      "created_at": 1782808561,
+      "definition": {
+        "instructions": "أنت وكيل الرؤية والتحليل البصري في منظومة العزب، مسؤول عن تفسير وفهم المحتوى المرئي.\n\n📷 قدرات التحليل البصري:\n- التعرف على الأشياء والمعدات في الصور\n- تحليل حالة المرافق والمباني\n- قراءة النصوص من الصور (OCR)\n- التعرف على الأعطال والتلفيات البصرية\n- تحليل محتوى الفيديو واستخلاص المعلومات\n- تقييم جودة العمل والالتزام بالمعايير\n\n🏗️ تطبيقات التحليل في منظومة العزب:\n1. صيانة المباني:\n   - تحديد نوع التلفيات (شروخ، تسريبات، تآكل)\n   - تقييم حالة المعدات والأنظمة\n   - توثيق أعمال الصيانة قبل وبعد\n\n2. مراقبة الجودة:\n   - التحقق من جودة التشطيبات والدهانات\n   - التأكد من التزام الفنيين بمعايير السلامة\n   - توثيق حالات المخالفات\n\n3. إدارة المرافق:\n   - مسح المخزون البصري للأصول\n   - تتبع التغيرات في الموقع عبر الزمن\n   - دعم عمليات التفتيش الدوري\n\n4. دعم العملاء:\n   - تفسير صور المشاكل المقدمة من العملاء\n   - تقدير حجم العمل المطلوب من الصور\n   - توجيه الفنيين بناءً على الصور\n\n🛠️ الأدوات المعتمدة:\n- Vision Analyzer: تحليل الصور المتقدم\n- Azure AI Vision: الخدمة الأساسية للرؤية\n- GPT-4o: النموذج متعدد الوسائط\n- File Attachment: استقبال الصور من المستخدمين\n\n📋 أنواع الملفات المدعومة:\n- صور: JPG, PNG, JPEG, BMP, WEBP\n- فيديو: MP4, AVI, MOV (تحليل الإطارات)\n- مستندات ممسوحة: PDF مع صور",
+        "kind": "prompt",
+        "model": "az-model-core",
+        "reasoning": {
+          "effort": "low"
+        },
+        "tools": [
+          {
+            "type": "web_search"
+          }
+        ]
+      },
+      "description": "وكيل الرؤية الحاسوبية والتحليل البصري الذكي",
+      "draft": false,
+      "id": "az-agent-vision:3",
+      "instance_identity": {
+        "client_id": "2641c7b6-6c4e-4f4d-873a-4004be39889e",
+        "principal_id": "2641c7b6-6c4e-4f4d-873a-4004be39889e"
+      },
+      "metadata": {
+        "description": "وكيل الرؤية الحاسوبية والتحليل البصري الذكي",
+        "logo": "Avatar_Default.svg",
+        "microsoft.voice-live.configuration": "{\"session\":{\"voice\":{\"name\":\"en-US-Ava:DragonHDLatestNeural\",\"type\":\"azure-standard\",\"temperature\":0.8,\"rate\":\"1\",\"isHdVoice\":true},\"inputAudioTranscription\":{\"model\":\"azure-speech\",\"language\":\"auto-detect\"},\"turnDetection\":{\"type\":\"azure_semantic_vad\",\"endOfUtteranceDetection\":null,\"removeFillerWords\":true},\"inputAudioNoiseReduction\":null,\"inputAudioEchoCancellation\":null,\"fillerResponse\":null,\"avatar\":null,\"proactiveEngagement\":false}}",
+        "microsoft.voice-live.enabled": "false",
+        "modified_at": "1782808561",
+        "starterPrompts": "تحليل الصور\nتحليل الملفات",
+        "welcomeMessage": "az-agent-vision"
+      },
+      "name": "az-agent-vision",
+      "object": "agent.version",
+      "status": "active",
+      "version": "3"
+    }
+  }
+}

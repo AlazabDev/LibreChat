@@ -1,0 +1,2057 @@
+{
+  "totalOperations": 305,
+  "totalSchemas": 0,
+  "modulesCount": 105,
+  "modules": {
+    "oauth": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "POST",
+          "path": "/v2/oauth/token",
+          "summary": "Generate Access Token"
+        }
+      ]
+    },
+    "site_info{format}": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/site_info{format}",
+          "summary": "GET Site Info"
+        }
+      ]
+    },
+    "invoices{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/invoices{format}",
+          "summary": "GET All Invoices"
+        },
+        {
+          "method": "POST",
+          "path": "/invoices{format}",
+          "summary": "Add New Invoice"
+        }
+      ]
+    },
+    "invoices": {
+      "totalEndpoints": 14,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/invoices/{id}{format}",
+          "summary": "GET Single Invoice"
+        },
+        {
+          "method": "PUT",
+          "path": "/invoices/{id}{format}",
+          "summary": "Edit Invoice"
+        },
+        {
+          "method": "DELETE",
+          "path": "/invoices/{id}{format}",
+          "summary": "Delete Invoice"
+        },
+        {
+          "method": "POST",
+          "path": "/invoices/add_bulk{format}",
+          "summary": "Bulk Add Invoices"
+        },
+        {
+          "method": "GET",
+          "path": "/invoices/update_draft/{id}/{draft_status}{format}",
+          "summary": "Edit Invoice Draft Status"
+        },
+        {
+          "method": "POST",
+          "path": "/invoices/assign_work_order/{id}{format}",
+          "summary": "Assign Work Order to Invoice"
+        },
+        {
+          "method": "POST",
+          "path": "/invoices/add_shipping/{id}{format}",
+          "summary": "Add Shipping to Invoice"
+        },
+        {
+          "method": "GET",
+          "path": "/invoices/subscription{format}",
+          "summary": "List Subscriptions"
+        },
+        {
+          "method": "GET",
+          "path": "/invoices/view_subscription/{id}{format}",
+          "summary": "View Subscription"
+        },
+        {
+          "method": "POST",
+          "path": "/invoices/add_subscription{format}",
+          "summary": "Create Subscription"
+        },
+        {
+          "method": "PUT",
+          "path": "/invoices/edit_subscription/{id}{format}",
+          "summary": "Edit Subscription"
+        },
+        {
+          "method": "DELETE",
+          "path": "/invoices/delete_subscription/{id}{format}",
+          "summary": "Delete Subscription"
+        },
+        {
+          "method": "POST",
+          "path": "/invoices/add_bulk_refund_receipts{format}",
+          "summary": "Bulk Add Refund Receipts"
+        },
+        {
+          "method": "POST",
+          "path": "/invoices",
+          "summary": "Add Advance Payment"
+        }
+      ]
+    },
+    "sales_orders": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "POST",
+          "path": "/sales_orders/convert_to_invoice/{id}{format}",
+          "summary": "Convert Sales Order to Invoice"
+        },
+        {
+          "method": "DELETE",
+          "path": "/sales_orders/{id}{format}",
+          "summary": "Delete Sales Order"
+        }
+      ]
+    },
+    "estimates{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/estimates{format}",
+          "summary": "GET All Estimates"
+        },
+        {
+          "method": "POST",
+          "path": "/estimates{format}",
+          "summary": "Add New Estimate"
+        }
+      ]
+    },
+    "estimates": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/estimates/{id}{format}",
+          "summary": "GET Single Estimate"
+        },
+        {
+          "method": "PUT",
+          "path": "/estimates/{id}{format}",
+          "summary": "Edit Estimate"
+        },
+        {
+          "method": "DELETE",
+          "path": "/estimates/{id}{format}",
+          "summary": "Delete Estimate"
+        }
+      ]
+    },
+    "credit_notes{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/credit_notes{format}",
+          "summary": "GET All Credit Notes"
+        },
+        {
+          "method": "POST",
+          "path": "/credit_notes{format}",
+          "summary": "Add New Credit Note"
+        }
+      ]
+    },
+    "credit_notes": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/credit_notes/{id}{format}",
+          "summary": "GET Single Credit Note"
+        },
+        {
+          "method": "PUT",
+          "path": "/credit_notes/{id}{format}",
+          "summary": "Edit Credit Notes"
+        },
+        {
+          "method": "DELETE",
+          "path": "/credit_notes/{id}{format}",
+          "summary": "Delete Credit Notes"
+        }
+      ]
+    },
+    "refund_receipts{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/refund_receipts{format}",
+          "summary": "GET All Refund Receipts"
+        },
+        {
+          "method": "POST",
+          "path": "/refund_receipts{format}",
+          "summary": "Add New Refund Receipt"
+        }
+      ]
+    },
+    "refund_receipts": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/refund_receipts/{id}{format}",
+          "summary": "GET Single Refund Receipt"
+        },
+        {
+          "method": "PUT",
+          "path": "/refund_receipts/{id}{format}",
+          "summary": "Edit Refund Receipts"
+        },
+        {
+          "method": "DELETE",
+          "path": "/refund_receipts/{id}{format}",
+          "summary": "Delete Refund Receipts"
+        }
+      ]
+    },
+    "invoice_payments{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/invoice_payments{format}",
+          "summary": "GET All Invoice Payments"
+        },
+        {
+          "method": "POST",
+          "path": "/invoice_payments{format}",
+          "summary": "Add New Invoice Payment"
+        }
+      ]
+    },
+    "invoice_payments": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/invoice_payments/{id}{format}",
+          "summary": "GET Single Invoice Payment"
+        },
+        {
+          "method": "PUT",
+          "path": "/invoice_payments/{id}{format}",
+          "summary": "Edit Invoice Payments"
+        },
+        {
+          "method": "DELETE",
+          "path": "/invoice_payments/{id}{format}",
+          "summary": "Delete Invoice Payments"
+        }
+      ]
+    },
+    "follow_up_statuses": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/follow_up_statuses/{type}{format}",
+          "summary": "Get All Follow-Up Statuses by type"
+        },
+        {
+          "method": "GET",
+          "path": "/follow_up_statuses/{id}{format}",
+          "summary": "Get Single Follow-Up Status"
+        },
+        {
+          "method": "DELETE",
+          "path": "/follow_up_statuses/{id}{format}",
+          "summary": "Delete Follow-Up Status"
+        }
+      ]
+    },
+    "follow_up_status": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/follow_up_status/list/1",
+          "summary": "Get All Follow-Up Statuses"
+        },
+        {
+          "method": "POST",
+          "path": "/follow_up_status",
+          "summary": "Add New Follow-Up Status"
+        },
+        {
+          "method": "GET",
+          "path": "/follow_up_status/list/{dataLevel}",
+          "summary": "Get All Follow-Up Statuses"
+        },
+        {
+          "method": "GET",
+          "path": "/follow_up_status/{id}",
+          "summary": "Get Single Follow-Up Status"
+        }
+      ]
+    },
+    "estimate_appointments{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/estimate_appointments{format}",
+          "summary": "GET All Estimate Appointments"
+        },
+        {
+          "method": "POST",
+          "path": "/estimate_appointments{format}",
+          "summary": "Add New Estimate Appointment"
+        }
+      ]
+    },
+    "estimate_appointments": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/estimate_appointments/{id}{format}",
+          "summary": "GET Single Estimate Appointment"
+        },
+        {
+          "method": "PUT",
+          "path": "/estimate_appointments/{id}{format}",
+          "summary": "Edit Estimate Appointments"
+        },
+        {
+          "method": "DELETE",
+          "path": "/estimate_appointments/{id}{format}",
+          "summary": "Delete Estimate Appointments"
+        },
+        {
+          "method": "POST",
+          "path": "/estimate_appointments/{id}{format}",
+          "summary": "Update Estimate Appointment (POST alias)"
+        }
+      ]
+    },
+    "invoice": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/invoice/list/1",
+          "summary": "GET All Advance payment"
+        },
+        {
+          "method": "GET",
+          "path": "/invoice/{ID}/1",
+          "summary": "GET Single Advance payment"
+        }
+      ]
+    },
+    "invoice_appointments{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/invoice_appointments{format}",
+          "summary": "GET All Invoice Appointments"
+        },
+        {
+          "method": "POST",
+          "path": "/invoice_appointments{format}",
+          "summary": "Add New Invoice Appointment"
+        }
+      ]
+    },
+    "invoice_appointments": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/invoice_appointments/{id}{format}",
+          "summary": "GET Single Invoice Appointment"
+        },
+        {
+          "method": "PUT",
+          "path": "/invoice_appointments/{id}{format}",
+          "summary": "Edit Invoice Appointments"
+        },
+        {
+          "method": "DELETE",
+          "path": "/invoice_appointments/{id}{format}",
+          "summary": "Delete Invoice Appointments"
+        }
+      ]
+    },
+    "shipping_options{format}": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/shipping_options{format}",
+          "summary": "List Shipping Options"
+        }
+      ]
+    },
+    "pos_shifts{format}": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/pos_shifts{format}",
+          "summary": "Get POS Shift Session"
+        }
+      ]
+    },
+    "clients{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/clients{format}",
+          "summary": "GET All Clients"
+        },
+        {
+          "method": "POST",
+          "path": "/clients{format}",
+          "summary": "Add New Client"
+        }
+      ]
+    },
+    "clients": {
+      "totalEndpoints": 8,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/clients/{id}{format}",
+          "summary": "GET Single Client"
+        },
+        {
+          "method": "PUT",
+          "path": "/clients/{id}{format}",
+          "summary": "Edit Clients"
+        },
+        {
+          "method": "DELETE",
+          "path": "/clients/{id}{format}",
+          "summary": "Delete Clients"
+        },
+        {
+          "method": "POST",
+          "path": "/clients/assign_staff/{id}{format}",
+          "summary": "Assign Staff To Client"
+        },
+        {
+          "method": "GET",
+          "path": "/clients/loyalty-points/{id}{format}",
+          "summary": "Client Loyalty Points"
+        },
+        {
+          "method": "POST",
+          "path": "/clients/add_bulk{format}",
+          "summary": "Bulk Add Clients"
+        },
+        {
+          "method": "GET",
+          "path": "/clients/client_has_membership{format}",
+          "summary": "Client Has Membership"
+        },
+        {
+          "method": "GET",
+          "path": "/clients/client_attendance_barcode{format}",
+          "summary": "Client Attendance By Barcode"
+        }
+      ]
+    },
+    "client_appointments{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/client_appointments{format}",
+          "summary": "GET All Client Appointments"
+        },
+        {
+          "method": "POST",
+          "path": "/client_appointments{format}",
+          "summary": "Add New Client Appointment"
+        }
+      ]
+    },
+    "client_appointments": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/client_appointments/{id}{format}",
+          "summary": "GET Single Client Appointment"
+        },
+        {
+          "method": "PUT",
+          "path": "/client_appointments/{id}{format}",
+          "summary": "Edit Client Appointments"
+        },
+        {
+          "method": "DELETE",
+          "path": "/client_appointments/{id}{format}",
+          "summary": "Delete Client Appointments"
+        }
+      ]
+    },
+    "client_payments{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/client_payments{format}",
+          "summary": "GET All Client Payments"
+        },
+        {
+          "method": "POST",
+          "path": "/client_payments{format}",
+          "summary": "Add New Client Payment"
+        }
+      ]
+    },
+    "client_payments": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/client_payments/{id}{format}",
+          "summary": "GET Single Client Payment"
+        },
+        {
+          "method": "PUT",
+          "path": "/client_payments/{id}{format}",
+          "summary": "Edit Client Payments"
+        },
+        {
+          "method": "DELETE",
+          "path": "/client_payments/{id}{format}",
+          "summary": "Delete Client Payments"
+        }
+      ]
+    },
+    "follow_up_actions": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/follow_up_actions/{type}{format}",
+          "summary": "Get All Follow-Up Actions"
+        },
+        {
+          "method": "GET",
+          "path": "/follow_up_actions/{id}{format}",
+          "summary": "Get Single Follow-Up Action"
+        },
+        {
+          "method": "DELETE",
+          "path": "/follow_up_actions/{id}{format}",
+          "summary": "Delete Follow-Up Action"
+        }
+      ]
+    },
+    "client_attendance_log": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/client_attendance_log/list/1",
+          "summary": "Get All Client Attendance Logs"
+        },
+        {
+          "method": "GET",
+          "path": "/client_attendance_log/{id}/1",
+          "summary": "Get Single Client Attendance Log"
+        },
+        {
+          "method": "POST",
+          "path": "/client_attendance_log",
+          "summary": "Edit Client Attendance Log"
+        }
+      ]
+    },
+    "delete": {
+      "totalEndpoints": 6,
+      "operations": [
+        {
+          "method": "DELETE",
+          "path": "/delete/client_attendance_log/1",
+          "summary": "Delete Client Attendance Log"
+        },
+        {
+          "method": "DELETE",
+          "path": "/delete/brand/{id}",
+          "summary": "Delete brand"
+        },
+        {
+          "method": "DELETE",
+          "path": "/delete/cost_center/{ID}",
+          "summary": "Delete Cost Center"
+        },
+        {
+          "method": "DELETE",
+          "path": "/delete/branch/{id}",
+          "summary": "Delete Branch"
+        },
+        {
+          "method": "DELETE",
+          "path": "/delete/site_payment_gateway/{ID}",
+          "summary": "Add Payment Method Copy"
+        },
+        {
+          "method": "DELETE",
+          "path": "/delete/follow_up_status/{id}",
+          "summary": "Delete Follow-Up Status"
+        }
+      ]
+    },
+    "notes{format}": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/notes{format}",
+          "summary": "GET All Notes"
+        }
+      ]
+    },
+    "notes": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/notes/{id}{format}",
+          "summary": "GET Single Note"
+        },
+        {
+          "method": "PUT",
+          "path": "/notes/{id}{format}",
+          "summary": "Edit Notes"
+        },
+        {
+          "method": "DELETE",
+          "path": "/notes/{id}{format}",
+          "summary": "Delete Notes"
+        },
+        {
+          "method": "POST",
+          "path": "/notes/{type}/{id}{format}",
+          "summary": "Add New Note"
+        }
+      ]
+    },
+    "booking": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/booking/list/1",
+          "summary": "Get All Bookings"
+        },
+        {
+          "method": "GET",
+          "path": "/booking/{bookingId}/1",
+          "summary": "Get Single Booking"
+        }
+      ]
+    },
+    "bookings": {
+      "totalEndpoints": 7,
+      "operations": [
+        {
+          "method": "POST",
+          "path": "/bookings/add",
+          "summary": "Add new Booking"
+        },
+        {
+          "method": "DELETE",
+          "path": "/bookings/{bookingId}",
+          "summary": "Delete booking"
+        },
+        {
+          "method": "GET",
+          "path": "/bookings/change_status/{bookingId}/{bookingStatus}",
+          "summary": "Change Booking Status"
+        },
+        {
+          "method": "GET",
+          "path": "/bookings/convert_to_invoice/{bookingId}",
+          "summary": "Convert booking to Invoice"
+        },
+        {
+          "method": "POST",
+          "path": "/v2/api/bookings",
+          "summary": "Add new Booking"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v2/api/bookings/{BookingID}",
+          "summary": "Delete booking"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/api/bookings/{BookingID}/status",
+          "summary": "Change Booking Status"
+        }
+      ]
+    },
+    "work_order_appointments{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/work_order_appointments{format}",
+          "summary": "GET All Work Order Appointments"
+        },
+        {
+          "method": "POST",
+          "path": "/work_order_appointments{format}",
+          "summary": "Add New Work Order Appointment"
+        }
+      ]
+    },
+    "work_order_appointments": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/work_order_appointments/{id}{format}",
+          "summary": "GET Single Work Order Appointment"
+        },
+        {
+          "method": "PUT",
+          "path": "/work_order_appointments/{id}{format}",
+          "summary": "Edit Work Order Appointments"
+        },
+        {
+          "method": "DELETE",
+          "path": "/work_order_appointments/{id}{format}",
+          "summary": "Delete Work Order Appointments"
+        },
+        {
+          "method": "POST",
+          "path": "/work_order_appointments/{id}{format}",
+          "summary": "Update Work Order Appointment (POST alias)"
+        }
+      ]
+    },
+    "work_orders{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/work_orders{format}",
+          "summary": "GET All Work Orders"
+        },
+        {
+          "method": "POST",
+          "path": "/work_orders{format}",
+          "summary": "Add New Work Order"
+        }
+      ]
+    },
+    "work_orders": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/work_orders/{id}{format}",
+          "summary": "GET Single Work Order"
+        },
+        {
+          "method": "PUT",
+          "path": "/work_orders/{id}{format}",
+          "summary": "Edit Work Orders"
+        },
+        {
+          "method": "DELETE",
+          "path": "/work_orders/{id}{format}",
+          "summary": "Delete Work Orders"
+        }
+      ]
+    },
+    "product_bundle": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "POST",
+          "path": "/product_bundle",
+          "summary": "Add Product bundle"
+        }
+      ]
+    },
+    "products{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/products{format}",
+          "summary": "GET All Products"
+        },
+        {
+          "method": "POST",
+          "path": "/products{format}",
+          "summary": "Add New Product"
+        }
+      ]
+    },
+    "products": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/products/{id}{format}",
+          "summary": "GET Single Product"
+        },
+        {
+          "method": "PUT",
+          "path": "/products/{id}{format}",
+          "summary": "Edit Products"
+        },
+        {
+          "method": "DELETE",
+          "path": "/products/{id}{format}",
+          "summary": "Delete Products"
+        },
+        {
+          "method": "GET",
+          "path": "/products/brands{format}",
+          "summary": "List Brands"
+        }
+      ]
+    },
+    "requisitions": {
+      "totalEndpoints": 6,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/requisitions",
+          "summary": "GET All Requisitions "
+        },
+        {
+          "method": "POST",
+          "path": "/requisitions",
+          "summary": "Add New Requisition"
+        },
+        {
+          "method": "GET",
+          "path": "/requisitions/{id}",
+          "summary": "GET single Requisition"
+        },
+        {
+          "method": "PUT",
+          "path": "/requisitions/{id}",
+          "summary": "Edit Requisitions"
+        },
+        {
+          "method": "DELETE",
+          "path": "/requisitions/{id}",
+          "summary": "Delete Requisitions"
+        },
+        {
+          "method": "GET",
+          "path": "/requisitions/trigger_update/{id}",
+          "summary": "Trigger Requisition Update"
+        }
+      ]
+    },
+    "product_categories{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/product_categories{format}",
+          "summary": "GET All Product Categories"
+        },
+        {
+          "method": "POST",
+          "path": "/product_categories{format}",
+          "summary": "Add New Product Category"
+        }
+      ]
+    },
+    "product_categories": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/product_categories/{id}{format}",
+          "summary": "GET Single Product Category"
+        },
+        {
+          "method": "PUT",
+          "path": "/product_categories/{id}{format}",
+          "summary": "Edit Product Category"
+        },
+        {
+          "method": "DELETE",
+          "path": "/product_categories/{type}/{id}{format}",
+          "summary": "Delete Product Category"
+        }
+      ]
+    },
+    "categories": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "POST",
+          "path": "/categories/update_display_order/{type}{format}",
+          "summary": "Update Category Display Order"
+        },
+        {
+          "method": "POST",
+          "path": "/categories/update_category_items/{type}{format}",
+          "summary": "Update Category Items"
+        }
+      ]
+    },
+    "stores{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/stores{format}",
+          "summary": "GET All Stores"
+        },
+        {
+          "method": "POST",
+          "path": "/stores{format}",
+          "summary": "Add New Store"
+        }
+      ]
+    },
+    "stores": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/stores/{id}{format}",
+          "summary": "GET Single Store"
+        },
+        {
+          "method": "PUT",
+          "path": "/stores/{id}{format}",
+          "summary": "Edit Stores"
+        },
+        {
+          "method": "DELETE",
+          "path": "/stores/{id}{format}",
+          "summary": "Delete Stores"
+        }
+      ]
+    },
+    "brand": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/brand/list",
+          "summary": "Get All Brands"
+        },
+        {
+          "method": "GET",
+          "path": "/brand/{id}",
+          "summary": "Get Single Brand"
+        },
+        {
+          "method": "PUT",
+          "path": "/brand/{id}",
+          "summary": "Edit brand"
+        },
+        {
+          "method": "POST",
+          "path": "/brand",
+          "summary": "Add New Brand"
+        }
+      ]
+    },
+    "unit_template": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/unit_template/list",
+          "summary": "Get All Unit Templates"
+        },
+        {
+          "method": "GET",
+          "path": "/unit_template/{id}",
+          "summary": "Get Single Unit Template"
+        },
+        {
+          "method": "PUT",
+          "path": "/unit_template/{id}",
+          "summary": "Edit Unit Template"
+        },
+        {
+          "method": "POST",
+          "path": "/unit_template",
+          "summary": "Add Unit Template"
+        }
+      ]
+    },
+    "stock_transactions{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/stock_transactions{format}",
+          "summary": "GET All Stock Transactions"
+        },
+        {
+          "method": "POST",
+          "path": "/stock_transactions{format}",
+          "summary": "Add New Stock Transaction"
+        }
+      ]
+    },
+    "stock_transactions": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/stock_transactions/{id}{format}",
+          "summary": "GET Single Stock Transaction"
+        },
+        {
+          "method": "PUT",
+          "path": "/stock_transactions/{id}{format}",
+          "summary": "Edit Stock Transactions"
+        },
+        {
+          "method": "DELETE",
+          "path": "/stock_transactions/{id}{format}",
+          "summary": "Delete Stock Transactions"
+        }
+      ]
+    },
+    "journals": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "DELETE",
+          "path": "/journals/{id}{format}",
+          "summary": "Delete Journals"
+        },
+        {
+          "method": "PUT",
+          "path": "/journals/{id}{format}",
+          "summary": "Edit Journals"
+        },
+        {
+          "method": "GET",
+          "path": "/journals/{id}{format}",
+          "summary": "GET Single Journal"
+        }
+      ]
+    },
+    "journals{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/journals{format}",
+          "summary": "GET All Journals"
+        },
+        {
+          "method": "POST",
+          "path": "/journals{format}",
+          "summary": "Add New Journal"
+        }
+      ]
+    },
+    "journal_accounts{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/journal_accounts{format}",
+          "summary": "GET All Journal Accounts"
+        },
+        {
+          "method": "POST",
+          "path": "/journal_accounts{format}",
+          "summary": "Add New Journal Account"
+        }
+      ]
+    },
+    "journal_accounts": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/journal_accounts/{id}{format}",
+          "summary": "GET Single Journal Account"
+        },
+        {
+          "method": "PUT",
+          "path": "/journal_accounts/{id}{format}",
+          "summary": "Edit Journal Accounts"
+        },
+        {
+          "method": "DELETE",
+          "path": "/journal_accounts/{id}{format}",
+          "summary": "Delete Journal Accounts"
+        }
+      ]
+    },
+    "journal_cats{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/journal_cats{format}",
+          "summary": "GET All Journal Cats"
+        },
+        {
+          "method": "POST",
+          "path": "/journal_cats{format}",
+          "summary": "Add New Journal Cat"
+        }
+      ]
+    },
+    "journal_cats": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/journal_cats/{id}{format}",
+          "summary": "GET Single Journal Cat"
+        },
+        {
+          "method": "DELETE",
+          "path": "/journal_cats/{id}{format}",
+          "summary": "Delete Journal Cats"
+        },
+        {
+          "method": "PUT",
+          "path": "/journal_cats/{id}{format}",
+          "summary": "Edit Journal Cats"
+        }
+      ]
+    },
+    "cost_center": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/cost_center/list/1",
+          "summary": "Get All Cost Centers"
+        },
+        {
+          "method": "GET",
+          "path": "/cost_center/{ID}/1",
+          "summary": "Get Single Cost Center"
+        },
+        {
+          "method": "POST",
+          "path": "/cost_center",
+          "summary": "Add New Cost Center"
+        },
+        {
+          "method": "PUT",
+          "path": "/cost_center/{ID}",
+          "summary": "Edit Cost Center"
+        }
+      ]
+    },
+    "incomes{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/incomes{format}",
+          "summary": "GET All Incomes"
+        },
+        {
+          "method": "POST",
+          "path": "/incomes{format}",
+          "summary": "Add New Income"
+        }
+      ]
+    },
+    "incomes": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/incomes/{id}{format}",
+          "summary": "GET Single Income"
+        },
+        {
+          "method": "PUT",
+          "path": "/incomes/{id}{format}",
+          "summary": "Edit Incomes"
+        },
+        {
+          "method": "DELETE",
+          "path": "/incomes/{id}{format}",
+          "summary": "Delete Incomes"
+        }
+      ]
+    },
+    "treasuries{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/treasuries{format}",
+          "summary": "GET All Treasuries"
+        },
+        {
+          "method": "POST",
+          "path": "/treasuries{format}",
+          "summary": "Add New Treasury"
+        }
+      ]
+    },
+    "treasuries": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/treasuries/{id}{format}",
+          "summary": "GET Single Treasury"
+        },
+        {
+          "method": "PUT",
+          "path": "/treasuries/{id}{format}",
+          "summary": "Edit Treasuries"
+        },
+        {
+          "method": "DELETE",
+          "path": "/treasuries/{id}{format}",
+          "summary": "Delete Treasuries"
+        }
+      ]
+    },
+    "expenses{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/expenses{format}",
+          "summary": "GET All Expenses"
+        },
+        {
+          "method": "POST",
+          "path": "/expenses{format}",
+          "summary": "Add New Expens"
+        }
+      ]
+    },
+    "expenses": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/expenses/{id}{format}",
+          "summary": "GET Single Expens"
+        },
+        {
+          "method": "PUT",
+          "path": "/expenses/{id}{format}",
+          "summary": "Edit Expenses"
+        },
+        {
+          "method": "DELETE",
+          "path": "/expenses/{id}{format}",
+          "summary": "Delete Expenses"
+        }
+      ]
+    },
+    "leave_application": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/leave_application/list/1",
+          "summary": "Get All Leave Applications"
+        },
+        {
+          "method": "GET",
+          "path": "/leave_application/{ID}/1",
+          "summary": "Get Single Leave Applications "
+        },
+        {
+          "method": "POST",
+          "path": "/leave_application",
+          "summary": "Add Leave Application"
+        },
+        {
+          "method": "PUT",
+          "path": "/leave_application/{ID}",
+          "summary": "Edit Leave Application"
+        }
+      ]
+    },
+    "attendance_log": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/attendance_log/list/1",
+          "summary": "Get All Attendance Logs"
+        },
+        {
+          "method": "GET",
+          "path": "/attendance_log/{id}/1",
+          "summary": "Get Single Attendance Log"
+        },
+        {
+          "method": "POST",
+          "path": "/attendance_log",
+          "summary": "Add Attendance Log"
+        }
+      ]
+    },
+    "asset_type": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/asset_type/list/1",
+          "summary": "Get All Types"
+        },
+        {
+          "method": "GET",
+          "path": "/asset_type/id/1",
+          "summary": "Get Single Type"
+        },
+        {
+          "method": "POST",
+          "path": "/asset_type",
+          "summary": "Add New Type"
+        },
+        {
+          "method": "PUT",
+          "path": "/asset_type/id",
+          "summary": "Edit Type"
+        }
+      ]
+    },
+    "asset_location": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/asset_location/list/1",
+          "summary": "Get All Locations"
+        },
+        {
+          "method": "GET",
+          "path": "/asset_location/id/1",
+          "summary": "Get Single Location"
+        },
+        {
+          "method": "POST",
+          "path": "/asset_location",
+          "summary": "Add New Location"
+        },
+        {
+          "method": "PUT",
+          "path": "/asset_location/id",
+          "summary": "Edit Location"
+        }
+      ]
+    },
+    "storage": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/storage/list/1",
+          "summary": "Get All Storages"
+        },
+        {
+          "method": "GET",
+          "path": "/storage/id/1",
+          "summary": "Get Single Storage"
+        },
+        {
+          "method": "POST",
+          "path": "/storage",
+          "summary": "Add New Storage"
+        },
+        {
+          "method": "PUT",
+          "path": "/storage/id",
+          "summary": "Edit Storage"
+        }
+      ]
+    },
+    "employee_asset": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/employee_asset/list/2",
+          "summary": "Get All Assets"
+        },
+        {
+          "method": "GET",
+          "path": "/employee_asset/id/1",
+          "summary": "Get Single Asset"
+        },
+        {
+          "method": "POST",
+          "path": "/employee_asset",
+          "summary": "Add New Asset"
+        },
+        {
+          "method": "PUT",
+          "path": "/employee_asset/id",
+          "summary": "Edit Asset"
+        }
+      ]
+    },
+    "designation": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/designation/list/1",
+          "summary": "Get All Designations"
+        },
+        {
+          "method": "GET",
+          "path": "/designation/id/1",
+          "summary": "Get Single Designation"
+        },
+        {
+          "method": "POST",
+          "path": "/designation",
+          "summary": "Add New Designation"
+        },
+        {
+          "method": "PUT",
+          "path": "/designation/id",
+          "summary": "Edit Designation"
+        }
+      ]
+    },
+    "department": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/department/list/1",
+          "summary": "Get All Departments"
+        },
+        {
+          "method": "GET",
+          "path": "/department/id/1",
+          "summary": "Get Single Department"
+        },
+        {
+          "method": "POST",
+          "path": "/department",
+          "summary": "Add New Department"
+        },
+        {
+          "method": "PUT",
+          "path": "/department/id",
+          "summary": "Edit Department"
+        }
+      ]
+    },
+    "employment_type": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/employment_type/list/1",
+          "summary": "Get All Employment Types"
+        },
+        {
+          "method": "GET",
+          "path": "/employment_type/id/1",
+          "summary": "Get Single Employment Type"
+        },
+        {
+          "method": "POST",
+          "path": "/employment_type",
+          "summary": "Add New Employment Type"
+        },
+        {
+          "method": "PUT",
+          "path": "/employment_type/id",
+          "summary": "Edit Employment Type"
+        }
+      ]
+    },
+    "branch": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/branch/list/1",
+          "summary": "Get All Branches"
+        },
+        {
+          "method": "GET",
+          "path": "/branch/id/1",
+          "summary": "Get Single Branch"
+        },
+        {
+          "method": "POST",
+          "path": "/branch",
+          "summary": "Edit Branch"
+        }
+      ]
+    },
+    "taxes{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/taxes{format}",
+          "summary": "GET All Taxes"
+        },
+        {
+          "method": "POST",
+          "path": "/taxes{format}",
+          "summary": "Add New Taxe"
+        }
+      ]
+    },
+    "taxes": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/taxes/{id}{format}",
+          "summary": "GET Single Taxe"
+        },
+        {
+          "method": "PUT",
+          "path": "/taxes/{id}{format}",
+          "summary": "Edit Taxes"
+        },
+        {
+          "method": "DELETE",
+          "path": "/taxes/{id}{format}",
+          "summary": "Delete Taxes"
+        }
+      ]
+    },
+    "purchase_debit_note": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/purchase_debit_note/list/{dataLevel}",
+          "summary": "Purchase Debit Note"
+        },
+        {
+          "method": "POST",
+          "path": "/purchase_debit_note",
+          "summary": "Purchase Debit Note"
+        }
+      ]
+    },
+    "purchase_refunds{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/purchase_refunds{format}",
+          "summary": "GET All Purchase Refunds"
+        },
+        {
+          "method": "POST",
+          "path": "/purchase_refunds{format}",
+          "summary": "Add New Purchase Refund"
+        }
+      ]
+    },
+    "purchase_refunds": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/purchase_refunds/{id}{format}",
+          "summary": "GET Single Purchase Refund"
+        },
+        {
+          "method": "PUT",
+          "path": "/purchase_refunds/{id}{format}",
+          "summary": "Edit Purchase Refunds"
+        },
+        {
+          "method": "DELETE",
+          "path": "/purchase_refunds/{id}{format}",
+          "summary": "Delete Purchase Refunds"
+        }
+      ]
+    },
+    "purchase_invoices{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/purchase_invoices{format}",
+          "summary": "GET All Purchase Invoices"
+        },
+        {
+          "method": "POST",
+          "path": "/purchase_invoices{format}",
+          "summary": "Add New Purchase Invoice"
+        }
+      ]
+    },
+    "purchase_invoices": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/purchase_invoices/{id}{format}",
+          "summary": "GET Single Purchase Invoice"
+        },
+        {
+          "method": "PUT",
+          "path": "/purchase_invoices/{id}{format}",
+          "summary": "Edit Purchase Invoices"
+        },
+        {
+          "method": "DELETE",
+          "path": "/purchase_invoices/{id}{format}",
+          "summary": "Delete Purchase Order"
+        }
+      ]
+    },
+    "purchase_orders{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/purchase_orders{format}",
+          "summary": "GET All Purchase Orders"
+        },
+        {
+          "method": "POST",
+          "path": "/purchase_orders{format}",
+          "summary": "Add New Purchase Order"
+        }
+      ]
+    },
+    "purchase_orders": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/purchase_orders/{id}{format}",
+          "summary": "GET Single Purchase Order"
+        },
+        {
+          "method": "PUT",
+          "path": "/purchase_orders/{id}{format}",
+          "summary": "Edit Purchase Order"
+        }
+      ]
+    },
+    "listing": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/listing/{model}{format}",
+          "summary": "GET General Listing"
+        }
+      ]
+    },
+    "site_payment_gateway": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/site_payment_gateway/list/1",
+          "summary": "Get All Payment Methods"
+        },
+        {
+          "method": "GET",
+          "path": "/site_payment_gateway/{ID}/1",
+          "summary": "Get Single Payment Method"
+        },
+        {
+          "method": "POST",
+          "path": "/site_payment_gateway",
+          "summary": "Add Payment Method"
+        }
+      ]
+    },
+    "credit_type_package": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/credit_type_package/list/1",
+          "summary": "Get All Package Credit Types"
+        },
+        {
+          "method": "GET",
+          "path": "/credit_type_package/{id}/1",
+          "summary": "Get Single Package Credit Type"
+        },
+        {
+          "method": "POST",
+          "path": "/credit_type_package",
+          "summary": "Edit Package Credit Type"
+        }
+      ]
+    },
+    "credit_charge": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/credit_charge/list/1",
+          "summary": "Get All Credit Charges"
+        },
+        {
+          "method": "GET",
+          "path": "/credit_charge/{id}/1",
+          "summary": "Get Single Credit Charge"
+        },
+        {
+          "method": "POST",
+          "path": "/credit_charge",
+          "summary": "Edit Credit Charge"
+        }
+      ]
+    },
+    "credit_usage": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/credit_usage/list/1",
+          "summary": "Get All Credit Usage"
+        },
+        {
+          "method": "GET",
+          "path": "/credit_usage/{id}/1",
+          "summary": "Get Single Credit Usage "
+        },
+        {
+          "method": "POST",
+          "path": "/credit_usage",
+          "summary": "Edit Credit Usage"
+        }
+      ]
+    },
+    "charge_usage": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/charge_usage/list/1",
+          "summary": "Get All Credit Usage Amount"
+        },
+        {
+          "method": "GET",
+          "path": "/charge_usage/{id}/1",
+          "summary": "Get Single Credit Usage Amount"
+        },
+        {
+          "method": "POST",
+          "path": "/charge_usage",
+          "summary": "Edit Credit Usage Amount"
+        }
+      ]
+    },
+    "credit_type": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/credit_type/list/1",
+          "summary": "Get All Credit types"
+        },
+        {
+          "method": "GET",
+          "path": "/credit_type/{Id}/1",
+          "summary": "Get Single Credit type "
+        },
+        {
+          "method": "POST",
+          "path": "/credit_type",
+          "summary": "Edit Credit type"
+        }
+      ]
+    },
+    "package": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/package/list/1",
+          "summary": "Get All Packages"
+        },
+        {
+          "method": "GET",
+          "path": "/package/{id}/1",
+          "summary": "Get Single Package"
+        },
+        {
+          "method": "POST",
+          "path": "/package",
+          "summary": "Edit Package"
+        }
+      ]
+    },
+    "le_workflow-type-entity-{workflow_id}": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/le_workflow-type-entity-{workflow_id}/list/{format}",
+          "summary": "Get All Records"
+        },
+        {
+          "method": "GET",
+          "path": "/le_workflow-type-entity-{workflow_id}/{record_id}/{format}",
+          "summary": "Get Single Record"
+        },
+        {
+          "method": "POST",
+          "path": "/le_workflow-type-entity-{workflow_id}",
+          "summary": "Add New Record"
+        },
+        {
+          "method": "PUT",
+          "path": "/le_workflow-type-entity-{workflow_id}/{record_id}",
+          "summary": "Edit Record"
+        }
+      ]
+    },
+    "multi-entity": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "POST",
+          "path": "/v2/api/multi-entity",
+          "summary": "Multi Entity Request"
+        }
+      ]
+    },
+    "suppliers{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/suppliers{format}",
+          "summary": "GET All Suppliers"
+        },
+        {
+          "method": "POST",
+          "path": "/suppliers{format}",
+          "summary": "Add New Supplier"
+        }
+      ]
+    },
+    "suppliers": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/suppliers/{id}{format}",
+          "summary": "GET Single Supplier"
+        },
+        {
+          "method": "PUT",
+          "path": "/suppliers/{id}{format}",
+          "summary": "Edit Suppliers"
+        },
+        {
+          "method": "DELETE",
+          "path": "/suppliers/{id}{format}",
+          "summary": "Delete Suppliers"
+        }
+      ]
+    },
+    "staff{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/staff{format}",
+          "summary": "GET All Staff"
+        },
+        {
+          "method": "POST",
+          "path": "/staff{format}",
+          "summary": "Add New Staff"
+        }
+      ]
+    },
+    "staff": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/staff/{id}{format}",
+          "summary": "GET Single Staff"
+        },
+        {
+          "method": "DELETE",
+          "path": "/staff/{id}{format}",
+          "summary": "DELETE Staff"
+        },
+        {
+          "method": "GET",
+          "path": "/staff/send_login_details/{id}{format}",
+          "summary": "GET Send Staff Login Details"
+        }
+      ]
+    },
+    "time_tracking{format}": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/time_tracking{format}",
+          "summary": "GET All Time Tracking"
+        },
+        {
+          "method": "POST",
+          "path": "/time_tracking{format}",
+          "summary": "Add New Time Tracking"
+        }
+      ]
+    },
+    "time_tracking": {
+      "totalEndpoints": 3,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/time_tracking/{id}{format}",
+          "summary": "GET Single Time Tracking"
+        },
+        {
+          "method": "PUT",
+          "path": "/time_tracking/{id}{format}",
+          "summary": "Edit Time Tracking"
+        },
+        {
+          "method": "DELETE",
+          "path": "/time_tracking/{id}{format}",
+          "summary": "Delete Time Tracking"
+        }
+      ]
+    },
+    "entity": {
+      "totalEndpoints": 5,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/v2/api/entity/{entityKey}/list/{dataLevel}",
+          "summary": "List entity records"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/api/entity/{entityKey}/{id}/{dataLevel}",
+          "summary": "View entity record"
+        },
+        {
+          "method": "POST",
+          "path": "/v2/api/entity/{entityKey}",
+          "summary": "Create entity record"
+        },
+        {
+          "method": "PUT",
+          "path": "/v2/api/entity/{entityKey}/{id}",
+          "summary": "Update entity record"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v2/api/entity/delete/{entityKey}/{id}",
+          "summary": "Delete entity record"
+        }
+      ]
+    },
+    "api2": {
+      "totalEndpoints": 4,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/api2/reports/revenue",
+          "summary": "Sales Revenue report"
+        },
+        {
+          "method": "GET",
+          "path": "/api2/reports/products",
+          "summary": "Product Sales report"
+        },
+        {
+          "method": "GET",
+          "path": "/api2/reports/payments",
+          "summary": "Payments report"
+        },
+        {
+          "method": "GET",
+          "path": "/api2/reports/accounts_profit_accrual",
+          "summary": "Profit & Loss (Accrual) report"
+        }
+      ]
+    },
+    "{entity}": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/{entity}/list/1",
+          "summary": "Data Fetching — Filtered"
+        }
+      ]
+    },
+    "app-manager": {
+      "totalEndpoints": 2,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/v2/api/app-manager/activate/{id}/{status}",
+          "summary": "Activate / Deactivate App"
+        },
+        {
+          "method": "GET",
+          "path": "/v2/api/app-manager/is_active/{id}",
+          "summary": "Check App Status"
+        }
+      ]
+    },
+    "apps-manager": {
+      "totalEndpoints": 1,
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/v2/api/apps-manager/{appId}/{entityKey}/{entityId}/{lock}",
+          "summary": "Lock / Unlock Entity Record"
+        }
+      ]
+    }
+  }
+}

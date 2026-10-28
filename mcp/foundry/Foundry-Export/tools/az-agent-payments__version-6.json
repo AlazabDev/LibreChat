@@ -1,0 +1,39 @@
+[
+  {
+    "allowed_tools": {
+      "tool_names": [
+        "daftra-crm___get_clients_by_id",
+        "daftra-crm___get_clients_list",
+        "daftra-crm___get_client_appointments_list",
+        "daftra-crm___get_client_payments_by_id",
+        "daftra-crm___get_client_payments_list",
+        "daftra-crm___get_notes_list",
+        "daftra-purchases___get_purchase_invoices_list",
+        "daftra-sales___get_estimates_by_id",
+        "daftra-sales___get_estimates_list",
+        "daftra-sales___get_estimate_appointments_list",
+        "daftra-sales___get_invoices_by_id",
+        "daftra-sales___get_invoices_list",
+        "daftra-sales___get_invoices_subscription_list",
+        "daftra-sales___get_invoice_appointments_list",
+        "daftra-sales___get_invoice_payments_by_id",
+        "daftra-sales___get_invoice_payments_list",
+        "daftra-sales___get_shipping_options_list"
+      ]
+    },
+    "project_connection_id": "daftra-toolbox-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_daftra",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/daftra-toolbox/versions/3/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "container": {
+      "type": "auto"
+    },
+    "type": "code_interpreter"
+  },
+  {
+    "type": "web_search"
+  }
+]

@@ -1,0 +1,115 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BENCH_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+PROFILE="$BENCH_ROOT/.azcodex/frappe.env"
+
+if [[ ! -f "$PROFILE" ]]; then
+  echo "[az-bench] Missing profile: $PROFILE" >&2
+  exit 2
+fi
+
+# shellcheck disable=SC1090
+source "$PROFILE"
+
+: "${AZCODEX_FRAPPE_ENV:=development}"
+: "${AZCODEX_FRAPPE_SITE:=}"
+: "${AZCODEX_BACKUP_BEFORE_MIGRATE:=1}"
+: "${AZCODEX_BACKUP_BEFORE_DESTRUCTIVE:=1}"
+: "${AZCODEX_BACKUP_WITH_FILES:=1}"
+: "${AZCODEX_ALLOW_DROP_SITE:=0}"
+: "${AZCODEX_ALLOW_REINSTALL:=0}"
+: "${AZCODEX_ALLOW_RESTORE:=0}"
+
+args=("$@")
+operation=""
+site=""
+force=0
+
+for ((i=0; i<${#args[@]}; i++)); do
+  case "${args[$i]}" in
+    --site)
+      if (( i + 1 < ${#args[@]} )); then
+        site="${args[$((i+1))]}"
+      fi
+      ;;
+    migrate|drop-site|reinstall|restore)
+      operation="${args[$i]}"
+      ;;
+    --force)
+      force=1
+      ;;
+  esac
+done
+
+# drop-site normally uses the site as the next positional argument.
+if [[ "$operation" == "drop-site" && -z "$site" ]]; then
+  for ((i=0; i<${#args[@]}; i++)); do
+    if [[ "${args[$i]}" == "drop-site" ]] && (( i + 1 < ${#args[@]} )); then
+      candidate="${args[$((i+1))]}"
+      if [[ "$candidate" != -* ]]; then
+        site="$candidate"
+      fi
+      break
+    fi
+  done
+fi
+
+if [[ -z "$site" ]]; then
+  site="$AZCODEX_FRAPPE_SITE"
+fi
+
+needs_backup=0
+case "$operation" in
+  migrate)
+    [[ "$AZCODEX_BACKUP_BEFORE_MIGRATE" == "1" ]] && needs_backup=1
+    ;;
+  drop-site|reinstall|restore)
+    [[ "$AZCODEX_BACKUP_BEFORE_DESTRUCTIVE" == "1" ]] && needs_backup=1
+    ;;
+esac
+[[ "$force" == "1" ]] && needs_backup=1
+
+case "$operation" in
+  drop-site)
+    if [[ "$AZCODEX_ALLOW_DROP_SITE" != "1" ]]; then
+      echo "[az-bench] BLOCKED: drop-site is disabled by $AZCODEX_FRAPPE_ENV profile." >&2
+      exit 20
+    fi
+    ;;
+  reinstall)
+    if [[ "$AZCODEX_ALLOW_REINSTALL" != "1" ]]; then
+      echo "[az-bench] BLOCKED: reinstall is disabled by $AZCODEX_FRAPPE_ENV profile." >&2
+      exit 21
+    fi
+    ;;
+  restore)
+    if [[ "$AZCODEX_ALLOW_RESTORE" != "1" ]]; then
+      echo "[az-bench] BLOCKED: restore is disabled by $AZCODEX_FRAPPE_ENV profile." >&2
+      exit 22
+    fi
+    ;;
+esac
+
+if [[ "$needs_backup" == "1" ]]; then
+  if [[ -z "$site" ]]; then
+    echo "[az-bench] Refusing guarded operation: site could not be resolved." >&2
+    echo "[az-bench] Pass --site <site> or set AZCODEX_FRAPPE_SITE in .azcodex/frappe.env." >&2
+    exit 23
+  fi
+
+  backup_args=(--site "$site" backup)
+  if [[ "$AZCODEX_BACKUP_WITH_FILES" == "1" ]]; then
+    backup_args+=(--with-files)
+  fi
+
+  echo "[az-bench] Creating required backup for site: $site" >&2
+  (
+    cd "$BENCH_ROOT"
+    bench "${backup_args[@]}"
+  )
+  echo "[az-bench] Backup completed successfully." >&2
+fi
+
+cd "$BENCH_ROOT"
+exec bench "${args[@]}"

@@ -1,0 +1,447 @@
+{
+  "info": {
+    "name": "UberFix Maintenance API v2 - Full Lifecycle",
+    "version": "2.0.0",
+    "description": "اختبار كامل لدورة حياة طلب صيانة عبر API Gateway الحديث. يدعم نظام الأدوار وworkflow_transitions.",
+    "last_updated": "2026-10-07",
+    "notes": [
+      "استخدم x-api-key فقط - لا حاجة لـ SERVICE_ROLE_KEY",
+      "المفتاح مقيد بالطلبات التي أنشأها هو فقط",
+      "بعض المراحل تتطلب دور admin",
+      "جميع العمليات مسجلة في audit_logs و api_gateway_logs"
+    ]
+  },
+  "gateway": {
+    "base_url": "https://zrrffsjbfkphridqyais.supabase.co/functions/v1",
+    "endpoint": "/api",
+    "full_url": "https://zrrffsjbfkphridqyais.supabase.co/functions/v1/api"
+  },
+  "auth": {
+    "type": "x-api-key",
+    "header_name": "x-api-key",
+    "test_key": "${UBERFIX_API_KEY}",
+    "warning": "هذا مفتاح اختبار - لا تستخدمه في الإنتاج"
+  },
+  "variables": {
+    "GATEWAY": "https://zrrffsjbfkphridqyais.supabase.co/functions/v1/api",
+    "API_KEY": "${UBERFIX_API_KEY}",
+    "CLIENT_NAME": "أبراهيم رجب - فرع أبوعوف",
+    "CLIENT_PHONE": "01004006620",
+    "SERVICE_TYPE": "electrical",
+    "REQUEST_ID": "",
+    "REQUEST_NUMBER": "",
+    "TRACK_URL": ""
+  },
+  "workflow_stages": {
+    "order": [
+      "submitted",
+      "triaged",
+      "assigned",
+      "scheduled",
+      "in_progress",
+      "inspection",
+      "waiting_parts",
+      "in_progress",
+      "completed",
+      "billed",
+      "paid",
+      "closed"
+    ],
+    "silent_stages": ["waiting_parts", "billed"],
+    "notifying_stages": ["submitted", "triaged", "assigned", "scheduled", "in_progress", "completed", "closed"],
+    "required_roles": {
+      "submitted -> triaged": "admin",
+      "submitted -> assigned": "admin",
+      "submitted -> in_progress": "illegal (يجب المرور بـ triaged أولاً)"
+    }
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "id": "create_request",
+      "name_ar": "إنشاء طلب جديد",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "client_name": "{{CLIENT_NAME}}",
+        "client_phone": "{{CLIENT_PHONE}}",
+        "service_type": "{{SERVICE_TYPE}}",
+        "description": "طلب صيانة لفرع الكهرباء للثلاجات",
+        "priority": "high"
+      },
+      "expected_response": {
+        "success": true,
+        "request_id": "<uuid>",
+        "request_number": "AZ-UF-26-09-XXXXXX",
+        "track_url": "https://uberfix.alazab.com/track/<uuid>",
+        "channel": "api",
+        "created_at": "<timestamp>"
+      },
+      "notification": "🔔 إشعار WhatsApp فوري",
+      "post_actions": [
+        "احفظ request_id في REQ_ID",
+        "احفظ request_number في REQ_NUM",
+        "احفظ track_url في TRACK_URL"
+      ]
+    },
+    {
+      "stage": 1,
+      "id": "get_status",
+      "name_ar": "استعلام عن حالة الطلب",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "get_status",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}"
+      },
+      "expected_response": {
+        "success": true,
+        "request_id": "<uuid>",
+        "request_number": "<string>",
+        "status": "Open",
+        "workflow_stage": "submitted",
+        "workflow_stage_v2": "submitted",
+        "track_url": "<url>",
+        "created_at": "<timestamp>",
+        "updated_at": "<timestamp>"
+      },
+      "notes": "يمكن استخدام request_number بدلاً من request_id"
+    },
+    {
+      "stage": 2,
+      "id": "transition_to_triaged",
+      "name_ar": "نقل الطلب إلى المراجعة",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "triaged",
+        "reason": "بدء المراجعة"
+      },
+      "required_role": "admin",
+      "notification": "🔔 إشعار WhatsApp: تمت مراجعة طلبك في UberFix 📝",
+      "possible_errors": [
+        "forbidden_transition_role: submitted -> triaged requires role \"admin\", actor has \"none\"",
+        "illegal_transition: <stage> -> triaged"
+      ]
+    },
+    {
+      "stage": 3,
+      "id": "transition_to_assigned",
+      "name_ar": "تعيين فني",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "assigned",
+        "reason": "تم تعيين الفني"
+      },
+      "required_role": "admin",
+      "notification": "🔔 إشعار WhatsApp: رسالة المراجعة",
+      "possible_errors": [
+        "forbidden_transition_role: submitted -> assigned requires role \"admin\", actor has \"none\""
+      ]
+    },
+    {
+      "stage": 4,
+      "id": "transition_to_scheduled",
+      "name_ar": "جدولة الموعد",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "scheduled",
+        "reason": "تم تحديد موعد الزيارة"
+      },
+      "notification": "🔔 إشعار WhatsApp: تم تحديد موعد زيارة الفني لطلبك 🗓"
+    },
+    {
+      "stage": 5,
+      "id": "transition_to_in_progress",
+      "name_ar": "بدء التنفيذ",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "in_progress",
+        "reason": "بدء التنفيذ"
+      },
+      "notification": "🔔 إشعار WhatsApp: بدأ تنفيذ أعمال الصيانة 🛠",
+      "possible_errors": [
+        "illegal_transition: submitted -> in_progress (يجب المرور بـ triaged و assigned أولاً)"
+      ]
+    },
+    {
+      "stage": 6,
+      "id": "transition_to_inspection",
+      "name_ar": "الفحص",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "inspection",
+        "reason": "فحص العمل"
+      },
+      "notification": null
+    },
+    {
+      "stage": 7,
+      "id": "transition_to_waiting_parts",
+      "name_ar": "انتظار قطع غيار",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "waiting_parts",
+        "reason": "بانتظار قطع غيار"
+      },
+      "notification": null,
+      "silent": true,
+      "note": "صامتة بالتصميم"
+    },
+    {
+      "stage": 8,
+      "id": "back_to_in_progress",
+      "name_ar": "العودة إلى التنفيذ",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "in_progress",
+        "reason": "وصلت قطع الغيار"
+      },
+      "notification": null
+    },
+    {
+      "stage": 9,
+      "id": "transition_to_completed",
+      "name_ar": "الإنتهاء",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "completed",
+        "reason": "تم إنهاء العمل"
+      },
+      "notification": "🔔 إشعار WhatsApp: تم الانتهاء من أعمال الصيانة بنجاح ✅"
+    },
+    {
+      "stage": 10,
+      "id": "transition_to_billed",
+      "name_ar": "إصدار الفاتورة",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "billed",
+        "reason": "إصدار الفاتورة"
+      },
+      "notification": null,
+      "silent": true
+    },
+    {
+      "stage": 11,
+      "id": "transition_to_paid",
+      "name_ar": "تم الدفع",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "paid",
+        "reason": "تم استلام المبلغ"
+      },
+      "notification": null
+    },
+    {
+      "stage": 12,
+      "id": "transition_to_closed",
+      "name_ar": "الإغلاق النهائي",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "transition_stage",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "to_stage": "closed",
+        "reason": "إغلاق نهائي"
+      },
+      "notification": "🔔 إشعار WhatsApp: تم إغلاق طلب الصيانة بنجاح 🏁"
+    }
+  ],
+  "additional_actions": [
+    {
+      "id": "add_note",
+      "name_ar": "إضافة ملاحظة",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "add_note",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "note": "العميل طلب التواصل بعد الساعة 5 مساءً"
+      }
+    },
+    {
+      "id": "cancel",
+      "name_ar": "إلغاء الطلب",
+      "method": "POST",
+      "url": "{{GATEWAY}}",
+      "headers": {
+        "x-api-key": "{{API_KEY}}",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "channel": "api",
+        "action": "cancel",
+        "client_name": "x",
+        "request_id": "{{REQUEST_ID}}",
+        "reason": "العميل ألغى الطلب"
+      }
+    }
+  ],
+  "error_codes": {
+    "forbidden_transition_role": {
+      "description": "المستخدم لا يملك الدور المطلوب للانتقال",
+      "example": "forbidden_transition_role: submitted -> triaged requires role \"admin\", actor has \"none\"",
+      "solution": "استخدم مفتاح API بدور admin، أو راجع جدول workflow_transitions"
+    },
+    "illegal_transition": {
+      "description": "الانتقال غير مسموح به من المرحلة الحالية",
+      "example": "illegal_transition: submitted -> in_progress",
+      "solution": "التزم بتسلسل المراحل: submitted → triaged → assigned → ..."
+    },
+    "403": {
+      "description": "المفتاح يحاول التأثير على طلب أنشأه مفتاح آخر",
+      "solution": "تأكد أن المفتاح هو من أنشأ الطلب"
+    }
+  },
+  "security_notes": [
+    "المفتاح مقيد بالطلبات التي أنشأها هو فقط",
+    "أي محاولة للتأثير على طلب أنشأه مفتاح آخر ستُرفض بـ 403",
+    "التحقق من المراحل القانونية فقط عبر fn_transition_request_stage",
+    "كل عملية مسجّلة في audit_logs و api_gateway_logs مع معرف المستهلك و IP",
+    "المراحل الصامتة: waiting_parts, billed",
+    "المراحل المرسلة لإشعارات: submitted, triaged, assigned, scheduled, in_progress, completed, closed"
+  ],
+  "test_results_reference": {
+    "create_request": {
+      "success": true,
+      "request_id": "68a71b73-180b-449c-bb64-d815b3dfe8f6",
+      "request_number": "AZ-UF-26-09-001090",
+      "track_url": "https://uberfix.alazab.com/track/68a71b73-180b-449c-bb64-d815b3dfe8f6",
+      "channel": "api",
+      "created_at": "2026-09-12T17:00:27.817871+00:00"
+    },
+    "get_status": {
+      "success": true,
+      "status": "Open",
+      "workflow_stage": "submitted",
+      "workflow_stage_v2": "submitted"
+    },
+    "transition_errors": [
+      {
+        "attempt": "submitted -> triaged",
+        "error": "forbidden_transition_role: submitted -> triaged requires role \"admin\", actor has \"none\""
+      },
+      {
+        "attempt": "submitted -> assigned",
+        "error": "forbidden_transition_role: submitted -> assigned requires role \"admin\", actor has \"none\""
+      },
+      {
+        "attempt": "submitted -> in_progress",
+        "error": "illegal_transition: submitted -> in_progress"
+      }
+    ]
+  }
+}

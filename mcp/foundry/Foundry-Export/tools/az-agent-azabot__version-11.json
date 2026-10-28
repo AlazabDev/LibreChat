@@ -1,0 +1,54 @@
+[
+  {
+    "azure_ai_search": {
+      "indexes": [
+        {
+          "index_name": "az-aisearch-index",
+          "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/aisearchazabrgai13631b8blqr",
+          "query_type": "simple",
+          "top_k": 5
+        }
+      ]
+    },
+    "type": "azure_ai_search"
+  },
+  {
+    "container": {
+      "file_ids": [
+        "assistant-AJVp8XrbjB3Gn14raNHsGP"
+      ],
+      "type": "auto"
+    },
+    "type": "code_interpreter"
+  },
+  {
+    "memory_store_name": "MemoryStore-plum_neck_2z0xlv61b1",
+    "scope": "{{$userId}}",
+    "type": "memory_search_preview",
+    "update_delay": 30
+  },
+  {
+    "project_connection_id": "kb-az-knowledge-8blqr",
+    "require_approval": "never",
+    "server_label": "kb-az-knowledge-8blqr",
+    "server_url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-05-01-preview",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "uberfix-toolbox-v2-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_uberfix_v2",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "whatsapp-toolbox-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_whatsapp",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/whatsapp-toolbox/versions/1/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "type": "web_search"
+  }
+]

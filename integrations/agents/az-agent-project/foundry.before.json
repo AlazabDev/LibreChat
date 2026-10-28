@@ -1,0 +1,102 @@
+{
+  "agent_endpoint": {
+    "authorization_schemes": [
+      {
+        "isolation_key_source": {
+          "kind": "Entra"
+        },
+        "type": "Entra"
+      }
+    ],
+    "protocol_configuration": {
+      "responses": {}
+    },
+    "protocols": [
+      "responses"
+    ],
+    "publish_approval_status": "not_published",
+    "version_selector": {
+      "version_selection_rules": [
+        {
+          "agent_version": "@latest",
+          "traffic_percentage": 100,
+          "type": "FixedRatio"
+        }
+      ]
+    }
+  },
+  "blueprint": {
+    "client_id": "6fd6c81d-9566-477a-b9c5-29df50f4df45",
+    "principal_id": "e62e9db6-9449-43a1-94cd-52ee0dd170fc",
+    "status": "active"
+  },
+  "blueprint_reference": {
+    "blueprint_id": "az-agent-project-d3872",
+    "type": "ManagedAgentIdentityBlueprint"
+  },
+  "configuration_state": "enabled",
+  "id": "az-agent-project",
+  "instance_identity": {
+    "client_id": "c2b587c8-776f-4dc3-8d3f-e7e16202b13e",
+    "principal_id": "c2b587c8-776f-4dc3-8d3f-e7e16202b13e",
+    "status": "active"
+  },
+  "name": "az-agent-project",
+  "object": "agent",
+  "state": "enabled",
+  "versions": {
+    "latest": {
+      "agent_guid": "d38726c9-e750-4783-90b6-e50f90f078dc",
+      "blueprint": {
+        "client_id": "6fd6c81d-9566-477a-b9c5-29df50f4df45",
+        "principal_id": "e62e9db6-9449-43a1-94cd-52ee0dd170fc",
+        "status": "active"
+      },
+      "blueprint_reference": {
+        "blueprint_id": "az-agent-project-d3872",
+        "type": "ManagedAgentIdentityBlueprint"
+      },
+      "created_at": 1789158181,
+      "definition": {
+        "instructions": "أنت وكيل دعم المشروعات (Project Support Agent) في منظومة العزب، مسؤول عن:\n- متابعة وإدارة دورة حياة المشروعات بدءاً من التخطيط وحتى التسليم\n- تنسيق الفرق والمهام حسب المنهجية المعتمدة\n- تتبع الميزانيات والموارد\n- إدارة المخاطر والمشكلات\n- إنشاء التقارير واللوحات التنفيذية\n- التواصل مع أصحاب المصلحة (Stakeholders)\n\n📋 أنواع المشروعات المدعومة:\n- مشاريع الصيانة والتشغيل\n- مشاريع المقاولات والإنشاء\n- مشاريع تطوير الأنظمة والبرمجيات\n- مشاريع الفعاليات والخدمات\n\n🔄 دورة حياة المشروع (Project Lifecycle):\nInitiation → Planning → Execution → Monitoring & Control → Closure\n\n📊 توزيع الأدوار الأساسية:\n- Project Manager: المسؤول العام عن المشروع\n- Team Leader: قائد الفريق الفني\n- Stakeholders: أصحاب المصلحة والمستفيدون\n- Contributors: أعضاء الفريق المنفذون\n- Vendors: الموردون والمقاولون الخارجيون\n\n🎯 المقاييس الرئيسية:\n- SPI (Schedule Performance Index)\n- CPI (Cost Performance Index)\n- On-Time Delivery Rate\n- Budget Variance\n- Resource Utilization\n- Risk Exposure\n\n🔹 مبادئ إدارة المشروعات:\n\n1. متابعة المهام والمواعيد:\n   - تتبع تقدم المهام حسب الجدول الزمني\n   - حدد المهام المتأخرة واقترح إجراءات تصحيحية\n   - أبلغ عن أي تغيير في المواعيد لجميع الأطراف المعنية\n\n2. إدارة الميزانية:\n   - تابع الإنفاق الفعلي مقابل الميزانية المخططة\n   - حدد الانحرافات وقدم توصيات للتحكم في التكاليف\n   - وفر تقارير مالية دورية للإدارة\n\n3. إدارة المخاطر:\n   - حدد المخاطر المحتملة وقيّم تأثيرها\n   - اقترح خطط تخفيف للمخاطر العالية\n   - راقب المخاطر طوال دورة حياة المشروع\n\n4. التواصل والتنسيق:\n   - وفر تحديثات دورية لأصحاب المصلحة\n   - نظم اجتماعات المتابعة وشارك محاضرها\n   - وثق جميع القرارات والتغييرات\n\n5. التقارير والتحليلات:\n   - أنشئ لوحات معلومات تفاعلية\n   - قدم تقارير أداء دورية (أسبوعية/شهرية)\n   - استخدم البيانات لتحسين التخطيط المستقبلي\n\n6. جودة المشروع:\n   - تحقق من تسليم المخرجات حسب المواصفات\n   - طبق معايير الجودة المعتمدة\n   - سجل الدروس المستفادة للتحسين المستمر",
+        "kind": "prompt",
+        "model": "az-model-gpt",
+        "reasoning": {
+          "effort": "low"
+        },
+        "tools": [
+          {
+            "type": "web_search"
+          },
+          {
+            "project_connection_id": "az-uberfix-mcp",
+            "server_label": "az-uberfix-mcp",
+            "server_url": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-alazab-com-mcp-uberfix-sse",
+            "type": "mcp"
+          }
+        ]
+      },
+      "description": "\tمدير المشروعات الذكي - منظومة العزب",
+      "draft": false,
+      "id": "az-agent-project:3",
+      "instance_identity": {
+        "client_id": "c2b587c8-776f-4dc3-8d3f-e7e16202b13e",
+        "principal_id": "c2b587c8-776f-4dc3-8d3f-e7e16202b13e",
+        "status": "active"
+      },
+      "metadata": {
+        "description": "\tمدير المشروعات الذكي - منظومة العزب",
+        "logo": "Avatar_Default.svg",
+        "microsoft.voice-live.configuration": "{\"session\":{\"voice\":{\"name\":\"en-US-Ava:DragonHDLatestNeural\",\"type\":\"azure-standard\",\"temperature\":0.8,\"rate\":\"1\",\"isHdVoice\":true},\"inputAudioTranscription\":{\"model\":\"azure-speech\",\"language\":\"auto-detect\"},\"turnDetection\":{\"type\":\"azure_semantic_vad\",\"endOfUtteranceDetection\":null,\"removeFillerWords\":true},\"inputAudioNoiseReduction\":null,\"inputAudioEchoCancellation\":null,\"fillerResponse\":null,\"avatar\":null,\"proactiveEngagement\":false}}",
+        "microsoft.voice-live.enabled": "false",
+        "modified_at": "1789158182",
+        "starterPrompts": "جهز تقريرا لجميع المشاريع النشطة\nما المهام المستحقة اليوم؟\nما حالة مشروع تطوير بوابة الصيانة؟",
+        "welcomeMessage": "BIM_BOT"
+      },
+      "name": "az-agent-project",
+      "object": "agent.version",
+      "status": "active",
+      "version": "3"
+    }
+  }
+}

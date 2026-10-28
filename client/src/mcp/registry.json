@@ -1,0 +1,54 @@
+{
+  "$schema": "./registry.schema.json",
+  "version": 1,
+  "providers": [
+    {
+      "id": "frappe",
+      "label": "Frappe Bench",
+      "kind": "mcp-server",
+      "enabled": true,
+      "entry": "./frappe-bench.mjs",
+      "description": "Auditable Frappe Bench operations, diagnostics, tests, migrations and schema inspection."
+    },
+    {
+      "id": "daftra",
+      "label": "Daftra ERP",
+      "kind": "openapi",
+      "enabled": true,
+      "spec": "./daftra/daftra.openapi.json",
+      "description": "Daftra ERP API surface. Runtime credentials must be injected; repository files must not contain live secrets."
+    },
+    {
+      "id": "magicplan",
+      "label": "magicplan",
+      "kind": "openapi",
+      "enabled": true,
+      "spec": "./magicplan/magicplan-openapi.json",
+      "description": "magicplan project and floor-plan API integration."
+    },
+    {
+      "id": "uberfix",
+      "label": "UberFix",
+      "kind": "openapi",
+      "enabled": true,
+      "spec": "./uberfix/uberfix_module_openapi.json",
+      "description": "UberFix maintenance platform API integration."
+    },
+    {
+      "id": "whatsapp",
+      "label": "WhatsApp",
+      "kind": "plugin",
+      "enabled": true,
+      "manifest": "./whatsapp/openclaw.plugin.json",
+      "description": "WhatsApp channel, runtime tools and skills integration."
+    },
+    {
+      "id": "alazab-catalog",
+      "label": "Alazab Catalog",
+      "kind": "knowledge",
+      "enabled": true,
+      "catalog": "./alazab-catalog/alazab_catalog.json",
+      "description": "Alazab product, service and category knowledge catalog."
+    }
+  ]
+}

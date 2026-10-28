@@ -1,0 +1,93 @@
+{
+  "agent_endpoint": {
+    "authorization_schemes": [
+      {
+        "isolation_key_source": {
+          "kind": "Entra"
+        },
+        "type": "Entra"
+      }
+    ],
+    "protocol_configuration": {
+      "responses": {}
+    },
+    "protocols": [
+      "responses"
+    ],
+    "publish_approval_status": "not_published",
+    "version_selector": {
+      "version_selection_rules": [
+        {
+          "agent_version": "5",
+          "traffic_percentage": 100,
+          "type": "FixedRatio"
+        }
+      ]
+    }
+  },
+  "blueprint": {
+    "client_id": "7271b146-b12e-4f10-a474-e6297f0ecd22",
+    "principal_id": "aab503d0-520f-4092-ae4e-7a9bd4b3d15f",
+    "status": "active"
+  },
+  "blueprint_reference": {
+    "blueprint_id": "az-agent-finance-5d862",
+    "type": "ManagedAgentIdentityBlueprint"
+  },
+  "configuration_state": "enabled",
+  "id": "az-agent-finance",
+  "instance_identity": {
+    "client_id": "722b6802-ed2a-4d54-b60f-8c39b53eefe8",
+    "principal_id": "722b6802-ed2a-4d54-b60f-8c39b53eefe8",
+    "status": "active"
+  },
+  "name": "az-agent-finance",
+  "object": "agent",
+  "state": "enabled",
+  "versions": {
+    "latest": {
+      "agent_guid": "5d8629a6-04da-4fbf-8eba-f78bf1bd4b2a",
+      "blueprint": {
+        "client_id": "7271b146-b12e-4f10-a474-e6297f0ecd22",
+        "principal_id": "aab503d0-520f-4092-ae4e-7a9bd4b3d15f"
+      },
+      "blueprint_reference": {
+        "blueprint_id": "az-agent-finance-5d862",
+        "type": "ManagedAgentIdentityBlueprint"
+      },
+      "created_at": 1783697324,
+      "definition": {
+        "instructions": " Agent: az-agent-finance\n\nالدور:\nأنت وكيل التحليل المالي والإداري للعزب. وظيفتك تحليل البيانات المالية، المصروفات، الإيرادات، الفواتير، مؤشرات الأداء، ومساعدة الإدارة في الفهم لا في التنفيذ المباشر.\n\naz-model-finance\n\nنطاق العمل:\n\n1. تحليل الإيرادات والمصروفات.\n2. مراجعة مؤشرات الأداء.\n3. تلخيص تقارير مالية.\n4. اكتشاف التكرار أو الشذوذ في البيانات.\n5. إعداد ملخصات للإدارة.\n6. تصنيف بنود مالية.\n7. تحليل تكلفة مشاريع أو صيانة.\n8. مقارنة فترات زمنية.\n\nقواعد صارمة:\n\n1. لا تنفذ دفع أو تحويل أو اعتماد مالي.\n2. لا تغيّر فاتورة أو مصروف إلا عبر Tool رسمي.\n3. لا تخترع أرقامًا ناقصة.\n4. فرّق بين:\n\n   * رقم مؤكد من البيانات.\n   * استنتاج.\n   * توقع.\n5. عند وجود نقص في البيانات، اذكره بوضوح.\n6. لا تعرض بيانات عملاء أو أرقام حساسة إلا بقدر الحاجة.\n7. لا تعتبر التحليل المالي اعتمادًا نهائيًا.\n8. أي قرار مالي كبير يحتاج موافقة بشرية.\n\nأسلوب الرد:\n\n* ابدأ بالنتيجة.\n* ثم المؤشرات.\n* ثم المخاطر.\n* ثم التوصية.\n* ثم البيانات الناقصة.",
+        "kind": "prompt",
+        "model": "az-model-finance",
+        "temperature": 0.8,
+        "tools": [
+          {
+            "type": "web_search"
+          }
+        ],
+        "top_p": 0.1
+      },
+      "description": "المسؤول عن الحسابات، الفواتير، التدفقات النقدية، والربط مع الأنظمة المحاسبية.\n",
+      "draft": false,
+      "id": "az-agent-finance:5",
+      "instance_identity": {
+        "client_id": "722b6802-ed2a-4d54-b60f-8c39b53eefe8",
+        "principal_id": "722b6802-ed2a-4d54-b60f-8c39b53eefe8"
+      },
+      "metadata": {
+        "description": "",
+        "logo": "Avatar_Default.svg",
+        "microsoft.voice-live.configuration": "{\"session\":{\"voice\":{\"name\":\"en-US-Ava:DragonHDLatestNeural\",\"type\":\"azure-standard\",\"temperature\":0.8,\"rate\":\"1\",\"isHdVoice\":true},\"inputAudioTranscription\":{\"model\":\"azure-speech\",\"language\":\"auto-detect\"},\"turnDetection\":{\"type\":\"azure_semantic_vad\",\"endOfUtteranceDetection\":null,\"removeFillerWords\":true},\"inputAudioNoiseReduction\":null,\"inputAudioEchoCancellation\":null,\"fillerResponse\":null,\"avatar\":null,\"proactiveEngagement\":false}}",
+        "microsoft.voice-live.enabled": "false",
+        "modified_at": "1783697323",
+        "starterPrompts": "موقف المالية\nفحص معاملة \nتسجيل معامله",
+        "welcomeMessage": "az-agent-finance"
+      },
+      "name": "az-agent-finance",
+      "object": "agent.version",
+      "status": "active",
+      "version": "5"
+    }
+  }
+}

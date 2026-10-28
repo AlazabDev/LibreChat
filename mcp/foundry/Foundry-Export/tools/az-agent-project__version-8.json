@@ -1,0 +1,12 @@
+[
+  {
+    "project_connection_id": "magicplan-toolbox-mcp-connection",
+    "require_approval": "never",
+    "server_label": "alazab_magicplan",
+    "server_url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/magicplan-toolbox/versions/4/mcp?api-version=v1",
+    "type": "mcp"
+  },
+  {
+    "type": "web_search"
+  }
+]

@@ -1,0 +1,605 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "UberFix Maintenance Module API",
+    "version": "1.0.0",
+    "description": "واجهة OpenAPI لوحدة دورة حياة طلبات الصيانة في UberFix، مبنية مباشرة على أوامر اختبار API Gateway المرفقة.\n\nالمصادقة تتم حصراً عبر ترويسة `x-api-key` في هذا المسار. إنشاء الطلب يتم بدون `action`، بينما العمليات اللاحقة تستخدم: `get_status`, `transition_stage`, `add_note`, `cancel`.\n\nملاحظة تشغيلية من المصدر: الانتقالات القانونية بين المراحل يتحقق منها الخادم، والمفتاح مقيد بالتعامل مع الطلبات التي أنشأها."
+  },
+  "servers": [
+    {
+      "url": "https://zrrffsjbfkphridqyais.supabase.co/functions/v1/maintenance-gateway",
+      "description": "UberFix Supabase Maintenance Gateway"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Maintenance Requests",
+      "description": "إنشاء طلب الصيانة وإدارة دورة حياته."
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "tags": [
+          "Maintenance Requests"
+        ],
+        "summary": "UberFix maintenance gateway",
+        "description": "Endpoint موحد لإنشاء طلب صيانة وتنفيذ عمليات دورة الحياة عليه. استخدم أحد الأمثلة الجاهزة حسب العملية المطلوبة.",
+        "operationId": "uberfixMaintenanceGateway",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateMaintenanceRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/GetStatusRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/TransitionStageRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/AddNoteRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CancelRequest"
+                  }
+                ]
+              },
+              "examples": {
+                "create_request": {
+                  "summary": "إنشاء طلب صيانة كهرباء عالي الأولوية",
+                  "value": {
+                    "channel": "api",
+                    "client_name": "أحمد عزب - فرع أبوعوف",
+                    "client_phone": "01004006620",
+                    "service_type": "electrical",
+                    "description": "عطل في دائرة الإضاءة الرئيسية بالفرع ويحتاج إلى فحص فني.",
+                    "priority": "high"
+                  }
+                },
+                "get_status_by_request_id": {
+                  "summary": "الاستعلام عن الحالة باستخدام request_id",
+                  "value": {
+                    "channel": "api",
+                    "action": "get_status",
+                    "client_name": "أحمد عزب - فرع أبوعوف",
+                    "request_id": "request-id-example"
+                  }
+                },
+                "get_status_by_request_number": {
+                  "summary": "الاستعلام عن الحالة باستخدام request_number",
+                  "value": {
+                    "channel": "api",
+                    "action": "get_status",
+                    "client_name": "أحمد عزب - فرع أبوعوف",
+                    "request_number": "request-number-example"
+                  }
+                },
+                "transition_triaged": {
+                  "summary": "1 — بدء المراجعة (triaged)",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "triaged",
+                    "reason": "بدء مراجعة الطلب والتحقق من البيانات."
+                  }
+                },
+                "transition_assigned": {
+                  "summary": "2 — تعيين الفني (assigned)",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "assigned",
+                    "reason": "تم تعيين الفني المسؤول عن الطلب."
+                  }
+                },
+                "transition_scheduled": {
+                  "summary": "3 — جدولة الزيارة (scheduled)",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "scheduled",
+                    "reason": "تم تحديد موعد الزيارة مع الفرع."
+                  }
+                },
+                "transition_in_progress": {
+                  "summary": "4 — بدء التنفيذ (in_progress)",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "in_progress",
+                    "reason": "بدأ الفني تنفيذ أعمال الصيانة."
+                  }
+                },
+                "transition_inspection": {
+                  "summary": "5 — فحص الأعمال (inspection)",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "inspection",
+                    "reason": "تم تحويل الطلب لفحص الأعمال المنفذة."
+                  }
+                },
+                "transition_waiting_parts": {
+                  "summary": "6 — انتظار قطع الغيار (waiting_parts) — مرحلة صامتة",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "waiting_parts",
+                    "reason": "بانتظار توفير قطع الغيار المطلوبة."
+                  }
+                },
+                "transition_resume_in_progress": {
+                  "summary": "7 — استئناف التنفيذ بعد وصول القطع",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "in_progress",
+                    "reason": "وصلت قطع الغيار وتم استئناف التنفيذ."
+                  }
+                },
+                "transition_completed": {
+                  "summary": "8 — إنهاء الأعمال (completed)",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "completed",
+                    "reason": "تم إنهاء الأعمال واختبار التشغيل بنجاح."
+                  }
+                },
+                "transition_billed": {
+                  "summary": "9 — إصدار الفاتورة (billed) — مرحلة صامتة",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "billed",
+                    "reason": "تم إصدار الفاتورة الخاصة بالطلب."
+                  }
+                },
+                "transition_paid": {
+                  "summary": "10 — تسجيل الدفع (paid)",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "paid",
+                    "reason": "تم استلام المبلغ المستحق."
+                  }
+                },
+                "transition_closed": {
+                  "summary": "11 — الإغلاق النهائي (closed)",
+                  "value": {
+                    "channel": "api",
+                    "action": "transition_stage",
+                    "client_name": "فريق تشغيل UberFix",
+                    "request_id": "request-id-example",
+                    "to_stage": "closed",
+                    "reason": "تم إغلاق الطلب نهائياً بعد اكتمال دورة العمل."
+                  }
+                },
+                "add_note": {
+                  "summary": "إضافة ملاحظة على الطلب",
+                  "value": {
+                    "channel": "api",
+                    "action": "add_note",
+                    "client_name": "فريق خدمة العملاء",
+                    "request_id": "request-id-example",
+                    "note": "العميل طلب التواصل بعد الساعة 5 مساءً قبل زيارة الفني."
+                  }
+                },
+                "cancel_request": {
+                  "summary": "إلغاء الطلب",
+                  "value": {
+                    "channel": "api",
+                    "action": "cancel",
+                    "client_name": "فريق خدمة العملاء",
+                    "request_id": "request-id-example",
+                    "reason": "تم إلغاء الطلب بناءً على طلب العميل."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "نجاح العملية. المصدر يؤكد أن إنشاء الطلب يعيد `request_id` و`request_number`. شكل الرد التفصيلي لبقية العمليات غير محدد في الملف المرفق، لذلك تُترك الاستجابة مرنة.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewaySuccessResponse"
+                },
+                "examples": {
+                  "create_request": {
+                    "summary": "الحد الأدنى المؤكد لرد إنشاء الطلب",
+                    "value": {
+                      "request_id": "request-id-example",
+                      "request_number": "request-number-example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "المفتاح غير مخول للتأثير على الطلب المستهدف. المصدر يذكر صراحة أن المفتاح مقيد بالطلبات التي أنشأها وأن محاولة التأثير على طلب تابع لمفتاح آخر تُرفض بـ 403.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "استجابة أخرى من الـGateway. الملف المرفق لا يحدد عقود أخطاء إضافية أو بنية موحدة لرسائل الخطأ.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "API key الخاص بمستهلك UberFix Gateway."
+      }
+    },
+    "schemas": {
+      "CreateMaintenanceRequest": {
+        "type": "object",
+        "title": "Create maintenance request",
+        "description": "شكل إنشاء الطلب كما ورد في مرحلة إنشاء طلب جديد.",
+        "required": [
+          "channel",
+          "client_name",
+          "client_phone",
+          "service_type",
+          "description",
+          "priority"
+        ],
+        "properties": {
+          "channel": {
+            "type": "string",
+            "const": "api",
+            "description": "قناة الطلب في أمثلة الـGateway المرفقة."
+          },
+          "client_name": {
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "أحمد عزب - فرع أبوعوف"
+            ]
+          },
+          "client_phone": {
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "01004006620"
+            ]
+          },
+          "service_type": {
+            "type": "string",
+            "minLength": 1,
+            "description": "نوع الخدمة. الملف المرفق يقدم `electrical` كمثال ولا يحدد enum كاملاً.",
+            "examples": [
+              "electrical"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "عطل في دائرة الإضاءة الرئيسية بالفرع ويحتاج إلى فحص فني."
+            ]
+          },
+          "priority": {
+            "type": "string",
+            "minLength": 1,
+            "description": "الأولوية. الملف المرفق يقدم `high` كمثال ولا يحدد enum كاملاً.",
+            "examples": [
+              "high"
+            ]
+          }
+        }
+      },
+      "GetStatusRequest": {
+        "type": "object",
+        "title": "Get request status",
+        "required": [
+          "channel",
+          "action",
+          "client_name"
+        ],
+        "properties": {
+          "channel": {
+            "type": "string",
+            "const": "api"
+          },
+          "action": {
+            "type": "string",
+            "const": "get_status"
+          },
+          "client_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "معرف الطلب. يمكن استخدامه بدلاً من request_number.",
+            "examples": [
+              "request-id-example"
+            ]
+          },
+          "request_number": {
+            "type": "string",
+            "minLength": 1,
+            "description": "رقم الطلب. يمكن استخدامه بدلاً من request_id.",
+            "examples": [
+              "request-number-example"
+            ]
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "request_id"
+            ]
+          },
+          {
+            "required": [
+              "request_number"
+            ]
+          }
+        ]
+      },
+      "TransitionStageRequest": {
+        "type": "object",
+        "title": "Transition request stage",
+        "required": [
+          "channel",
+          "action",
+          "client_name",
+          "to_stage",
+          "reason"
+        ],
+        "properties": {
+          "channel": {
+            "type": "string",
+            "const": "api"
+          },
+          "action": {
+            "type": "string",
+            "const": "transition_stage"
+          },
+          "client_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "معرف الطلب. يمكن استخدامه بدلاً من request_number.",
+            "examples": [
+              "request-id-example"
+            ]
+          },
+          "request_number": {
+            "type": "string",
+            "minLength": 1,
+            "description": "رقم الطلب. يمكن استخدامه بدلاً من request_id.",
+            "examples": [
+              "request-number-example"
+            ]
+          },
+          "to_stage": {
+            "type": "string",
+            "enum": [
+              "triaged",
+              "assigned",
+              "scheduled",
+              "in_progress",
+              "inspection",
+              "waiting_parts",
+              "completed",
+              "billed",
+              "paid",
+              "closed"
+            ],
+            "description": "المرحلة المستهدفة ضمن دورة العمل الموجودة في الملف المرفق. الخادم يرفض الانتقالات غير القانونية وفق workflow_transitions."
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "تم تحديد موعد الزيارة مع الفرع."
+            ]
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "request_id"
+            ]
+          },
+          {
+            "required": [
+              "request_number"
+            ]
+          }
+        ]
+      },
+      "AddNoteRequest": {
+        "type": "object",
+        "title": "Add request note",
+        "required": [
+          "channel",
+          "action",
+          "client_name",
+          "note"
+        ],
+        "properties": {
+          "channel": {
+            "type": "string",
+            "const": "api"
+          },
+          "action": {
+            "type": "string",
+            "const": "add_note"
+          },
+          "client_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "معرف الطلب. يمكن استخدامه بدلاً من request_number.",
+            "examples": [
+              "request-id-example"
+            ]
+          },
+          "request_number": {
+            "type": "string",
+            "minLength": 1,
+            "description": "رقم الطلب. يمكن استخدامه بدلاً من request_id.",
+            "examples": [
+              "request-number-example"
+            ]
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "العميل طلب التواصل بعد الساعة 5 مساءً قبل زيارة الفني."
+            ]
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "request_id"
+            ]
+          },
+          {
+            "required": [
+              "request_number"
+            ]
+          }
+        ]
+      },
+      "CancelRequest": {
+        "type": "object",
+        "title": "Cancel maintenance request",
+        "required": [
+          "channel",
+          "action",
+          "client_name",
+          "reason"
+        ],
+        "properties": {
+          "channel": {
+            "type": "string",
+            "const": "api"
+          },
+          "action": {
+            "type": "string",
+            "const": "cancel"
+          },
+          "client_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "request_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "معرف الطلب. يمكن استخدامه بدلاً من request_number.",
+            "examples": [
+              "request-id-example"
+            ]
+          },
+          "request_number": {
+            "type": "string",
+            "minLength": 1,
+            "description": "رقم الطلب. يمكن استخدامه بدلاً من request_id.",
+            "examples": [
+              "request-number-example"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1,
+            "examples": [
+              "تم إلغاء الطلب بناءً على طلب العميل."
+            ]
+          }
+        },
+        "anyOf": [
+          {
+            "required": [
+              "request_id"
+            ]
+          },
+          {
+            "required": [
+              "request_number"
+            ]
+          }
+        ]
+      },
+      "GatewaySuccessResponse": {
+        "type": "object",
+        "description": "استجابة نجاح مرنة لأن الملف المرفق لا يحدد schema موحداً لكل العمليات. الحقول أدناه مؤكدة لإنشاء الطلب.",
+        "properties": {
+          "request_id": {
+            "type": "string"
+          },
+          "request_number": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  }
+}

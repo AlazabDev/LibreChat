@@ -1,0 +1,135 @@
+[
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-auth",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-azabot",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-codex",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-finance",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-maint",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-payments",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-prod",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-project",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-vision",
+    "send_credentials_for_agent_card": true,
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-auth",
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-azabot",
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-codex",
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-finance",
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-maint",
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-payments",
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-prod",
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-project",
+    "type": "a2a"
+  },
+  {
+    "a2a_version": "1.0",
+    "project_connection_id": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-vision",
+    "type": "a2a"
+  },
+  {
+    "container": {
+      "type": "auto"
+    },
+    "type": "code_interpreter"
+  },
+  {
+    "memory_store_name": "MemoryStore-plum_neck_2z0xlv61b1",
+    "scope": "{{$userId}}",
+    "type": "memory_search_preview",
+    "update_delay": 30
+  },
+  {
+    "memory_store_name": "cctv-app",
+    "scope": "{{$userId}}",
+    "type": "memory_search_preview",
+    "update_delay": 30
+  },
+  {
+    "project_connection_id": "kb-az-knowledge-8blqr",
+    "require_approval": "never",
+    "server_label": "kb-az-knowledge-8blqr",
+    "server_url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-08-01-preview",
+    "type": "mcp"
+  },
+  {
+    "project_connection_id": "az-uberfix-mcp",
+    "server_label": "az-uberfix-mcp",
+    "server_url": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-alazab-com-mcp-uberfix-sse",
+    "type": "mcp"
+  },
+  {
+    "type": "web_search"
+  }
+]

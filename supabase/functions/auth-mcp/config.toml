@@ -1,0 +1,2 @@
+[functions.az-auth-mcp]
+verify_jwt = false

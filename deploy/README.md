@@ -23,3 +23,12 @@
 ## تنبيه ترحيل
 إن كانت `data-node` قائمة بدون مصادقة (--noauth سابقًا)، فمتغيرات `MONGO_INITDB_*` لن تنشئ المستخدم.
 خذ نسخة `mongodump`، أنشئ المستخدم يدويًا بـ mongosh، ثم فعّل compose.prod.
+
+## النشر اليدوي والتحكم بالـ workflows
+- `deploy-alazab.yml` يعمل يدويًا فقط (Run workflow من فرع `main`). لإعادة النشر التلقائي راجع التعليق أعلى الملف، وفعّل Required reviewers على بيئة `production`.
+- لتعطيل workflows الخاصة بـ upstream في الـ fork: `./deploy/scripts/disable-upstream-workflows.sh` (يتطلب `gh auth login`).
+
+## دالة ollama-proxy (Supabase)
+- تتحقق الآن أن JWT يعود لمستخدم حقيقي (ليس `anon`). لتقييدها بنطاقات بريد: 
+  `supabase secrets set OLLAMA_ALLOWED_EMAIL_DOMAINS=alazab.com`
+- النشر: `supabase functions deploy ollama-proxy` (و`verify_jwt = true` مثبَّت في `supabase/config.toml`).

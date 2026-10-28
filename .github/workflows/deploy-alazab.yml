@@ -1,9 +1,9 @@
 name: Alazab — build & deploy
 
+# النشر يدوي افتراضيًا (Actions → Alazab — build & deploy → Run workflow من فرع main).
+# لإعادة النشر التلقائي عند كل دفع إلى main أضف تحت on:
+#   push: { branches: [main], paths-ignore: ['**.md', 'docs/**'] }
 on:
-  push:
-    branches: [main]
-    paths-ignore: ['**.md', 'docs/**']
   workflow_dispatch:
 
 concurrency:
@@ -15,6 +15,7 @@ env:
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read

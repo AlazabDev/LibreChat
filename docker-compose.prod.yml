@@ -4,6 +4,8 @@
 #   cp .env.alazab.example .env && cp librechat.alazab.yaml librechat.yaml
 #   docker compose -f docker-compose.prod.yml pull
 #   docker compose -f docker-compose.prod.yml up -d
+# الخادم يشغّل nginx على المضيف (80/443)، لذلك خدمة nginx الحاوية معطّلة افتراضيًا
+# (profile: container-nginx) والتطبيقات تُنشر على 127.0.0.1 فقط ليصل إليها nginx المضيف.
 # يتطلب متغيرات: IMAGE_TAG, MONGO_USER, MONGO_PASSWORD, POSTGRES_*, MEILI_MASTER_KEY
 # (انظر .env.alazab.example). لا تستخدم :latest في الإنتاج.
 # =============================================================================
@@ -34,7 +36,9 @@ services:
       RAG_API_URL: http://rag_api:${RAG_PORT:-8000}
       CONFIG_PATH: /app/librechat.yaml
       LIBRECHAT_TEMP_CREDENTIALS_PATH: /app/data/.env.temp
-    expose: ["3080"]            # داخلي فقط، يصل إليه nginx
+    expose: ["3080"]
+    ports:
+      - "127.0.0.1:${LIBRECHAT_HOST_PORT:-3080}:3080"   # loopback فقط
     volumes:
       - ./librechat.yaml:/app/librechat.yaml:ro
       - ./images:/app/client/public/images
@@ -63,10 +67,13 @@ services:
       VITE_API_BASE_URL: ${DOMAIN_CLIENT:?}
       SESSION_COOKIE_SECURE: "true"
     expose: ["3000"]
+    ports:
+      - "127.0.0.1:${ADMIN_PANEL_HOST_PORT:-3002}:3000"  # loopback فقط
     networks: [internal]
     logging: *logging
 
   nginx:
+    profiles: ["container-nginx"]   # لا يعمل إلا بـ --profile container-nginx (خادم بلا nginx مضيف)
     image: nginx:1.27.0-alpine
     container_name: LibreChat-NGINX
     restart: unless-stopped

@@ -37,3 +37,11 @@
 - لا تشغّل `--profile container-nginx` (سيتعارض مع 80/443). التطبيقات تُنشر على `127.0.0.1:3080` و`127.0.0.1:3002` فقط.
 - استخدم `deploy/nginx.host.conf` كـ vhost لـ `chat.alazab.com`، ثم `nginx -t && systemctl reload nginx`.
 - قبل التفعيل: `ss -tlnp | grep -E ':(3080|3002)\b'` (يجب ألا يظهر شيء).
+
+## تحذير: قرص /mnt على Azure مؤقت
+على azab-orchestrator القرص `/mnt` (`/dev/sdb1`) مؤقت (ملف DATALOSS_WARNING_README.txt). لا تضع عليه بيانات LibreChat ولا النسخ الاحتياطية.
+`DEPLOY_PATH=/opt/librechat` على القرص الجذر. فكّر بإرفاق Managed Data Disk ونقل البيانات المهمة إليه.
+
+## أول نشر
+أنشئ مجلد المشروع و`.env` و`librechat.yaml` أولًا (الـ workflow يعدّل `.env` ويفشل إن لم يوجد).
+مجلدات `images/uploads/logs/skill` ينشئها Docker، وحاوية api تعمل بمستخدم root فلا حاجة لـ chown.

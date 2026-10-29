@@ -2,9 +2,11 @@
 // Deploy to the same project configured by AZ-Codex SUPABASE_URL.
 //
 // الأمان: verify_jwt في البوابة يقبل أي JWT صالح للمشروع بما فيه المفتاح العام anon،
-// لذلك نتحقق هنا أن الرمز يعود لمستخدم حقيقي (ليس anon ولا مجهول) عبر auth.getUser.
+// لذلك نقبل هنا أحد شيئين فقط: (1) مستدعٍ خادمي بمفتاح service_role (AZ-Codex)،
+// (2) رمز يعود لمستخدم حقيقي (ليس anon ولا مجهول) عبر auth.getUser.
 // اختياري: OLLAMA_ALLOWED_EMAIL_DOMAINS=alazab.com,example.org لقصر الاستخدام على نطاقات بريد.
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { isServiceCaller } from "./auth.ts";
 
 const OLLAMA_ORIGIN = "https://ollama.alazab.com";
 const ALLOWED = new Set(["/api/tags", "/api/show", "/v1/chat/completions"]);
@@ -16,25 +18,28 @@ const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
 const ALLOWED_DOMAINS = (Deno.env.get("OLLAMA_ALLOWED_EMAIL_DOMAINS") ?? "")
   .split(",").map((d) => d.trim().toLowerCase()).filter(Boolean);
 
-async function verifiedUser(request: Request) {
+async function authorized(request: Request): Promise<boolean> {
   const match = /^Bearer\s+(\S+)$/i.exec(request.headers.get("Authorization") ?? "");
-  if (!match || !SUPABASE_URL || !SERVICE_KEY) return null;
+  if (!match) return false;
+  const token = match[1];
+  if (isServiceCaller(token, SERVICE_KEY)) return true;
+  if (!SUPABASE_URL || !SERVICE_KEY) return false;
   const admin = createClient(SUPABASE_URL, SERVICE_KEY, {
     auth: { autoRefreshToken: false, persistSession: false },
   });
-  const { data, error } = await admin.auth.getUser(match[1]);
+  const { data, error } = await admin.auth.getUser(token);
   const user = data?.user;
-  if (error || !user || user.is_anonymous) return null;
+  if (error || !user || user.is_anonymous) return false;
   if (ALLOWED_DOMAINS.length) {
     const domain = (user.email ?? "").split("@")[1]?.toLowerCase() ?? "";
-    if (!ALLOWED_DOMAINS.includes(domain)) return null;
+    if (!ALLOWED_DOMAINS.includes(domain)) return false;
   }
-  return user;
+  return true;
 }
 
 Deno.serve(async (request) => {
   if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: cors });
-  if (!(await verifiedUser(request))) return new Response("Unauthorized", { status: 401, headers: cors });
+  if (!(await authorized(request))) return new Response("Unauthorized", { status: 401, headers: cors });
 
   const username = Deno.env.get("OLLAMA_AUTH_USER");
   const password = Deno.env.get("OLLAMA_AUTH_PASS");

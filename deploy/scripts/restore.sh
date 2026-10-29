@@ -6,8 +6,6 @@ cd "$(dirname "$0")/../.."
 # قراءة آمنة لقيم محددة من .env (بدون source حتى لا تُنفَّذ أسطر غير متوقعة)
 envval() { { grep -E "^$1=" .env || true; } | tail -1 | cut -d= -f2- | sed -E 's/^"(.*)"$/\1/; s/^'"'"'(.*)'"'"'$/\1/'; }
 MONGO_USER="$(envval MONGO_USER)"; MONGO_PASSWORD="$(envval MONGO_PASSWORD)"
-POSTGRES_USER="$(envval POSTGRES_USER)"; POSTGRES_DB="$(envval POSTGRES_DB)"
-BACKUP_DIR="$(envval BACKUP_DIR)"; BACKUP_KEEP_DAYS="$(envval BACKUP_KEEP_DAYS)"
 : "${MONGO_USER:?MONGO_USER missing in .env}" "${MONGO_PASSWORD:?MONGO_PASSWORD missing in .env}"
 read -r -p "سيتم استبدال قاعدة LibreChat الحالية. اكتب YES للمتابعة: " ok
 [ "$ok" = "YES" ] || exit 1

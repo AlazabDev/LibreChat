@@ -29,7 +29,7 @@
 - لتعطيل workflows الخاصة بـ upstream في الـ fork: `./deploy/scripts/disable-upstream-workflows.sh` (يتطلب `gh auth login`).
 
 ## دالة ollama-proxy (Supabase)
-- تتحقق الآن أن JWT يعود لمستخدم حقيقي (ليس `anon`). لتقييدها بنطاقات بريد: 
+- تقبل مستدعيًا خادميًا بمفتاح `service_role` (يستخدمه AZ-Codex) أو JWT لمستخدم حقيقي؛ وترفض المفتاح العام `anon`. لتقييدها بنطاقات بريد: 
   `supabase secrets set OLLAMA_ALLOWED_EMAIL_DOMAINS=alazab.com`
 - النشر: `supabase functions deploy ollama-proxy` (و`verify_jwt = true` مثبَّت في `supabase/config.toml`).
 

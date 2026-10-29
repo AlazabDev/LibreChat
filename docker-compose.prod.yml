@@ -22,6 +22,9 @@ services:
     image: ${LIBRECHAT_IMAGE:-ghcr.io/alazabdev/librechat}:${IMAGE_TAG:?set IMAGE_TAG in .env}
     container_name: LibreChat-API
     restart: unless-stopped
+    mem_limit: ${API_MEM_LIMIT:-3g}
+    cpus: "2"
+    oom_score_adj: 500   # عند ضغط الذاكرة يُقتل هذا أولًا لا خدمات الإنتاج المجاورة (فرابي...)
     depends_on:
       mongodb: { condition: service_healthy }
       meilisearch: { condition: service_started }
@@ -30,6 +33,7 @@ services:
     environment:
       HOST: 0.0.0.0
       NODE_ENV: production
+      NODE_OPTIONS: --max-old-space-size=${API_NODE_HEAP_MB:-2048}
       # كلمة المرور يجب أن تكون hex/alnum كي لا تحتاج URL-encoding
       MONGO_URI: mongodb://${MONGO_USER:?}:${MONGO_PASSWORD:?}@mongodb:27017/LibreChat?authSource=admin
       MEILI_HOST: http://meilisearch:7700
@@ -59,6 +63,9 @@ services:
     image: registry.librechat.ai/librechat-ai/librechat-admin-panel:${ADMIN_PANEL_IMAGE_TAG:-latest}
     container_name: admin-panel
     restart: unless-stopped
+    mem_limit: ${ADMIN_MEM_LIMIT:-512m}
+    cpus: "0.5"
+    oom_score_adj: 500   # عند ضغط الذاكرة يُقتل هذا أولًا لا خدمات الإنتاج المجاورة (فرابي...)
     depends_on: [api]
     environment:
       PORT: 3000
@@ -90,7 +97,12 @@ services:
     image: mongo:8.0.20
     container_name: chat-mongodb
     restart: unless-stopped
+    mem_limit: ${MONGO_MEM_LIMIT:-3g}
+    cpus: "2"
+    oom_score_adj: 500   # عند ضغط الذاكرة يُقتل هذا أولًا لا خدمات الإنتاج المجاورة (فرابي...)
     # المصادقة مفعّلة (لا --noauth). المستخدم يُنشأ عند أول تشغيل على data-node فارغ.
+    # سقف ذاكرة WiredTiger: بدونه يحسبها mongod من ذاكرة المضيف كاملة (62GB) لا من حد الحاوية.
+    command: ["--wiredTigerCacheSizeGB", "${MONGO_CACHE_GB:-1.5}"]
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:?}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:?}
@@ -109,9 +121,13 @@ services:
     image: getmeili/meilisearch:v1.35.1
     container_name: chat-meilisearch
     restart: unless-stopped
+    mem_limit: ${MEILI_MEM_LIMIT:-2g}
+    cpus: "2"
+    oom_score_adj: 500   # عند ضغط الذاكرة يُقتل هذا أولًا لا خدمات الإنتاج المجاورة (فرابي...)
     environment:
       MEILI_ENV: production
       MEILI_NO_ANALYTICS: "true"
+      MEILI_MAX_INDEXING_MEMORY: ${MEILI_MAX_INDEXING_MEMORY:-1Gb}
       MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:?}
     volumes:
       - ./meili_data_v1.35.1:/meili_data
@@ -122,6 +138,9 @@ services:
     image: pgvector/pgvector:0.8.0-pg15-trixie
     container_name: vectordb
     restart: unless-stopped
+    mem_limit: ${PG_MEM_LIMIT:-1g}
+    cpus: "1"
+    oom_score_adj: 500   # عند ضغط الذاكرة يُقتل هذا أولًا لا خدمات الإنتاج المجاورة (فرابي...)
     environment:
       POSTGRES_DB: ${POSTGRES_DB:?}
       POSTGRES_USER: ${POSTGRES_USER:?}
@@ -140,6 +159,9 @@ services:
     image: registry.librechat.ai/librechat-ai/librechat-rag-api-dev-lite:${RAG_IMAGE_TAG:-latest}
     container_name: rag_api
     restart: unless-stopped
+    mem_limit: ${RAG_MEM_LIMIT:-2g}
+    cpus: "2"
+    oom_score_adj: 500   # عند ضغط الذاكرة يُقتل هذا أولًا لا خدمات الإنتاج المجاورة (فرابي...)
     depends_on:
       vectordb: { condition: service_healthy }
     env_file: [.env]

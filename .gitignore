@@ -80,6 +80,7 @@ librechat.yaml
 librechat.yml
 
 # Environment
+env/
 .env*
 .env
 .env.local

@@ -1,0 +1,26 @@
+{
+  "phase": "phase-06-supabase-backend",
+  "title": "Supabase & Backend Orchestration",
+  "timestamp": "20261111_032101Z",
+  "duration_seconds": 2,
+  "summary": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {"id":"T6-01","title":"إعدادات نطاق سوبابيس وتوجيه المصادقة","status":"PASS","details":"تم توجيه site_url وعناوين إعادة التوجيه إلى نطاق chat.alazab.com بنجاح"}
+    ,{"id":"T6-02","title":"تطابق معرف المشروع السحابي المعتمد","status":"PASS","details":"معرف المشروع متطابق تماماً (refpgfvhfzralhzwnyyi) بين مجلد supabase وملف البيئة"}
+    ,{"id":"T6-03","title":"سياسات الأمان والعزل لتخزين المرفقات (Storage RLS)","status":"PASS","details":"سياسات RLS الثلاث (insert, select, delete) مفعلة لمجلد chat-attachments ومقترنة بـ auth.uid()"}
+    ,{"id":"T6-04","title":"دالة الحافة ollama-proxy ومعالجة CORS وفحص الهوية","status":"PASS","details":"كود دالة الوكيل يحمي نماذج أولاما برمز JWT ونطاق البريد مع دعم كامل لـ CORS و OPTIONS (204)"}
+    ,{"id":"T6-05","title":"كتالوج عمليات دفترة المحاسبية (Daftra Catalog)","status":"PASS","details":"كتالوج دفترة مكتمل ومفهرس بنجاح بإجمالي 301 عملية محاسبية وإدارية معتمدة"}
+    ,{"id":"T6-06","title":"تغطية وحدات وأقسام دفترة (Daftra Coverage)","status":"PASS","details":"اجتياز فحص التغطية البرمجية بـ 70 موديول و 301 عملية متوافقة 100% مع كتالوج دفترة"}
+    ,{"id":"T6-07","title":"المرادفات الدلالية العربية لدفترة (Arabic Aliases)","status":"PASS","details":"المعجم الدلالي العربي مفعل ويدعم استعلامات الفواتير والقيود والعملاء والسندات"}
+    ,{"id":"T6-08","title":"دالة حافة المصادقة الموحدة auth-mcp","status":"PASS","details":"كود دالة المصادقة صالح ومزود بالأدوات الـ 5 المعتمدة مع التحقق الثنائي للمستخدم"}
+    ,{"id":"T6-09","title":"محركات الربط المشتركة (_shared)","status":"PASS","details":"محرك التخزين المتوافق مع S3 (MinIO) ومحرك التواصل (WhatsApp) خاليان من أخطاء الصياغة"}
+    ,{"id":"T6-10","title":"سلامة أداة سوبابيس التشغيلية (Supabase CLI)","status":"PASS","details":"أداة Supabase CLI تعمل بنجاح بإصدار معتمد (2.109.1) ومتوافقة مع بيئة التشغيل"}
+    ,{"id":"T6-11","title":"مزامنة متغيرات البيئة الأساسية لسوبابيس","status":"PASS","details":"كافة متغيرات الربط السحابي (URL, Anon Key, Service Key, Database URL) معرفة ونشطة في ملف البيئة"}
+    ,{"id":"T6-12","title":"تسجيل وتكامل خوادم MCP في librechat.yaml","status":"PASS","details":"خوادم Daftra و Supabase مسجلة في mcpServers ومربوطة بالنموذج المالي alazab-finance"}
+  ]
+}

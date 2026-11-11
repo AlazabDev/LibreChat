@@ -1,0 +1,15 @@
+{
+  "phase": "03-rag-domain-catalog",
+  "title": "المعرفة المؤسسية الموحدة والـ RAG وكتالوج مجالات العزب السبعة",
+  "timestamp": "20261103_110549Z",
+  "durationSeconds": 1,
+  "summary": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0
+  },
+  "results": [
+    {"id":"T3-01","title":"هيكل مجلدات كتالوج العزب والوثائق المعرفية","status":"PASS","details":"المجلدات الرئيسية (alazab-catalog, categories, docs) موجودة بالكامل"},{"id":"T3-02","title":"سلامة وتكامل ملفات الفئات الـ 8 بصيغة JSON","status":"PASS","details":"كافة الملفات الـ 8 صالحة بإجمالي 720 بنداً معتمداً"},{"id":"T3-03","title":"تكامل الكتالوج الموحد المفهرس alazab_catalog.json","status":"PASS","details":"الكتالوج الموحد متكامل ومفهرس ويضم 720 بنداً"},{"id":"T3-04","title":"وثائق المعرفة المؤسسية للـ RAG (Markdown)","status":"PASS","details":"تم توليد 9 وثائق معرفية، والماستر بحجم 132KB جاهز للتضمين"},{"id":"T3-05","title":"صلاحيات وصحة كود خادم الكتالوج catalog-server.mjs","status":"PASS","details":"كود الخادم خالي من أخطاء الـ Syntax وقابل للتنفيذ"},{"id":"T3-06","title":"دورة حياة بروتوكول MCP (JSON-RPC Initialize)","status":"PASS","details":"تمت استجابة الخادم لطلب التهيئة ببروتوكول MCP 2024-11-05"},{"id":"T3-07","title":"توفر أدوات الكتالوج الذكية في قائمة MCP","status":"PASS","details":"الأدوات الـ 3 مسجلة وجاهزة للاستدعاء (search_alazab_catalog,get_catalog_categories,get_catalog_item)"},{"id":"T3-08","title":"البحث الدلالي والنصوصي الدقيق باللغة العربية","status":"PASS","details":"تم استرجاع 19 بنداً مطابقاً مع الوحدة والمواصفة الفنية"},{"id":"T3-09","title":"استرجاع تفاصيل البند بالمعرف الموحد UID","status":"PASS","details":"تم جلب تفاصيل البند بنجاح: طفاية حريق سعة كجم متعددة الاغراض"},{"id":"T3-10","title":"مطابقة منفذ الـ RAG المعتمد (8088) ومنع التعارض","status":"PASS","details":"منفذ 8088 معتمد ومطابق في كافة ملفات compose والبيئة"},{"id":"T3-11","title":"إعدادات معالجة الملفات fileConfig للـ RAG","status":"PASS","details":"تكوين fileConfig مفعل بحد 100MB للرفع ودعم كامل لـ PDF والنصوص"},{"id":"T3-12","title":"تسجيل خادم الكتالوج في librechat.yaml","status":"PASS","details":"الخادم مسجل بنمط stdio ومع مفتاح chatMenu: true"},{"id":"T3-13","title":"ربط أداة الكتالوج بالنماذج (alazab-maint, finance, core)","status":"PASS","details":"أداة الكتالوج مرتبطة بنماذج الصيانة والمالية والمساعد العام"},{"id":"T3-14","title":"فحص صحة بنية Docker Compose للإنتاج","status":"PASS","details":"بنية docker-compose.prod.yml صحيحة وتتكامل مع vectordb و rag_api"}
+  ]
+}

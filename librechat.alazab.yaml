@@ -13,9 +13,18 @@
 
 version: 1.3.18
 cache: true
+helpAndFaqURL: 'https://chat.alazab.com/help'
 
 interface:
-  customWelcome: 'مرحباً بك في منصة العزب للذكاء الاصطناعي'
+  customWelcome: 'مرحباً بك في منظومة العزب للذكاء الاصطناعي (Alazab AI)'
+  landingHeading: 'greeting'
+  landingFooter: true
+  privacyPolicy:
+    externalUrl: 'https://chat.alazab.com/privacy'
+    openNewTab: true
+  termsOfService:
+    externalUrl: 'https://chat.alazab.com/terms'
+    openNewTab: true
   fileSearch: true
   modelSelect: true
   parameters: true
@@ -31,6 +40,30 @@ interface:
     use: true
     create: true
     share: true
+  mcpServers:
+    use: true
+    create: true
+    share: true
+
+fileConfig:
+  serverFileSizeLimit: 100
+  avatarSizeLimit: 2
+  fileContextSizeLimit: 128
+  fileContextCharLimit: 1000000
+  endpoints:
+    agents:
+      fileLimit: 10
+      fileSizeLimit: 50
+      totalSizeLimit: 100
+      supportedMimeTypes:
+        - "application/pdf"
+        - "text/plain"
+        - "text/markdown"
+        - "text/csv"
+        - "application/json"
+        - "image/.*"
+    default:
+      totalSizeLimit: 50
 
 registration:
   # لا دخول اجتماعي — الحسابات تُنشأ داخلياً (ALLOW_REGISTRATION=false في .env)
@@ -40,7 +73,25 @@ registration:
   #   - 'alazab.com'
 
 endpoints:
-  # Gemini يعمل عبر النقطة المدمجة google (GOOGLE_KEY في .env) — لا يُعرَّف هنا.
+  # نقطة وكلاء الذكاء الاصطناعي مع تفعيل صمامات الأمان والموافقة البشرية (HITL)
+  agents:
+    toolApproval:
+      enabled: true
+      mode: bypass
+      agentModes: true
+      grantLookupTimeoutMs: 3000
+    checkpointer:
+      type: 'mongo'
+
+  # نقطة Google Gemini الرسمية مع تحديد النماذج صراحةً لتجنب خطأ 404
+  google:
+    models:
+      - 'gemini-2.5-pro'
+      - 'gemini-2.5-flash'
+      - 'gemini-2.5-flash-lite'
+      - 'gemini-2.0-flash'
+    titleConvo: true
+    titleModel: 'gemini-2.5-flash'
 
   custom:
     # ------------------------------------------------------------------
@@ -54,19 +105,19 @@ endpoints:
         api-key: '${AZURE_OPENAI_API_KEY}'
       models:
         default:
-          - 'az-model-core' # GPT-5.5
-          - 'az-model-gpt' # GPT-5.6 Luna
-          - 'az-model-sol' # GPT-5.6 Sol
-          - 'az-model-maint' # GPT-5.1
-          - 'az-model-mini' # GPT-5.4 Mini
-          - 'az-model-finance' # DeepSeek-V4-Pro (مالية)
+          - 'az-model-core' # GPT-5.5 (الأساسي)
+          - 'az-model-gpt' # GPT-5.6 Luna (محادثة وكتابة)
+          - 'az-model-sol' # GPT-5.6 Sol (تحليل واستدلال معقد)
+          - 'az-model-maint' # GPT-5.1 (أوامر الصيانة والتشغيل)
+          - 'az-model-mini' # GPT-5.4 Mini (سريع وخفيف)
+          - 'az-model-finance' # DeepSeek-V4-Pro (التحليل المالي والمحاسبي)
         # Azure لا يسرد الـ deployments عبر /models بالطريقة نفسها — القائمة يدوية
         fetch: false
       titleConvo: true
       titleModel: 'az-model-mini'
       modelDisplayLabel: 'Azure AI'
-      # نماذج الاستدلال ترفض بعض المعاملات الكلاسيكية؛ اختبر وعدّل هذه القائمة
-      dropParams: ['stop', 'user', 'frequency_penalty', 'presence_penalty']
+      # إسقاط المعاملات غير المدعومة في نماذج الاستدلال لتجنب أخطاء 400
+      dropParams: ['temperature', 'top_p', 'stop', 'user', 'frequency_penalty', 'presence_penalty']
 
     # ------------------------------------------------------------------
     # بديل: المرور عبر بوابة APIM (az-ai-gateway) — فعّله إن قررت توحيد الحركة عليها.
@@ -85,165 +136,280 @@ endpoints:
     #   modelDisplayLabel: 'Azure AI (APIM)'
 
     # ------------------------------------------------------------------
-    # DeepSeek المباشر
+    # DeepSeek المباشر (سحابي)
     # ------------------------------------------------------------------
     - name: 'DeepSeek'
       apiKey: '${DEEPSEEK_API_KEY}'
       baseURL: 'https://api.deepseek.com'
       models:
-        default: ['deepseek-flash', 'deepseek-v4-pro']
+        default:
+          - 'deepseek-chat'
+          - 'deepseek-reasoner'
+          - 'deepseek-flash'
+          - 'deepseek-v4-pro'
         fetch: true
       titleConvo: true
-      titleModel: 'deepseek-flash'
+      titleModel: 'deepseek-chat'
       modelDisplayLabel: 'DeepSeek'
 
     # ------------------------------------------------------------------
     # Ollama المحلي (ollama.alazab.com) عبر واجهة /v1 المتوافقة مع OpenAI.
     # إن لم يكن خلف مصادقة ضع OLLAMA_API_KEY=ollama في .env (قيمة شكلية).
-    # 11 من 14 نموذجاً تدعم الأدوات؛ الذي اختُبر توليداً فعلياً: gpt-oss:20b فقط.
     # ------------------------------------------------------------------
     - name: 'Ollama'
-      apiKey: '${OLLAMA_API_KEY}'
+      apiKey: '${OLLAMA_API_KEY:-ollama}'
       baseURL: 'https://ollama.alazab.com/v1'
       models:
         default:
           - 'gpt-oss:20b'
-          - 'qwen3.6:27b'
-          - 'gemma4:31b'
-          - 'deepseek-r1:14b'
           - 'deepseek-coder-v2:16b'
+          - 'qwen3.6:27b'
+          - 'deepseek-r1:14b'
           - 'llama3.1:8b-instruct-fp16'
           - 'ministral-3:14b'
           - 'llama3.2-vision:11b'
+          - 'gemma4:31b'
         fetch: true
       titleConvo: true
       titleModel: 'llama3.2:1b'
-      modelDisplayLabel: 'Ollama (محلي)'
+      modelDisplayLabel: 'Ollama (محلي آمن)'
 
 # ----------------------------------------------------------------------
 # بوابة MCP المركزية https://mcp.alazab.com
 # - startup: false  => لا يُهيَّأ الخادم عند الإقلاع؛ فشل أحدها لا يؤثر على غيره.
-#   بعد التحقق من كل خادم غيّره إلى true (أو احذف السطر).
-# - نوع النقل (streamable-http مقابل sse) ومسار النهاية (/mcp أو /sse) لم يُؤكَّدا؛
-#   قد يلزم إضافة اللاحقة إلى الرابط. المسارات بحالة الأحرف كما وردت في الجرد.
+# - chatMenu: true  => تظهر أدوات الخادم في قائمة اختيار الأدوات بالواجهة.
+# - serverInstructions => تعليمات أمان ومطابقة خاصة بكل نظام أعمال.
 # ----------------------------------------------------------------------
 mcpServers:
   daftra:
     type: streamable-http
     url: https://mcp.alazab.com/daftra
+    title: 'Daftra - المحاسبة والفواتير'
+    description: 'نظام إدارة الحسابات والفواتير وسندات القبض والصرف والقيود المحاسبية'
     headers:
       Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
     startup: false
     timeout: 60000
-  supabase:
-    type: streamable-http
-    url: https://mcp.alazab.com/supabase
-    headers:
-      Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
-    startup: false
-    timeout: 60000
+    chatMenu: true
+    serverInstructions: 'أنت متصل بنظام المحاسبة دفترة. عند الاستعلام اعرض أرقام الفواتير والعملة وتاريخ الاستحقاق بدقة. اطلب تأكيد المستخدم الصريح قبل إنشاء أو تعديل أي قيد أو فاتورة.'
+
   uberfix:
     type: streamable-http
     url: https://mcp.alazab.com/uberFix
+    title: 'UberFix - إدارة الصيانة والتشغيل'
+    description: 'نظام إدارة أوامر العمل وتذاكر الأعطال ومتابعة الفنيين وزيارات الصيانة'
     headers:
       Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
     startup: false
     timeout: 60000
+    chatMenu: true
+    serverInstructions: 'أنت متصل بنظام UberFix. اعرض تفاصيل تذاكر الصيانة وحالتها بوضوح. اطلب تأكيد المستخدم قبل تحديث حالة أمر العمل أو تعيين الفنيين.'
+
   erpnext:
     type: streamable-http
     url: https://mcp.alazab.com/erpnext
+    title: 'ERPNext - إدارة الموارد والمخزون'
+    description: 'نظام إدارة العمليات، المستودعات، حركات الأصناف، وأوامر الشراء والموردين'
     headers:
       Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
     startup: false
     timeout: 60000
+    chatMenu: true
+    serverInstructions: 'أنت متصل بنظام ERPNext. التزم بالدقة التامة في أرقام الأصناف وكميات المخزون وتواريخ التسليم.'
+
   whatsapp:
     type: streamable-http
     url: https://mcp.alazab.com/whatsApp
+    title: 'WhatsApp - بوابة خدمة العملاء والتواصل'
+    description: 'بوابة إرسال الرسائل والتنبيهات المباشرة والتواصل مع العملاء والمقاولين'
     headers:
       Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
     startup: false
     timeout: 60000
+    chatMenu: true
+    serverInstructions: 'يُحظر إرسال أي رسالة عبر واتساب دون عرض نص الرسالة الكامل ورقم المستلم وطلب موافقة الموظف الصريحة أولاً.'
+
   magicplan:
     type: streamable-http
     url: https://mcp.alazab.com/magicplan
+    title: 'MagicPlan - الرفع الهندسي والمخططات'
+    description: 'رفع وقياس المساحات والمخططات المعمارية وحساب كميات الخامات والتشطيبات'
     headers:
       Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
     startup: false
     timeout: 60000
+    chatMenu: true
+    serverInstructions: 'أنت متصل بنظام MagicPlan. استخرج الأبعاد والمساحات بدقة هندسية عالية للمساعدة في جداول الكميات والتسعير.'
+
+  supabase:
+    type: streamable-http
+    url: https://mcp.alazab.com/supabase
+    title: 'Supabase - قاعدة البيانات السحابية'
+    description: 'قاعدة البيانات التشغيلية وسجلات المنظومة'
+    headers:
+      Authorization: 'Bearer ${MCP_GATEWAY_TOKEN}'
+    startup: false
+    timeout: 60000
+    chatMenu: true
+
+  alazab-catalog:
+    type: stdio
+    command: node
+    args:
+      - mcp/alazab-catalog/catalog-server.mjs
+    title: 'كتالوج بنود ومواصفات العزب'
+    description: 'البحث المباشر الدقيق في كتالوج بنود ومواصفات وخامات وأسعار مؤسسة العزب (8 مجالات تخصصية)'
+    chatMenu: true
+    serverInstructions: 'أنت متصل بالكتالوج المعتمد لمنظومة العزب. عند الاستعلام عن أي بند أو خامة، اعرض المعرف الموحد واسم البند والوحدة والتصنيف والسعر المعتمد بدقة دون تخمين.'
   # مسارات مخططة أخرى (فعّلها بعد التحقق): /azure /foundry /frappe /mail /gcp /toolboxes /forms /oracle
 
 # ----------------------------------------------------------------------
-# قوائم النماذج الجاهزة في واجهة الاختيار.
-# preset.endpoint يجب أن يطابق name في endpoints.custom حرفياً.
-# مستبعد عمداً: az-model-codex (تعيين النموذج غير مؤكد)، az-model-sora (فيديو)،
-# az-models-text (embeddings للـ RAG وليس للمحادثة).
+# قوائم النماذج الذكية الموجهة لموظفي ومهندسي المؤسسة (Model Specs)
+# - prioritize: true  => تُعرض النماذج المصنفة في الواجهة أولاً لسهولة الاختيار
+# - enforce: false     => يمكن للمستخدم التبديل بين النماذج المباشرة عند الحاجة
 # ----------------------------------------------------------------------
 modelSpecs:
+  enforce: false
+  prioritize: true
   list:
+    # 1. الاستخدام اليومي والعام للمؤسسة
     - name: 'alazab-core'
-      label: 'العزب — الأساسي (GPT-5.5)'
-      description: 'النموذج العام الأساسي للمهام اليومية'
+      label: 'العزب — الأساسي الذكي (GPT-5.5)'
+      description: 'النموذج العام المعتمد للمهام اليومية، المراسلات الرسمية، وتلخيص التقارير'
       softDefault: true
+      order: 1
       group: 'Alazab Azure'
+      showOnLanding: true
+      conversation_starters:
+        - 'صغ لي رسالة بريد إلكتروني رسمية موجهة إلى...'
+        - 'لخص لي النقاط والتوصيات الرئيسية في هذا التقرير'
+        - 'ساعدني في إعداد جدول أعمال وخطة تنفيذية للأسبوع القادم'
       preset:
         endpoint: 'Alazab Azure'
         model: 'az-model-core'
+        promptPrefix: 'أنت المساعد الذكي الرسمي لمنظومة العزب (Alazab AI). مهمتك دعم موظفي ومهندسي المؤسسة في صياغة المراسلات، تدقيق وتلخيص المستندات، وتنظيم العمل باحترافية تامة ولغة عربية سليمة.'
+      mcpServers:
+        - 'whatsapp'
+        - 'erpnext'
+        - 'alazab-catalog'
 
-    - name: 'alazab-sol'
-      label: 'العزب — Sol (GPT-5.6)'
-      description: 'للمهام المعقدة والتحليل'
-      group: 'Alazab Azure'
-      preset:
-        endpoint: 'Alazab Azure'
-        model: 'az-model-sol'
-
-    - name: 'alazab-luna'
-      label: 'العزب — Luna (GPT-5.6)'
-      description: 'للمحادثة والكتابة'
-      group: 'Alazab Azure'
-      preset:
-        endpoint: 'Alazab Azure'
-        model: 'az-model-gpt'
-
-    - name: 'alazab-maint'
-      label: 'العزب — الصيانة (GPT-5.1)'
-      description: 'مخصص لأوامر وأعمال الصيانة'
-      group: 'Alazab Azure'
-      preset:
-        endpoint: 'Alazab Azure'
-        model: 'az-model-maint'
-
-    - name: 'alazab-mini'
-      label: 'العزب — سريع (GPT-5.4 Mini)'
-      description: 'ردود سريعة منخفضة التكلفة'
-      group: 'Alazab Azure'
-      preset:
-        endpoint: 'Alazab Azure'
-        model: 'az-model-mini'
-
+    # 2. المحلل المالي والمحاسبي
     - name: 'alazab-finance'
-      label: 'العزب — المالية (DeepSeek-V4-Pro)'
-      description: 'تحليل مالي ومحاسبي'
+      label: 'العزب — المحلل المالي (DeepSeek-V4-Pro)'
+      description: 'تحليل الميزانيات، تدقيق القوائم المالية، حساب التكاليف، وإعداد دراسات الجدوى'
+      order: 2
       group: 'Alazab Azure'
+      showOnLanding: true
+      conversation_starters:
+        - 'حلل لي بنود المصروفات والإيرادات في البيانات التالية واقترح خطة ترشيد'
+        - 'احسب نقطة التعادل والعائد المتوقع لمشروع بالمؤشرات التالية...'
+        - 'راجع قيود هذه الفاتورة وتحقق من مطابقتها للمعايير المحاسبية المعتمدة'
       preset:
         endpoint: 'Alazab Azure'
         model: 'az-model-finance'
+        promptPrefix: 'أنت المستشار المالي لمنظومة العزب. تتولى تدقيق البيانات المحاسبية، تحليل التكاليف والإيرادات، دراسة التدفقات النقدية، وتطبيق معايير المحاسبة المعتمدة بدقة رياضية صارمة.'
+      mcpServers:
+        - 'daftra'
+        - 'supabase'
+        - 'alazab-catalog'
 
-    - name: 'local-gpt-oss'
-      label: 'محلي — gpt-oss 20B'
-      description: 'استدلال وأدوات على Ollama الداخلي (مُختبَر)'
+    # 3. الصيانة والمقاولات والتشغيل
+    - name: 'alazab-maint'
+      label: 'العزب — الصيانة والمقاولات (GPT-5.1)'
+      description: 'إصدار وتوجيه أوامر الشغل، تشخيص الأعطال الفنية، ومطابقة المواصفات الهندسية'
+      order: 3
+      group: 'Alazab Azure'
+      showOnLanding: true
+      conversation_starters:
+        - 'صغ أمر عمل فني لصيانة دورية لمنظومة التكييف المركزي والمبردات'
+        - 'ما هي المواصفات القياسية لأعمال العزل المائي والحراري للأسطح؟'
+        - 'كيف نشخص أسباب انخفاض الضغط في شبكة التغذية وما هو بروتوكول الإصلاح؟'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-maint'
+        promptPrefix: 'أنت الخبير الفني لقطاع الصيانة والمقاولات في منظومة العزب. تتولى صياغة أوامر العمل، تشخيص الأعطال الهندسية (تكييف، سباكة، كهرباء، تشطيبات)، ومتابعة الجودة والسلامة المهنية.'
+      mcpServers:
+        - 'uberfix'
+        - 'magicplan'
+        - 'alazab-catalog'
+
+    # 4. التفكير العميق والاستدلال الاستراتيجي
+    - name: 'alazab-sol'
+      label: 'العزب — التحليل والاستدلال المعقد (Sol GPT-5.6)'
+      description: 'التخطيط الاستراتيجي، حل المشكلات التشغيلية المتشابكة، وتفكيك المهام الكبرى'
+      order: 4
+      group: 'Alazab Azure'
+      showOnLanding: true
+      conversation_starters:
+        - 'أجرِ تقييماً شاملاً للمخاطر المحتملة في خطة المشروع المرفقة مع وضع خطط طوارئ'
+        - 'صمم هيكل تجزئة العمل (WBS) متكاملاً لمشروع تشطيبات وبرج إداري'
+        - 'قدم تحليلاً متعدد المعايير لاختيار أفضل شريك لوجستي ومقاول باطن'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-sol'
+        promptPrefix: 'أنت مستشار التفكير العميق والتخطيط الاستراتيجي لمنظومة العزب. مهمتك تفكيك القضايا المعقدة، تقديم استشارات محكمة، والمفاضلة بين البدائل والحلول بأعلى درجات المنطق والاستدلال.'
+
+    # 5. معالجة البيانات السرية 100% On-Premise
+    - name: 'local-secure'
+      label: 'محلي آمن — سرية تامة (gpt-oss 20B)'
+      description: 'يعمل محلياً 100% داخل خوادم المؤسسة لمعالجة العقود والبيانات بالغة السرية'
+      order: 5
       group: 'Ollama'
+      showOnLanding: true
+      conversation_starters:
+        - 'لخص بنود هذا العقد واستخرج شروط المسؤولية والسرية وغرامات التأخير'
+        - 'حلل بيانات الكشف الداخلي المرفق دون تسريب أي معلومة خارج الشبكة'
+        - 'راجع مسودة هذا الاتفاق القانوني واقترح تعديلات لحماية حقوق المؤسسة'
       preset:
         endpoint: 'Ollama'
         model: 'gpt-oss:20b'
+        promptPrefix: 'أنت المعالج الآمن للبيانات الحساسة في منظومة العزب. تعمل بالكامل داخل الخوادم المحلية للشركة دون أي اتصال بالإنترنت، وتلتزم بأعلى درجات السرية وحماية بيانات المؤسسة.'
 
+    # 6. مهندس البرمجيات وهندسة النظم
     - name: 'local-code'
-      label: 'محلي — البرمجة (deepseek-coder-v2)'
-      description: 'مساعد برمجة على Ollama الداخلي'
+      label: 'محلي — مهندس البرمجيات (deepseek-coder-v2)'
+      description: 'كتابة ومراجعة الأكواد البرمجية، وتطوير تكاملات الأنظمة وسكربتات الأتمتة'
+      order: 6
       group: 'Ollama'
+      showOnLanding: true
+      conversation_starters:
+        - 'راجع هذا الكود واكتشف أي ثغرات أمنية أو مشاكل في استهلاك الموارد'
+        - 'اكتب سكربت أتمتة لمعالجة وتدقيق ملفات البيانات وتوليد التقارير اليومية'
+        - 'صمم نموذج تكامل API لربط قاعدة البيانات بنظام الإشعارات'
       preset:
         endpoint: 'Ollama'
         model: 'deepseek-coder-v2:16b'
+        promptPrefix: 'أنت مهندس البرمجيات وتطوير الأنظمة في منظومة العزب. تتولى كتابة ومراجعة الأكواد، تصميم المعماريات البرمجية، وتطوير السكربتات وأتمتة العمليات الداخلية بكفاءة عالية وأمان مشدد.'
+
+    # 7. جيميني السريع لمعالجة الملفات الكبيرة
+    - name: 'alazab-gemini'
+      label: 'العزب — جيميني السريع (Gemini 2.5 Flash)'
+      description: 'معالجة المستندات الكبيرة، البحث الموسع، وتحليل الوسائط المتعددة بسرعة فائقة'
+      order: 7
+      group: 'google'
+      showOnLanding: true
+      conversation_starters:
+        - 'اقرأ هذا المستند والمخطط المرفق بالكامل وقدم تحليلاً تفصيلياً لمحتواه'
+        - 'قارن بين عروض الأسعار والمواصفات للموردين المتعددين في الملفات المرفقة'
+      preset:
+        endpoint: 'google'
+        model: 'gemini-2.5-flash'
+        promptPrefix: 'أنت مساعد البحث والتحليل السريع لمنظومة العزب، معتمد على محرك Gemini، ومختص بالاستيعاب السريع للوثائق والملفات الكبيرة والمقارنة بين البيانات.'
+
+    # 8. الردود الفورية السريعة والتدقيق
+    - name: 'alazab-mini'
+      label: 'العزب — سريع وخفيف (GPT-5.4 Mini)'
+      description: 'استفسارات سريعة، صياغة فورية، وتدقيق لغوي بأقل زمن استجابة وتكلفة'
+      order: 8
+      group: 'Alazab Azure'
+      showOnLanding: true
+      conversation_starters:
+        - 'دقق هذه الفقرة نحوياً وإملائياً مع تحسين الأسلوب'
+        - 'ترجم هذه الملاحظات إلى الإنجليزية المهنية المعتمدة في المراسلات'
+      preset:
+        endpoint: 'Alazab Azure'
+        model: 'az-model-mini'
+        promptPrefix: 'أنت المساعد السريع لمنظومة العزب. تقدم إجابات مباشرة، موجزة، وتدقيقاً لغوياً فائق السرعة والدقة.'
 
 # ======================================================================
 # قبل التفعيل (غير متحقَّق منه حياً)

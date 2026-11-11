@@ -1,0 +1,13 @@
+{
+  "phase": "02",
+  "name": "agents-mcp",
+  "timestamp": "20261102_102258Z",
+  "duration_seconds": 1,
+  "total": 11,
+  "passed": 10,
+  "failed": 0,
+  "skipped": 1,
+  "results": [
+    {"id":"T-101","title":"تمكين واجهات الوكلاء وخوادم MCP في الواجهة (interface)","status":"PASS","details":"واجهات Agents و MCP مفعلة بالكامل للصلاحيات والمشاركة"},{"id":"T-102","title":"تكوين نقطة الوكلاء وصمامات الأمان (toolApproval)","status":"PASS","details":"صمامات الأمان والموافقة البشرية (HITL) مفعلة مع حفظ قرارات المراجعة"},{"id":"T-103","title":"استمرارية نقاط التحقق للوكلاء (checkpointer: mongo)","status":"PASS","details":"تم ضبط checkpointer على mongo لضمان حفظ واستئناف المهام عبر السيرفرات"},{"id":"T-104","title":"تكوين خوادم الأعمال الستة في بوابة MCP المركزية","status":"PASS","details":"الخوادم الستة (دفترة، أوبر فيكس، ERPNext، واتساب، ماجيك بلان، سوبابيز) مهيأة بنوع streamable-http"},{"id":"T-105","title":"مطابقة عناوين خوادم MCP لمعايير التسمية الرسمية","status":"PASS","details":"كافة عناوين الخوادم مطابقة تماماً لتعبير MCP_SERVER_TITLE_PATTERN الرسمي"},{"id":"T-106","title":"تعليمات الأمان التشغيلية للخوادم (serverInstructions)","status":"PASS","details":"تعليمات الأمان وحظر التعديل التلقائي دون تأكيد بشري مضمنة في كافة الخوادم الحساسة"},{"id":"T-107","title":"تمكين ظهور أدوات الخوادم في القائمة (chatMenu: true)","status":"PASS","details":"أدوات الخوادم الستة مجهزة ومتاحة للاختيار في واجهة المحادثة"},{"id":"T-108","title":"ربط أدوات MCP مباشرة بقوالب النماذج الذكية (Model Specs)","status":"PASS","details":"النماذج التخصصية (مالية، صيانة، أعمال عامة) مربوطة تلقائياً بأدوات أنظمتها المناسبة"},{"id":"T-109","title":"مطابقة المخطط الشامل لنظام LibreChat (configSchema)","status":"PASS","details":"كافة ملفات التكوين مطابقة 100% لمخطط Zod الرسمي لنظام LibreChat"},{"id":"T-110","title":"مزامنة متغيرات البيئة لبوابة MCP والوكلاء","status":"PASS","details":"المتغيرات المطلوبة (MCP_GATEWAY_TOKEN, ENDPOINTS=...agents) موثقة ومطابقة في .env"},{"id":"T-111","title":"فحص استجابة بوابة MCP المركزية (mcp.alazab.com)","status":"SKIP","details":"بوابة mcp.alazab.com غير متاحة من بيئة التطوير الحالية (كود: 000UNREACHABLE)، يلزم الفحص المباشر داخل شبكة السيرفر"}
+  ]
+}

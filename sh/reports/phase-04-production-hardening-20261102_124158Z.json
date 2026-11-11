@@ -1,0 +1,15 @@
+{
+  "phase": "04-production-hardening",
+  "title": "الاستقرار، الحماية، الأداء العالي، والمراقبة والنسخ الاحتياطي",
+  "timestamp": "20261102_124158Z",
+  "durationSeconds": 1,
+  "summary": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0
+  },
+  "results": [
+    {"id":"T4-01","title":"صحة بنية Compose وتكامل الخدمات الـ 7 للإنتاج","status":"PASS","details":"كافة الخدمات الـ 7 موجودة وصحيحة: meilisearch mongodb vectordb rag_api api admin-panel nginx "},{"id":"T4-02","title":"ربط مجلدات الحاويات ومسار MCP المحمي (Volume Mounts)","status":"PASS","details":"تم ربط مجلدات mcp (ro), librechat.yaml (ro), uploads, data بنجاح"},{"id":"T4-03","title":"تكامل خادم Nginx العكسي ودعم HTTPS المشفر","status":"PASS","details":"خادم Nginx مهيأ بالكامل للتحويل التلقائي والـ SSL وتوجيه الـ Upstreams"},{"id":"T4-04","title":"فرض هيدرز الأمان العالي في خادم Nginx","status":"PASS","details":"كافة هيدرز الأمان المؤسسية (HSTS, nosniff, SAMEORIGIN, XSS, Referrer) مطبقة دائماً"},{"id":"T4-05","title":"حماية نقاط المصادقة والـ API بمحدد المعدل (Rate Limiting)","status":"PASS","details":"نطاقات الحماية ضد هجمات DoS والتخمين العشوائي مفعلة ومطبقة بنجاح"},{"id":"T4-06","title":"تطابق حد رفع الملفات (100MB) بين Nginx والتطبيق","status":"PASS","details":"حد الرفع متطابق تماماً على 100MB لمنع خطأ HTTP 413"},{"id":"T4-07","title":"تحسين أداء البث اللحظي للردود (SSE Streaming)","status":"PASS","details":"تم إلغاء الـ Buffering وضبط مهلة القراءة على 3600 ثانية لاستقرار البث"},{"id":"T4-08","title":"مسار فحص الجاهزية المستمر (Health Check /health)","status":"PASS","details":"مسار /health موجه إلى حاوية الـ API مع تحسين استهلاك السجلات"},{"id":"T4-09","title":"سكربت النسخ الاحتياطي التلقائي (deploy/scripts/backup.sh)","status":"PASS","details":"تم تشغيل سكربت النسخ وضغط المرفقات والتحقق من سياسة الاحتفاظ"},{"id":"T4-10","title":"سكربت الاستعادة وصمام الأمان (deploy/scripts/restore.sh)","status":"PASS","details":"سكربت الاستعادة مزود بصمام أمان صارم ويطلب تأكيد YES صريح"},{"id":"T4-11","title":"الرصد والمراقبة وتتبع الأداء (Langfuse Tracing)","status":"PASS","details":"نظام Langfuse Tracing مفعل بنسبة 100% لرصد استعلامات النماذج والأداء"},{"id":"T4-12","title":"سجلات التدقيق الأمني وضوابط العمليات الحساسة (Audit Trail)","status":"PASS","details":"مسار سجلات التدقيق مفعل مع صمامات موافقة الكتابة ومعدل العمليات"},{"id":"T4-13","title":"عزل قواعد البيانات والمنافذ داخل شبكة internal","status":"PASS","details":"قواعد البيانات معزولة داخلياً بالكامل، والمنافذ المفتوحة للخارج هي 80/443 فقط"},{"id":"T4-14","title":"حظر تسريب الرموز والمفاتيح في السجلات والتقارير","status":"PASS","details":"كافة السجلات وملفات النشر نظيفة وخالية من أي تسريب لمفاتيح الإنتاج"}
+  ]
+}

@@ -12,6 +12,7 @@
     "packages/*"
   ],
   "scripts": {
+    "env:audit": "bash sh/env-audit.sh",
     "prepare": "node -e \"import('husky').then((h) => h.default()).catch(() => {})\"",
     "update": "node config/update.js",
     "add-balance": "node config/add-balance.js",
@@ -285,5 +286,8 @@
       "admin/",
       "packages/"
     ]
+  },
+  "dependencies": {
+    "@elevenlabs/react": "^1.20.2"
   }
 }

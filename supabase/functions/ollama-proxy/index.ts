@@ -9,7 +9,12 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 const OLLAMA_ORIGIN = "https://ollama.alazab.com";
 const ALLOWED = new Set(["/api/tags", "/api/show", "/v1/chat/completions"]);
 const MAX_BODY_BYTES = 1_000_000; // ~1MB
-const cors = { "Cache-Control": "no-store" };
+const cors = {
+  "Cache-Control": "no-store",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+};
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL") ?? "";
 const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
@@ -33,6 +38,7 @@ async function verifiedUser(request: Request) {
 }
 
 Deno.serve(async (request) => {
+  if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
   if (request.method !== "POST") return new Response("Method not allowed", { status: 405, headers: cors });
   if (!(await verifiedUser(request))) return new Response("Unauthorized", { status: 401, headers: cors });
 

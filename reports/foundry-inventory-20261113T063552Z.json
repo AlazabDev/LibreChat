@@ -1,0 +1,840 @@
+{
+  "summary": {
+    "timestamp": "2026-11-13T06:35:52.054Z",
+    "projectName": "az-ai-gateway",
+    "resourceGroup": "azab-rg-ai",
+    "totalDeployments": 5,
+    "totalAgents": 10,
+    "totalConnections": 35,
+    "totalA2ALinks": 11,
+    "totalToolboxes": 5
+  },
+  "projectInfo": {
+    "subscriptionId": "1363114a-a1d7-4abb-8042-dcdebf91e2c9",
+    "tenantId": "54f7523b-7bc4-438e-83d5-e45e17302fd4",
+    "subscriptionName": "Microsoft Azure Sponsorship",
+    "resourceGroup": "azab-rg-ai",
+    "resourceName": "az-ai-resource",
+    "projectName": "az-ai-gateway",
+    "region": "eastus2",
+    "endpoints": {
+      "projectEndpoint": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway",
+      "cognitiveEndpoint": "https://az-ai-resource.cognitiveservices.azure.com/",
+      "apimGateway": "https://az-ai-gateway.azure-api.net",
+      "aiSearchEndpoint": "https://azlanguagear-aszsyda7jknabyg.search.windows.net",
+      "mcpCentralGateway": "https://mcp.alazab.com"
+    },
+    "credentialsConfigured": {
+      "foundryApiKey": true,
+      "apimSubscriptionKey": true,
+      "aiSearchApiKey": true,
+      "contentSafetyKey": true,
+      "storageConnectionString": true
+    }
+  },
+  "deployments": [
+    {
+      "deploymentName": "az-model-finance",
+      "modelName": "DeepSeek-V4-Pro",
+      "modelPublisher": "DeepSeek",
+      "modelVersion": "2026-04-23",
+      "skuName": "GlobalStandard",
+      "capacity": 250,
+      "capabilities": [
+        "chat_completion"
+      ],
+      "type": "ModelDeployment"
+    },
+    {
+      "deploymentName": "az-models-text",
+      "modelName": "text-embedding-3-small",
+      "modelPublisher": "OpenAI",
+      "modelVersion": "1",
+      "skuName": "GlobalStandard",
+      "capacity": 532,
+      "capabilities": [
+        "embeddings"
+      ],
+      "type": "ModelDeployment"
+    },
+    {
+      "deploymentName": "az-model-sol",
+      "modelName": "gpt-5.6-sol",
+      "modelPublisher": "OpenAI",
+      "modelVersion": "2026-07-09",
+      "skuName": "GlobalStandard",
+      "capacity": 2500,
+      "capabilities": [
+        "chat_completion"
+      ],
+      "type": "ModelDeployment"
+    },
+    {
+      "deploymentName": "az-model-codex",
+      "modelName": "gpt-5.3-codex",
+      "modelPublisher": "OpenAI",
+      "modelVersion": "2026-02-24",
+      "skuName": "GlobalStandard",
+      "capacity": 10000,
+      "capabilities": [],
+      "type": "ModelDeployment"
+    },
+    {
+      "deploymentName": "az-model-gemma",
+      "modelName": "google--gemma-4-31b-it",
+      "modelPublisher": "azure-huggingface",
+      "modelVersion": "5",
+      "skuName": "GlobalManagedCompute",
+      "capacity": 2,
+      "capabilities": [],
+      "type": "ModelDeployment"
+    }
+  ],
+  "agents": [
+    {
+      "name": "az-agent-auth",
+      "id": "az-agent-auth",
+      "state": "enabled",
+      "activeVersion": "11",
+      "model": "az-model-sol",
+      "role": "أنت مسؤول عن مساعدة المستخدمين في مشاكل الدخول، التحقق، ربط الحسابات، فهم حالة الحساب، وتوجيه المستخدم إلى التطبيق أو ال",
+      "toolsCount": 4,
+      "tools": [
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "mcp",
+          "label": "kb-az-knowledge-8blqr",
+          "url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-05-01-preview"
+        },
+        {
+          "type": "mcp",
+          "label": "az-auth-mcp",
+          "url": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-bxuhcbfdoaflsgbxiqei-supabase-co-functions-v1-az-auth-mcp"
+        },
+        {
+          "type": "mcp",
+          "label": "kb-az-knowledge-8blqr",
+          "url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-08-01-preview"
+        }
+      ],
+      "instructionsLength": 6850,
+      "instructionsPreview": "أنت `az-agent-auth`، وكيل المصادقة والهوية داخل منظومة العزب الرقمية.  ## المهمة الأساسية  أنت مسؤول عن مساعدة المستخدمين في مشاكل الدخول، التحقق، ربط الحسابات، فهم حالة الحساب، وتوجيه المستخدم إلى ال..."
+    },
+    {
+      "name": "az-agent-prod",
+      "id": "az-agent-prod",
+      "state": "enabled",
+      "activeVersion": "13",
+      "model": "az-model-sol",
+      "role": "الوكيل المسؤول عن المنتجات والخدمات إدارة الأصناف والمخازن والحركات المخزنية ",
+      "toolsCount": 7,
+      "tools": [
+        {
+          "type": "code_interpreter",
+          "label": "{\"container\":{\"type\":\"auto\"},\"type\":\"code_interpreter\"}"
+        },
+        {
+          "type": "azure_ai_search",
+          "label": "{\"azure_ai_search\":{\"indexes\":[{\"index_name\":\"az-ks-file-daftra-index\",\"project_connection_id\":\"/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/aisearchazabrgai13631b8blqr\",\"query_type\":\"simple\",\"top_k\":5}]},\"type\":\"azure_ai_search\"}"
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-prod-to-maint",
+          "tools": []
+        },
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "file_search",
+          "label": "{\"type\":\"file_search\",\"vector_store_ids\":[\"vs_UKxWQVCZOQUAhlOOLRnMrAZ4\"]}"
+        },
+        {
+          "type": "mcp",
+          "label": "kb-az-knowledge-8blqr",
+          "url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-05-01-preview"
+        },
+        {
+          "type": "memory_search_preview",
+          "label": "{\"memory_store_name\":\"MemoryStore-plum_neck_2z0xlv61b1\",\"scope\":\"{{$userId}}\",\"type\":\"memory_search_preview\",\"update_delay\":30}"
+        }
+      ],
+      "instructionsLength": 12045,
+      "instructionsPreview": "# AZ-AGENT-PROD — Product, Catalog & Inventory Agent  ## 1. الهوية والمهمة  أنت **az-agent-prod**، الوكيل المتخصص في إدارة المنتجات والخدمات والأصناف والمخازن لدى مجموعة العزب Alazab Group.  مهمتك تحو..."
+    },
+    {
+      "name": "az-agent-vision",
+      "id": "az-agent-vision",
+      "state": "enabled",
+      "activeVersion": "5",
+      "model": "az-model-sol",
+      "role": "وكيل الرؤية الحاسوبية والتحليل البصري الذكي",
+      "toolsCount": 1,
+      "tools": [
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        }
+      ],
+      "instructionsLength": 1011,
+      "instructionsPreview": "أنت وكيل الرؤية والتحليل البصري في منظومة العزب، مسؤول عن تفسير وفهم المحتوى المرئي.  📷 قدرات التحليل البصري: - التعرف على الأشياء والمعدات في الصور - تحليل حالة المرافق والمباني - قراءة النصوص من ال..."
+    },
+    {
+      "name": "az-agent-payments",
+      "id": "az-agent-payments",
+      "state": "enabled",
+      "activeVersion": "6",
+      "model": "az-model-finance",
+      "role": "Previous agent v4 plus daftra MCP toolboxes",
+      "toolsCount": 3,
+      "tools": [
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "code_interpreter",
+          "label": "{\"container\":{\"type\":\"auto\"},\"type\":\"code_interpreter\"}"
+        },
+        {
+          "type": "mcp",
+          "label": "alazab_daftra",
+          "url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/daftra-toolbox/versions/3/mcp?api-version=v1"
+        }
+      ],
+      "instructionsLength": 1964,
+      "instructionsPreview": "You are Azab Payments Agent.  You manage payment confirmation workflows for Alazab and UberFix.  Your scope is strictly limited to: 1. Creating payment intents. 2. Sending payment links to customers. ..."
+    },
+    {
+      "name": "az-agent-finance",
+      "id": "az-agent-finance",
+      "state": "enabled",
+      "activeVersion": "7",
+      "model": "az-model-finance",
+      "role": "أنت وكيل التحليل المالي والإداري للعزب. وظيفتك تحليل البيانات المالية، المصروفات، الإيرادات، الفواتير، مؤشرات الأداء، وم",
+      "toolsCount": 2,
+      "tools": [
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "mcp",
+          "label": "alazab_daftra",
+          "url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/daftra-toolbox/versions/3/mcp?api-version=v1"
+        }
+      ],
+      "instructionsLength": 910,
+      "instructionsPreview": " Agent: az-agent-finance  الدور: أنت وكيل التحليل المالي والإداري للعزب. وظيفتك تحليل البيانات المالية، المصروفات، الإيرادات، الفواتير، مؤشرات الأداء، ومساعدة الإدارة في الفهم لا في التنفيذ المباشر.  ..."
+    },
+    {
+      "name": "az-agent-maint",
+      "id": "az-agent-maint",
+      "state": "enabled",
+      "activeVersion": "34",
+      "model": "az-model-sol",
+      "role": "كيف يمكنني مساعدتك اليوم ؟",
+      "toolsCount": 5,
+      "tools": [
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "file_search",
+          "label": "{\"type\":\"file_search\",\"vector_store_ids\":[\"vs_NtF3dnVoiLkcK7rSoGm8GnZ3\"]}"
+        },
+        {
+          "type": "code_interpreter",
+          "label": "{\"container\":{\"file_ids\":[\"assistant-JXVZ8VJ1pdvJAvUg5Cjh1y\",\"assistant-H6harEqG3kD5XfWpqkksyV\"],\"type\":\"auto\"},\"type\":\"code_interpreter\"}"
+        },
+        {
+          "type": "azure_ai_search",
+          "label": "{\"azure_ai_search\":{\"indexes\":[{\"index_name\":\"az-ks-file-daftra-index\",\"project_connection_id\":\"/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/aisearchazabrgai13631b8blqr\",\"query_type\":\"simple\",\"top_k\":5}]},\"type\":\"azure_ai_search\"}"
+        },
+        {
+          "type": "mcp",
+          "label": "alazab_uberfix_v2",
+          "url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1"
+        }
+      ],
+      "instructionsLength": 5701,
+      "instructionsPreview": "# الشخصية  أنت **UF.Bot**، وكيل خدمة وصيانة محترف يعمل لصالح **Uberfix** التابعة لشركة العزب للمقاولات العامة وإدارة المرافق.  لديك خبرة واسعة في الخدمات المعمارية وإدارة المرافق وصيانة الوحدات السكني..."
+    },
+    {
+      "name": "az-agent-azabot",
+      "id": "az-agent-azabot",
+      "state": "enabled",
+      "activeVersion": "11",
+      "model": "az-model-sol",
+      "role": "UberFix v2 connection target fix; preserves agent v10 configuration",
+      "toolsCount": 7,
+      "tools": [
+        {
+          "type": "code_interpreter",
+          "label": "{\"container\":{\"file_ids\":[\"assistant-AJVp8XrbjB3Gn14raNHsGP\"],\"type\":\"auto\"},\"type\":\"code_interpreter\"}"
+        },
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "mcp",
+          "label": "kb-az-knowledge-8blqr",
+          "url": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-05-01-preview"
+        },
+        {
+          "type": "azure_ai_search",
+          "label": "{\"azure_ai_search\":{\"indexes\":[{\"index_name\":\"az-aisearch-index\",\"project_connection_id\":\"/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/aisearchazabrgai13631b8blqr\",\"query_type\":\"simple\",\"top_k\":5}]},\"type\":\"azure_ai_search\"}"
+        },
+        {
+          "type": "memory_search_preview",
+          "label": "{\"memory_store_name\":\"MemoryStore-plum_neck_2z0xlv61b1\",\"scope\":\"{{$userId}}\",\"type\":\"memory_search_preview\",\"update_delay\":30}"
+        },
+        {
+          "type": "mcp",
+          "label": "alazab_uberfix_v2",
+          "url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1"
+        },
+        {
+          "type": "mcp",
+          "label": "alazab_whatsapp",
+          "url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/whatsapp-toolbox/versions/1/mcp?api-version=v1"
+        }
+      ],
+      "instructionsLength": 7290,
+      "instructionsPreview": "# الهوية  أنت **عزبوت**، مساعد خدمة عملاء محترف تابع لشركة العزب للمقاولات العامة وإدارة المرافق.  لديك خبرة عملية في الخدمات المعمارية، وإدارة المرافق، وصيانة الوحدات التجارية والسكنية، بما يشمل:  - ..."
+    },
+    {
+      "name": "az-agent-project",
+      "id": "az-agent-project",
+      "state": "enabled",
+      "activeVersion": "8",
+      "model": "az-model-sol",
+      "role": "Upgrade MCP URLs only from agent v7: magicplan v3 to v4",
+      "toolsCount": 2,
+      "tools": [
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "mcp",
+          "label": "alazab_magicplan",
+          "url": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/magicplan-toolbox/versions/4/mcp?api-version=v1"
+        }
+      ],
+      "instructionsLength": 1875,
+      "instructionsPreview": "أنت وكيل دعم المشروعات (Project Support Agent) في منظومة العزب، مسؤول عن: - متابعة وإدارة دورة حياة المشروعات بدءاً من التخطيط وحتى التسليم - تنسيق الفرق والمهام حسب المنهجية المعتمدة - تتبع الميزانيا..."
+    },
+    {
+      "name": "az-agent-sol",
+      "id": "az-agent-sol",
+      "state": "enabled",
+      "activeVersion": "9",
+      "model": "az-model-sol",
+      "role": "وكيل تخصصي لمنظومة العزب",
+      "toolsCount": 12,
+      "tools": [
+        {
+          "type": "memory_search_preview",
+          "label": "{\"memory_store_name\":\"cctv-app\",\"scope\":\"{{$userId}}\",\"type\":\"memory_search_preview\",\"update_delay\":30}"
+        },
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "code_interpreter",
+          "label": "{\"container\":{\"type\":\"auto\"},\"type\":\"code_interpreter\"}"
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-auth",
+          "tools": []
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-azabot",
+          "tools": []
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-codex",
+          "tools": []
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-finance",
+          "tools": []
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-maint",
+          "tools": []
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-payments",
+          "tools": []
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-prod",
+          "tools": []
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-project",
+          "tools": []
+        },
+        {
+          "type": "connection",
+          "label": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.CognitiveServices/accounts/az-ai-resource/projects/az-ai-gateway/connections/a2a-sol-to-vision",
+          "tools": []
+        }
+      ],
+      "instructionsLength": 5378,
+      "instructionsPreview": "أنت az-agent-sol، الوكيل التقني المركزي للعزب Alazab. تعمل مع المهندس محمد عزب لإدارة وتنفيذ المهام عبر المشروعات والأنظمة والأدوات المتصلة، وأول مشروع ضمن نطاق عملك هو تطبيق CCTV.  أجب بالعربية بوضوح..."
+    },
+    {
+      "name": "az-agent-codex",
+      "id": "az-agent-codex",
+      "state": "enabled",
+      "activeVersion": "5",
+      "model": "az-model-codex",
+      "role": "Head of Development, Systems, IT, Infrastructure",
+      "toolsCount": 2,
+      "tools": [
+        {
+          "type": "web_search",
+          "label": "Bing Web Search"
+        },
+        {
+          "type": "code_interpreter",
+          "label": "{\"container\":{\"type\":\"auto\"},\"type\":\"code_interpreter\"}"
+        }
+      ],
+      "instructionsLength": 6337,
+      "instructionsPreview": "أنت وكيل البرمجة والهندسة البرمجية المتخصص في منظومة العزب — Alazab Engineering Codex Agent.  دورك الأساسي هو تحليل وتطوير وإصلاح واختبار الأنظمة البرمجية التابعة للعزب بدقة، اعتمادًا على الكود والملف..."
+    }
+  ],
+  "connections": [
+    {
+      "name": "FoundryMCPServerpreview",
+      "type": "RemoteTool",
+      "target": "https://mcp.ai.azure.com",
+      "isDefault": true,
+      "credentialType": "UserEntraToken",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "AzureSpeechMCPServer",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.cognitiveservices.azure.com/speech/mcp?api-version=2025-11-07-preview",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "aisearchazabrgai13631b8blqr",
+      "type": "CognitiveSearch",
+      "target": "https://aisearchazabrgai136311.search.windows.net/",
+      "isDefault": true,
+      "credentialType": "ApiKey",
+      "category": "Knowledge / Vector Search"
+    },
+    {
+      "name": "az-uberfix-mcp",
+      "type": "RemoteTool",
+      "target": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-alazab-com-mcp-uberfix-sse",
+      "isDefault": false,
+      "credentialType": "None",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "kb-az-knowledgebase-da-8blqr",
+      "type": "RemoteTool",
+      "target": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledgebase-daftra/mcp?api-version=2026-05-01-preview",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "AzureDevOpsMCPServerpreview",
+      "type": "RemoteTool",
+      "target": "https://mcp.dev.azure.com/azab",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "a2a-prod-to-maint",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-maint/endpoint/protocols/a2a",
+      "isDefault": true,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-maint-to-prod",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-prod/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "kb-az-knowledge-8blqr",
+      "type": "RemoteTool",
+      "target": "https://aisearchazabrgai136311.search.windows.net/knowledgebases/az-knowledge/mcp?api-version=2026-08-01-preview",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "AzWorkIQ",
+      "type": "RemoteTool",
+      "target": "https://agent365.svc.cloud.microsoft/agents/servers/mcp_WordServer",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "FoundryMCPServerpreview2",
+      "type": "RemoteTool",
+      "target": "https://mcp.ai.azure.com",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "az_daftra_api",
+      "type": "CustomKeys",
+      "target": "-",
+      "isDefault": true,
+      "credentialType": "CustomKeys",
+      "category": "Service Connection"
+    },
+    {
+      "name": "daftra-api",
+      "type": "RemoteTool",
+      "target": "https://alazab-co.daftra.com/api2",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "az-ai-resource",
+      "type": "ApiManagement",
+      "target": "https://az-ai-gateway.azure-api.net/az-ai-resource",
+      "isDefault": true,
+      "credentialType": "ApiKey",
+      "category": "Service Connection"
+    },
+    {
+      "name": "a2a-sol-to-auth",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-auth/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-azabot",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-azabot/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-codex",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-codex/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-finance",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-finance/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-maint",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-maint/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-payments",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-payments/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-prod",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-prod/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-project",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-project/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-vision",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-vision/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "daftra-api-connection",
+      "type": "RemoteTool",
+      "target": "https://alazab-co.daftra.com",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "magicplan-api-connection",
+      "type": "RemoteTool",
+      "target": "https://cloud.magicplan.app",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "magicplan-apim-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-gateway.azure-api.net",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "uberfix-gateway-connection",
+      "type": "RemoteTool",
+      "target": "https://zrrffsjbfkphridqyais.supabase.co/functions/v1",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "whatsapp-graph-connection",
+      "type": "RemoteTool",
+      "target": "https://graph.facebook.com/v24.0",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    },
+    {
+      "name": "daftra-toolbox-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/daftra-toolbox/versions/3/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "magicplan-toolbox-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/magicplan-toolbox/versions/3/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "uberfix-toolbox-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/1/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "whatsapp-toolbox-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/whatsapp-toolbox/versions/1/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "uberfix-toolbox-v2-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "az-devtool-functions-0095",
+      "type": "AppInsights",
+      "target": "/subscriptions/1363114a-a1d7-4abb-8042-dcdebf91e2c9/resourceGroups/azab-rg-ai/providers/Microsoft.Insights/components/az-devtool-functions",
+      "isDefault": true,
+      "credentialType": "ApiKey",
+      "category": "Observability & Monitoring"
+    },
+    {
+      "name": "az-auth-mcp",
+      "type": "RemoteTool",
+      "target": "https://az-ai-gateway.azure-api.net/tool-az-ai-gateway-bxuhcbfdoaflsgbxiqei-supabase-co-functions-v1-az-auth-mcp",
+      "isDefault": false,
+      "credentialType": "CustomKeys",
+      "category": "External Tool / MCP"
+    }
+  ],
+  "a2aNetwork": [
+    {
+      "name": "a2a-prod-to-maint",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-maint/endpoint/protocols/a2a",
+      "isDefault": true,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-maint-to-prod",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-prod/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-auth",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-auth/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-azabot",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-azabot/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-codex",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-codex/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-finance",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-finance/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-maint",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-maint/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-payments",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-payments/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-prod",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-prod/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-project",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-project/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    },
+    {
+      "name": "a2a-sol-to-vision",
+      "type": "RemoteA2A",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/agents/az-agent-vision/endpoint/protocols/a2a",
+      "isDefault": false,
+      "credentialType": "AgenticIdentityToken",
+      "category": "Agent-to-Agent"
+    }
+  ],
+  "toolboxes": [
+    {
+      "name": "daftra-toolbox-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/daftra-toolbox/versions/3/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "magicplan-toolbox-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/magicplan-toolbox/versions/3/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "uberfix-toolbox-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/1/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "whatsapp-toolbox-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/whatsapp-toolbox/versions/1/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    },
+    {
+      "name": "uberfix-toolbox-v2-mcp-connection",
+      "type": "RemoteTool",
+      "target": "https://az-ai-resource.services.ai.azure.com/api/projects/az-ai-gateway/toolboxes/uberfix-toolbox/versions/2/mcp?api-version=v1",
+      "isDefault": false,
+      "credentialType": "UserEntraToken",
+      "category": "Foundry Toolbox"
+    }
+  ]
+}

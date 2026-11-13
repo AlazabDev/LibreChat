@@ -1,0 +1,253 @@
+{
+  "store": {
+    "seller_id": "A3H33FHLEMYU9Z",
+    "name": "Alazab Enterprises — متجر العزب",
+    "marketplace": "Amazon Egypt (amazon.eg)",
+    "marketplace_id": "ARBP9OOSHTCHU",
+    "currency": "EGP",
+    "updated_at": "2026-11-11T07:30:00Z"
+  },
+  "products": [
+    {
+      "asin": "B09AZAB001",
+      "sku": "AZ-CAM-5MP-IP-01",
+      "title_ar": "كاميرا مراقبة IP بدقة 5 ميجابكسل للرؤية الليلية الملونة مقاومة للعوامل الجوية IP67",
+      "title_en": "Alazab 5MP Full-Color IP Surveillance Camera Outdoor Weatherproof IP67",
+      "category": "security",
+      "brand": "Alazab Security / Dahua OEM",
+      "list_price": 2850.00,
+      "buybox_price": 2690.00,
+      "currency": "EGP",
+      "fulfillment_channel": "AFN",
+      "inventory": {
+        "fulfillable": 45,
+        "inbound": 20,
+        "reserved": 3,
+        "status": "In Stock"
+      },
+      "specs": {
+        "resolution": "5 Megapixel (2592 x 1944)",
+        "lens": "3.6mm Fixed Lens",
+        "night_vision": "Full Color up to 30m with Warm LED",
+        "power": "PoE (802.3af) or 12V DC",
+        "protection": "IP67 Weatherproof metal casing"
+      }
+    },
+    {
+      "asin": "B09AZAB002",
+      "sku": "AZ-CAM-2MP-DOME-02",
+      "title_ar": "كاميرا مراقبة داخلية دوم بدقة 2 ميجابكسل مزودة بميكروفون مدمج ورؤية ليلية ذكية",
+      "title_en": "Alazab 2MP Indoor Dome Security Camera Built-in Mic Smart IR 20m",
+      "category": "security",
+      "brand": "Alazab Security",
+      "list_price": 1250.00,
+      "buybox_price": 1150.00,
+      "currency": "EGP",
+      "fulfillment_channel": "AFN",
+      "inventory": {
+        "fulfillable": 82,
+        "inbound": 50,
+        "reserved": 5,
+        "status": "In Stock"
+      },
+      "specs": {
+        "resolution": "2 Megapixel 1080p",
+        "lens": "2.8mm Wide Angle",
+        "audio": "Built-in High Sensitivity Microphone",
+        "ir_range": "Smart IR up to 20m"
+      }
+    },
+    {
+      "asin": "B09AZAB003",
+      "sku": "AZ-NVR-16CH-4K-03",
+      "title_ar": "جهاز تسجيل شبكي NVR سعة 16 قناة 4K مع 16 مخرج PoE ودعم قرصين صلبين 16TB",
+      "title_en": "Alazab 16-Channel 4K PoE Network Video Recorder NVR 2-HDD Support",
+      "category": "security",
+      "brand": "Alazab Security",
+      "list_price": 9800.00,
+      "buybox_price": 9200.00,
+      "currency": "EGP",
+      "fulfillment_channel": "MFN",
+      "inventory": {
+        "fulfillable": 14,
+        "inbound": 10,
+        "reserved": 1,
+        "status": "In Stock"
+      },
+      "specs": {
+        "channels": "16 Channels 4K / 8MP Decoding",
+        "poe_ports": "16x 100Mbps PoE Ports (IEEE 802.3af/at)",
+        "storage": "2x SATA III Ports up to 10TB per disk",
+        "ai_features": "Smart Motion Detection 4.0, Face Recognition"
+      }
+    },
+    {
+      "asin": "B09AZAB004",
+      "sku": "AZ-DVR-08CH-5M-04",
+      "title_ar": "جهاز تسجيل رقمي DVR هجين 8 قنوات بدقة 5 ميجابكسل XVR يدعم كافة بروتوكولات الكاميرات",
+      "title_en": "Alazab 8-Channel 5MP Hybrid XVR DVR Recorder H.265+ Compression",
+      "category": "security",
+      "brand": "Alazab Security",
+      "list_price": 3400.00,
+      "buybox_price": 3150.00,
+      "currency": "EGP",
+      "fulfillment_channel": "AFN",
+      "inventory": {
+        "fulfillable": 30,
+        "inbound": 15,
+        "reserved": 2,
+        "status": "In Stock"
+      },
+      "specs": {
+        "channels": "8 BNC Analog + 4 IP (Total 12 Channels)",
+        "compression": "H.265+ Dual Stream",
+        "hdmi_vga": "Simultaneous HDMI / VGA output up to 4K"
+      }
+    },
+    {
+      "asin": "B09AZAB005",
+      "sku": "AZ-FIRE-EXT-6KG-05",
+      "title_ar": "طفاية حريق مسحوق كيميائي جاف سعة 6 كجم معتمدة للدفاع المدني مع حامل جداري",
+      "title_en": "Alazab ABC Dry Chemical Powder Fire Extinguisher 6kg Civil Defense Approved",
+      "category": "fire_safety",
+      "brand": "Alazab Safety / Bavaria OEM",
+      "list_price": 1850.00,
+      "buybox_price": 1750.00,
+      "currency": "EGP",
+      "fulfillment_channel": "MFN",
+      "inventory": {
+        "fulfillable": 120,
+        "inbound": 50,
+        "reserved": 8,
+        "status": "In Stock"
+      },
+      "specs": {
+        "capacity": "6 kg ABC Dry Chemical Powder",
+        "fire_classes": "Class A (solids), Class B (liquids), Class C (gases & electrical)",
+        "test_pressure": "27 Bar",
+        "certifications": "Egyptian Standard ES 734 / Civil Defense Approved"
+      }
+    },
+    {
+      "asin": "B09AZAB006",
+      "sku": "AZ-SMOKE-DET-OPT-06",
+      "title_ar": "كاشف دخان ضوئي كهروضوئي مستقل مع بطارية ليثيوم 10 سنوات وصفارة إنذار 85dB",
+      "title_en": "Alazab Standalone Photoelectric Smoke Detector 10-Year Lithium Battery 85dB",
+      "category": "fire_safety",
+      "brand": "Alazab Safety",
+      "list_price": 650.00,
+      "buybox_price": 590.00,
+      "currency": "EGP",
+      "fulfillment_channel": "AFN",
+      "inventory": {
+        "fulfillable": 210,
+        "inbound": 100,
+        "reserved": 12,
+        "status": "In Stock"
+      },
+      "specs": {
+        "sensor": "Photoelectric Light Scattering Sensor",
+        "battery": "Sealed 3V Lithium Battery 10-Year Life",
+        "alarm_sound": "85 dB at 3 meters",
+        "coverage": "Up to 50 sqm per detector"
+      }
+    },
+    {
+      "asin": "B09AZAB007",
+      "sku": "AZ-PWR-SUP-12V20A-07",
+      "title_ar": "مزود طاقة مركزي للكاميرات 12 فولت 20 أمبير 18 مخرج مزود بفيوزات حماية منفصلة",
+      "title_en": "Alazab Central Power Supply Box 12V 20A 18-Channel PTC Fuse Protected for CCTV",
+      "category": "security",
+      "brand": "Alazab Security",
+      "list_price": 1450.00,
+      "buybox_price": 1320.00,
+      "currency": "EGP",
+      "fulfillment_channel": "AFN",
+      "inventory": {
+        "fulfillable": 60,
+        "inbound": 30,
+        "reserved": 4,
+        "status": "In Stock"
+      },
+      "specs": {
+        "input": "110V - 240V AC 50/60Hz",
+        "output": "12V DC ± 10% adjustable, 20 Ampere max",
+        "channels": "18 Individual fused outputs with LED indicator",
+        "box": "Lockable metal enclosure with 2 keys"
+      }
+    },
+    {
+      "asin": "B09AZAB008",
+      "sku": "AZ-CAB-CAT6-UTP-08",
+      "title_ar": "لفة كابل شبكة Cat6 UTP نحاس نقي 100% طول 305 متر معتمد لشبكات الكاميرات والإنترنت",
+      "title_en": "Alazab 100% Pure Bare Copper Cat6 UTP Network Cable 305m Drum Grey",
+      "category": "cabling",
+      "brand": "Alazab Cabling",
+      "list_price": 3950.00,
+      "buybox_price": 3700.00,
+      "currency": "EGP",
+      "fulfillment_channel": "MFN",
+      "inventory": {
+        "fulfillable": 75,
+        "inbound": 40,
+        "reserved": 6,
+        "status": "In Stock"
+      },
+      "specs": {
+        "conductor": "23 AWG Solid Bare Copper (100% Copper)",
+        "bandwidth": "Tested up to 550 MHz Gigabit Ethernet",
+        "jacket": "Flame-retardant PVC (CM rated)",
+        "length": "305 meters (1000 ft) Easy-pull box"
+      }
+    },
+    {
+      "asin": "B09AZAB009",
+      "sku": "AZ-ELC-BRK-SCH-32A-09",
+      "title_ar": "قاطع تيار أوتوماتيكي أحادي القطب 32 أمبير شنايدر إلكتريك سعة قطع 6kA أصلي",
+      "title_en": "Schneider Electric Acti9 Miniature Circuit Breaker MCB 1P 32A 6kA Curve C",
+      "category": "electrical",
+      "brand": "Schneider Electric",
+      "list_price": 240.00,
+      "buybox_price": 220.00,
+      "currency": "EGP",
+      "fulfillment_channel": "AFN",
+      "inventory": {
+        "fulfillable": 190,
+        "inbound": 80,
+        "reserved": 15,
+        "status": "In Stock"
+      },
+      "specs": {
+        "poles": "1 Pole (Single Phase)",
+        "rated_current": "32 Ampere",
+        "breaking_capacity": "6000 A (IEC/EN 60898-1)",
+        "tripping_curve": "C Curve"
+      }
+    },
+    {
+      "asin": "B09AZAB010",
+      "sku": "AZ-ACC-FAC-BIO-10",
+      "title_ar": "جهاز بصمة وجه وإصبع وكارت للتحكم في الأبواب والحضور والانصراف يدعم WiFi وTCP/IP",
+      "title_en": "Alazab Biometric Face & Fingerprint Access Control & Time Attendance Terminal",
+      "category": "security",
+      "brand": "Alazab Security / ZKTeco OEM",
+      "list_price": 4900.00,
+      "buybox_price": 4650.00,
+      "currency": "EGP",
+      "fulfillment_channel": "AFN",
+      "inventory": {
+        "fulfillable": 28,
+        "inbound": 20,
+        "reserved": 3,
+        "status": "In Stock"
+      },
+      "specs": {
+        "capacity": "1500 Faces, 2000 Fingerprints, 2000 RFID Cards",
+        "logs": "100,000 Records storage",
+        "communication": "WiFi, TCP/IP, USB-Host",
+        "door_interface": "Electric strike lock, door sensor, exit button"
+      }
+    }
+  ]
+}
+

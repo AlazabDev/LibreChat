@@ -49,6 +49,14 @@
       "enabled": true,
       "catalog": "./alazab-catalog/alazab_catalog.json",
       "description": "Alazab product, service and category knowledge catalog."
+    },
+    {
+      "id": "amazon-sp-api",
+      "label": "Amazon SP-API Bridge",
+      "kind": "mcp-server",
+      "enabled": true,
+      "entry": "./amazon-sp-api/server.mjs",
+      "description": "Alazab store live pricing, inventory and product specifications on Amazon (Amazon SP-API)."
     }
   ]
 }

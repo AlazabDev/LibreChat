@@ -1,0 +1,26 @@
+{
+  "phase": "phase-07-amazon-bridge",
+  "title": "Amazon SP-API Live Pricing Bridge",
+  "timestamp": "20261111_075220Z",
+  "duration_seconds": 0,
+  "summary": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {"id":"T7-01","title":"هيكل مجلدات وملفات جسر أمازون","status":"PASS","details":"كافة الملفات الأساسية (server.mjs, catalog.json) موجودة ومكتملة"}
+    ,{"id":"T7-02","title":"صلاحيات وصحة كود خادم أمازون","status":"PASS","details":"ملف الخادم خالي من أخطاء الـ Syntax ويمتلك صلاحيات التنفيذ (+x)"}
+    ,{"id":"T7-03","title":"تكامل كتالوج منتجات متجر العزب على أمازون","status":"PASS","details":"كتالوج المنتجات متكامل وصحيح، ويضم 10 منتجاً مع كافة بيانات الأسعار والمواصفات"}
+    ,{"id":"T7-04","title":"دورة حياة بروتوكول MCP (Initialize)","status":"PASS","details":"استجاب الخادم بنجاح لطلب التهيئة ببروتوكول MCP 2024-11-05 واسم amazon-sp-api"}
+    ,{"id":"T7-05","title":"تسجيل أدوات متجر أمازون الذكية الأربعة","status":"PASS","details":"كافة الأدوات الـ 4 مسجلة وجاهزة للاستدعاء (search, pricing, inventory, status)"}
+    ,{"id":"T7-06","title":"استعلام الأسعار اللحظية (Live Pricing)","status":"PASS","details":"تم جلب السعر الفعلي المعتمد بدقة: 2690 EGP مع نسبة الخصم وحالة التوفر"}
+    ,{"id":"T7-07","title":"البحث الدلالي العربي في منتجات أمازون","status":"PASS","details":"تم استرجاع المنتج المطابق بالعربية مع المواصفات والسعر المعتمد بنجاح"}
+    ,{"id":"T7-08","title":"تتبع مستويات المخزون (Inventory Status)","status":"PASS","details":"تم استعراض حالة المخزون الإجمالي بإجمالي 854 وحدة جاهزة للشحن الفوري"}
+    ,{"id":"T7-09","title":"تشخيص جاهزية مفاتيح SP-API و LWA","status":"PASS","details":"جسر الربط في حالة نشطة وسليمة (ACTIVE_AND_HEALTHY) مع تكامل معايير الأمان"}
+    ,{"id":"T7-10","title":"تسجيل الجسر في سجل MCP (registry.json)","status":"PASS","details":"تم تسجيل موفر الخدمة amazon-sp-api بنجاح في سجل الأدوات المعتمدة"}
+    ,{"id":"T7-11","title":"تسجيل خادم أمازون في librechat.yaml","status":"PASS","details":"خادم amazon-sp-api مسجل بنمط stdio ومع خاصية chatMenu: true"}
+    ,{"id":"T7-12","title":"ربط أداة أمازون بنماذج العزب التخصصية","status":"PASS","details":"أداة أمازون مربوطة بنجاح بنماذج: alazab-finance, alazab-core, alazab-maint"}
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "phase": "phase-08-production-deployment",
+  "title": "Production Container Orchestration & Smoke Tests",
+  "timestamp": "20261111_075432Z",
+  "duration_seconds": 0,
+  "summary": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {"id":"T8-01","title":"صحة هيكل الحاويات الـ 7 للإنتاج","status":"PASS","details":"كافة الخدمات الـ 7 موجودة ومعرفة بدقة: api, admin-panel, nginx, mongodb, meilisearch, vectordb, rag_api"}
+    ,{"id":"T8-02","title":"ربط مجلدات MCP والتكوين (Volume Mounts)","status":"PASS","details":"تم ربط مجلد mcp ومجلدات التكوين بأمان للقراءة فقط (:ro) بحاوية الـ API"}
+    ,{"id":"T8-03","title":"تطابق منفذ الـ RAG المعتمد (8088)","status":"PASS","details":"منفذ 8088 موحد ومعتمد في docker-compose و .env لمنع أي تعارض تشغيلي"}
+    ,{"id":"T8-04","title":"مسار فحص الصحة اللحظي /health","status":"PASS","details":"مسار /health موجه لحاوية الـ API ومضبوط في healthcheck للحاويات"}
+    ,{"id":"T8-05","title":"مسار لوحة الإدارة المؤسسية /admin","status":"PASS","details":"مسار لوحة الإدارة /admin موجه بنجاح لخادم admin-panel:3000 مع تمرير هيدرز الجلسة"}
+    ,{"id":"T8-06","title":"استقرار البث اللحظي للردود (SSE Streaming)","status":"PASS","details":"تم تعطيل proxy_buffering وضبط مهلة القراءة 3600 ثانية لضمان التدفق الفوري للكلمات"}
+    ,{"id":"T8-07","title":"هيدرز الأمان العالي والحماية المؤسسية","status":"PASS","details":"كافة هيدرز الحماية المعتمدة (HSTS preload, nosniff, SAMEORIGIN) مفعلة دائماً"}
+    ,{"id":"T8-08","title":"حدود تدفق الطلبات ومكافحة DoS (Rate Limiting)","status":"PASS","details":"نطاقات الحماية ضد الإغراق والهجمات العشوائية مفعلة على مسارات المصادقة والـ API"}
+    ,{"id":"T8-09","title":"تطابق سقف رفع الملفات (100MB)","status":"PASS","details":"سقف الرفع مضبوط على 100M لدعم المستندات الهندسية ومخططات المقاولات"}
+    ,{"id":"T8-10","title":"سياسة تدوير السجلات والحماية من امتلاء القرص","status":"PASS","details":"سياسة تدوير السجلات مفعلة بحد أقصى 20MB للملف و 5 ملفات لكل حاوية"}
+    ,{"id":"T8-11","title":"جاهزية سكربت النسخ الاحتياطي التلقائي","status":"PASS","details":"سكربت النسخ الاحتياطي صالح وقابل للتنفيذ بسياسة احتفاظ 14 يوماً مع ضغط المرفقات"}
+    ,{"id":"T8-12","title":"صمام أمان سكربت الاستعادة (Safety Prompt)","status":"PASS","details":"سكربت الاستعادة مزود بصمام أمان صارم ويطلب تأكيد YES الصريح قبل أي استبدال"}
+  ]
+}

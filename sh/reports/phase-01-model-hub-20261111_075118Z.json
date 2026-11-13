@@ -1,0 +1,13 @@
+{
+  "phase": "01",
+  "name": "model-hub",
+  "timestamp": "20261111_075118Z",
+  "duration_seconds": 6,
+  "total": 12,
+  "passed": 11,
+  "failed": 0,
+  "skipped": 1,
+  "results": [
+    {"id":"T-001","title":"وجود ملفات الإعداد وصحة صياغة YAML","status":"PASS","details":"الملفان موجودان وصياغة YAML سليمة تماماً"},{"id":"T-002","title":"مطابقة المخطط الرسمي لنظام LibreChat (configSchema)","status":"PASS","details":"الملف مطابق 100% لمخطط Zod الرسمي"},{"id":"T-003","title":"تهيئة نقطة Azure OpenAI (Alazab Azure)","status":"PASS","details":"نقطة Alazab Azure مهيأة بكافة النماذج والواجهة الموحدة"},{"id":"T-004","title":"معالجة معاملات الاستدلال (dropParams) في Azure","status":"PASS","details":"تم استبعاد معاملات الاستدلال بالكامل لمنع أخطاء 400"},{"id":"T-005","title":"تهيئة نقطة Google Gemini الرسمية وحل مشكلة 404","status":"PASS","details":"نقطة Google مهيأة بنماذج Gemini 2.5 الصريحة ونموذج العناوين"},{"id":"T-006","title":"تهيئة نقطة DeepSeek المباشرة","status":"PASS","details":"نقطة DeepSeek معرفة بنماذج V3 و R1 مع التحديث التلقائي"},{"id":"T-007","title":"تهيئة نقطة Ollama المحلية والسرية التامة (On-Premise)","status":"PASS","details":"نقطة Ollama مهيأة على سيرفر الشركة بالنماذج المعتمدة"},{"id":"T-008","title":"هيكل قوائم النماذج الذكية (Model Specs)","status":"PASS","details":"تم تعريف 8 نماذج ذكية مصنفة ومسبقة الأولوية للمستخدمين"},{"id":"T-009","title":"التعليمات التخصصية وبدايات المحادثة (Prompt Prefixes & Starters)","status":"PASS","details":"كافة النماذج مزودة بتعليمات مهام عربية وأسئلة انطلاق سريعة"},{"id":"T-010","title":"مزامنة ملف متغيرات البيئة (.env)","status":"PASS","details":"ملف متغيرات البيئة (.env) متطابق تماماً مع إعدادات المنظومة"},{"id":"T-011","title":"التحقق من سلامة الأنواع البرمجية (TypeScript Typecheck)","status":"PASS","details":"اجتياز فحص الأنواع البرمجية بـ 0 أخطاء"},{"id":"T-012","title":"فحص الاتصال بالشبكة وخوادم النماذج (Live Reachability Probe)","status":"SKIP","details":"سيرفر ollama.alazab.com غير متاح من البيئة الحالية (كود: 000UNREACHABLE)، يلزم التحقق المباشر من شبكة الشركة"}
+  ]
+}
